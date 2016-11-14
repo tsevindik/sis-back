@@ -30,10 +30,12 @@ class DateInterval(models.Model):
 
 
 class DayTimeInterval(models.Model):
-    start_day = models.CharField(max_length=1, choices=DAYS_OF_WEEK,
+    start_day = models.CharField(max_length=1,
+                                 choices=DAYS_OF_WEEK,
                                  verbose_name=_("Başlangıç Günü"))
     start_time = models.DateTimeField(verbose_name=_("Başlangıç Saati"))
-    end_day = models.CharField(max_length=1, choices=DAYS_OF_WEEK,
+    end_day = models.CharField(max_length=1,
+                               choices=DAYS_OF_WEEK,
                                verbose_name=_("Bitiş Günü"))
     end_time = models.DateTimeField(verbose_name=_("Bitiş Saati"))
 
