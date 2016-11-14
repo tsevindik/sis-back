@@ -1,17 +1,18 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from ...utils.time.models import TimeStamp
 from ..models import University
 
 
-class AcademicUnitType(models.Model):
+class AcademicUnitType(TimeStamp):
     name = models.CharField(
         max_length=50,
         verbose_name=_("İsim")
     )
 
 
-class AcademicUnit(models.Model):
+class AcademicUnit(TimeStamp):
     name = models.CharField(
         max_length=150,
         verbose_name=_("İsim")
