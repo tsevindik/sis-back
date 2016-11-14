@@ -20,3 +20,11 @@ class AcademicUnit(TimeStamp):
     university = models.ForeignKey(University)
     type = models.ForeignKey(AcademicUnitType)
     description = models.TextField(verbose_name=_("Açıklama"))
+
+
+class AcademicProgram(TimeStamp):
+    name = models.CharField(
+        max_length=150,
+        verbose_name=_("İsim")
+    )
+    description = models.TextField(verbose_name=_("Açıklama"))
