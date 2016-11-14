@@ -13,15 +13,23 @@ DAYS_OF_WEEK = (
 )
 
 
-class DateTimeInterval(models.Model):
-    start_at = models.DateTimeField(verbose_name=_("Başlangıç Tarih ve Saati"))
-    end_at = models.DateTimeField(verbose_name=_("Bitiş Tarih ve Saati"))
+class TimeStamp(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Oluşturulma Zamanı"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Güncellenme Zamanı"))
 
     class Meta:
         abstract = True
 
 
-class DateInterval(models.Model):
+class DateTimeInterval(TimeStamp):
+    start_at = models.DateTimeField(verbose_name=_("Başlangıç Zamanı"))
+    end_at = models.DateTimeField(verbose_name=_("Bitiş Zamanı"))
+
+    class Meta:
+        abstract = True
+
+
+class DateInterval(TimeStamp):
     start_at = models.DateTimeField(verbose_name=_("Başlangıç Tarihi"))
     end_at = models.DateTimeField(verbose_name=_("Bitiş Tarihi"))
 
@@ -29,14 +37,18 @@ class DateInterval(models.Model):
         abstract = True
 
 
-class DayTimeInterval(models.Model):
-    start_day = models.CharField(max_length=1,
-                                 choices=DAYS_OF_WEEK,
-                                 verbose_name=_("Başlangıç Günü"))
+class DayTimeInterval(TimeStamp):
+    start_day = models.CharField(
+        max_length=1,
+        choices=DAYS_OF_WEEK,
+        verbose_name=_("Başlangıç Günü")
+    )
     start_time = models.DateTimeField(verbose_name=_("Başlangıç Saati"))
-    end_day = models.CharField(max_length=1,
-                               choices=DAYS_OF_WEEK,
-                               verbose_name=_("Bitiş Günü"))
+    end_day = models.CharField(
+        max_length=1,
+        choices=DAYS_OF_WEEK,
+        verbose_name=_("Bitiş Günü")
+    )
     end_time = models.DateTimeField(verbose_name=_("Bitiş Saati"))
 
     class Meta:
