@@ -3,13 +3,13 @@ from django.db import models
 
 
 DAYS_OF_WEEK = (
-    (0, 'Monday'),
-    (1, 'Tuesday'),
-    (2, 'Wednesday'),
-    (3, 'Thursday'),
-    (4, 'Friday'),
-    (5, 'Saturday'),
-    (6, 'Sunday'),
+    (0, _('Pazartesi')),
+    (1, _('Salı')),
+    (2, _('Çarşamba')),
+    (3, _('Perşembe')),
+    (4, _('Cuma')),
+    (5, _('Cumartesi')),
+    (6, _('Pazar')),
 )
 
 
