@@ -1,0 +1,14 @@
+# Basics
+*.py[cod]
+*.pyc
+__pycache__
+
+# Translations
+*.mo
+*.pot
+
+# Pycharm
+.idea
+
+# virtual environments
+.env
