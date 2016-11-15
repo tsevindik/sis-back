@@ -17,3 +17,11 @@ class AcademicSemester(DateInterval):
         verbose_name=_("Başlık")
     )
     academic_year = models.ForeignKey(AcademicYear)
+
+
+class AcademicCalendar(DateInterval):
+    title = models.CharField(
+        max_length=100,
+        verbose_name=_("Başlık")
+    )
+    academic_semester = models.ForeignKey(AcademicSemester)
