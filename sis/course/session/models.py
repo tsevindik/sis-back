@@ -8,20 +8,20 @@ from ...user.user.models import User
 from ..course.models import Course
 
 
-class Session(TimeStamp):
+class CourseSession(TimeStamp):
     course = models.ForeignKey(Course)
     semester = models.ForeignKey(AcademicSemester)
 
 
-class Instructor(TimeStamp):
-    session = models.ForeignKey(Session)
+class SessionInstructor(TimeStamp):
+    session = models.ForeignKey(CourseSession)
     instructor = models.ForeignKey(User)
 
 
-class Lesson(DayTimeInterval):
-    course_session = models.ForeignKey(Session)
+class SessionLesson(DayTimeInterval):
+    course_session = models.ForeignKey(SessionInstructor)
     place = models.ForeignKey(Place)
 
 
-class Event(PlaceEvent):
-    course_session_lesson = models.ForeignKey(Lesson)
+class LessonEvent(PlaceEvent):
+    course_session_lesson = models.ForeignKey(SessionLesson)

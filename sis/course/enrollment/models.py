@@ -4,17 +4,17 @@ from django.db import models
 from ...common.models.schedule import Attendance
 from ...common.models.time import TimeStamp
 from ...user.user.models import User
-from ..session.models import Session, Event
+from ..session.models import CourseSession, LessonEvent
 from ..assignment.models import Assignment
 
 
 class SessionEnrollment(TimeStamp):
-    course_session = models.ForeignKey(Session)
+    course_session = models.ForeignKey(CourseSession)
     student = models.ForeignKey(User)
 
 
 class StudentAttendance(Attendance):
-    course_session_lesson_meeting = models.ForeignKey(Event)
+    course_session_lesson_meeting = models.ForeignKey(LessonEvent)
     student = models.ForeignKey(User)
 
 
