@@ -1,8 +1,8 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...utils.models.time import TimeStamp
-from ...utils.models.common import Type
+from ...common.models.time import TimeStamp
+from ...common.models.common import Type
 
 
 class Country(TimeStamp):
