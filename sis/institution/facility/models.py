@@ -10,7 +10,10 @@ class CampusAddress(Address):
 
 
 class Campus(TimeStamp):
-    name = models.CharField(max)
+    name = models.CharField(
+        max_length=150,
+        verbose_name=_("İsim")
+    )
 
 
 class Place(TimeStamp):
