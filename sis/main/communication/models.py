@@ -25,3 +25,11 @@ class District(TimeStamp):
         max_length=50,
         verbose_name=_("İsim")
     )
+
+
+class Language(TimeStamp):
+    name = models.CharField(
+        max_length=50,
+        verbose_name=_("İsim")
+    )
+    country = models.ForeignKey(Country)
