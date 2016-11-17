@@ -32,26 +32,24 @@ THIRD_PARTY_APPS = (
 )
 
 PROJECT_APPS = (
-    'sis.course',
+    'sis.course.course',
     'sis.course.assignment',
     'sis.course.session',
 
-    'sis.institution',
+    'sis.institution.institution',
     'sis.institution.facility',
     'sis.institution.schedule',
     'sis.institution.unit',
 
-    'sis.main',
+    'sis.main.main',
     'sis.main.announcement',
     'sis.main.communication',
     'sis.main.official',
 
-    'sis.user',
+    'sis.user.user',
     'sis.user.instructor',
     'sis.user.staff',
     'sis.user.student',
-
-    'sis.system'
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS

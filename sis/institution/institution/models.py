@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ..common.models.time import TimeStamp
+from ...common.models.time import TimeStamp
 
 
 class University(TimeStamp):
