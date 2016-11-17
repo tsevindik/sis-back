@@ -40,3 +40,6 @@ class Attendance(TimeStamp):
         choices=ATTENDANCE_STATUS,
         verbose_name=_("Durum")
     )
+
+    class Meta:
+        abstract = True
