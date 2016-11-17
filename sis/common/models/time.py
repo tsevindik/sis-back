@@ -14,8 +14,13 @@ DAYS_OF_WEEK = (
 
 
 class TimeStamp(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Oluşturulma Zamanı"))
-    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Güncellenme Zamanı"))
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name=_("Oluşturulma Zamanı")
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name=_("Güncellenme Zamanı"))
 
     class Meta:
         abstract = True
