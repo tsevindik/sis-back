@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ..time.models import DateTimeInterval
+from .time import DateTimeInterval
 
 
 class Event(DateTimeInterval):

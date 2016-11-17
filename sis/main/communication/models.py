@@ -1,8 +1,8 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...utils.time.models import TimeStamp
-from ...utils.models import Type
+from ...utils.models.time import TimeStamp
+from ...utils.models.common import Type
 
 
 class Country(TimeStamp):
@@ -36,7 +36,6 @@ class Address(TimeStamp):
     type = models.ForeignKey(AddressType)
     district = models.ForeignKey(District)
     postcode = models.IntegerField(
-        max_length=10,
         verbose_name=_("Posta Kodu")
     )
     description = models.TextField(verbose_name=_("Açıklama"))
