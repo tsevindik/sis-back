@@ -5,6 +5,7 @@ from ...common.models.schedule import Attendance
 from ...common.models.time import TimeStamp
 from ...user.user.models import User
 from ..session.models import CourseSession, CourseSessionLessonMeeting
+from ..assignment.models import Assignment
 
 
 class CourseSessionEnrollment(TimeStamp):
@@ -19,4 +20,5 @@ class LessonStudentAttendance(Attendance):
 
 class EnrollmentGrade(TimeStamp):
     enrollment = models.ForeignKey(CourseSessionEnrollment)
+    assignment = models.ForeignKey(Assignment)
     grade = models.IntegerField(verbose_name=_("Not"))
