@@ -4,7 +4,7 @@ from django.db import models
 from ...common.models.common import Type
 from ...common.models.schedule import Event
 from ...institution.schedule.models import AcademicSemester
-from ..session.models import CourseSession
+from ..session.models import Session
 
 
 ASSIGNMENT_IMPLEMENTATION = (
@@ -19,7 +19,7 @@ class AssignmentType(Type):
 
 class Assignment(Event):
     type = models.ForeignKey(AssignmentType)
-    course_session = models.ForeignKey(CourseSession)
+    course_session = models.ForeignKey(Session)
     semester = models.ForeignKey(AcademicSemester)
     percentage = models.IntegerField(verbose_name=_("Yüzde"))
     implementation = models.CharField(
