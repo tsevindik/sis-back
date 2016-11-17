@@ -8,17 +8,17 @@ from ..session.models import Session, Event
 from ..assignment.models import Assignment
 
 
-class CourseSessionEnrollment(TimeStamp):
+class SessionEnrollment(TimeStamp):
     course_session = models.ForeignKey(Session)
     student = models.ForeignKey(User)
 
 
-class LessonStudentAttendance(Attendance):
+class StudentAttendance(Attendance):
     course_session_lesson_meeting = models.ForeignKey(Event)
     student = models.ForeignKey(User)
 
 
-class EnrollmentGrade(TimeStamp):
-    enrollment = models.ForeignKey(CourseSessionEnrollment)
+class Grade(TimeStamp):
+    enrollment = models.ForeignKey(SessionEnrollment)
     assignment = models.ForeignKey(Assignment)
     grade = models.IntegerField(verbose_name=_("Not"))
