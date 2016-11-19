@@ -27,4 +27,5 @@ class UnitProgram(TimeStamp):
         max_length=150,
         verbose_name=_("İsim")
     )
+    unit = models.ForeignKey(Unit)
     description = models.TextField(verbose_name=_("Açıklama"))
