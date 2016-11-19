@@ -1,9 +1,8 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...common.models.common import Type
 from ...common.models.time import TimeStamp
-from ...common.models.schedule import CampusPlaceEvent
+from ...common.models.schedule import CampusEvent
 from ..registry.models import SessionRegistry
 from ..session.models import CourseSession
 
@@ -14,8 +13,11 @@ ASSIGNMENT_IMPLEMENTATION = (
 )
 
 
-class EventAssignmentType(Type):
-    pass
+class EventAssignmentType(TimeStamp):
+    name = models.CharField(
+        max_length=50,
+        verbose_name=_("İsim")
+    )
 
 
 class SessionEventAssignment(TimeStamp):
@@ -29,7 +31,7 @@ class SessionEventAssignment(TimeStamp):
     )
 
 
-class EventAssignmentSession(CampusPlaceEvent):
+class EventAssignmentSession(CampusEvent):
     assignment = models.ForeignKey(SessionEventAssignment)
 
 

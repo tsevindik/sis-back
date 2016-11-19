@@ -2,7 +2,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from ...common.models.time import DateInterval
-from ...common.models.schedule import Event
 
 
 class Year(DateInterval):
@@ -28,5 +27,9 @@ class SemesterCalendar(DateInterval):
     semester = models.ForeignKey(YearSemester)
 
 
-class CalendarEvent(Event):
+class CalendarPeriod(DateInterval):
+    title = models.CharField(
+        max_length=200,
+        verbose_name=_("Başlık")
+    )
     calendar = models.ForeignKey(SemesterCalendar)

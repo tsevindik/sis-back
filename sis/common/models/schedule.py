@@ -13,17 +13,7 @@ ATTENDANCE_STATUS = (
 )
 
 
-class Event(DateTimeInterval):
-    title = models.CharField(
-        max_length=200,
-        verbose_name=_("Başlık")
-    )
-
-    class Meta:
-        abstract = True
-
-
-class CampusPlaceEvent(Event):
+class CampusEvent(DateTimeInterval):
     place = models.ForeignKey(
         CampusPlace,
         null=True,

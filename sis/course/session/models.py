@@ -1,7 +1,7 @@
 from django.db import models
 
 from ...common.models.time import TimeStamp, DayTimeInterval
-from ...common.models.schedule import CampusPlaceEvent
+from ...common.models.schedule import CampusEvent
 from ...institute.schedule.models import YearSemester
 from ...institute.facility.models import CampusPlace
 from ...user.user.models import User
@@ -23,5 +23,5 @@ class SessionLesson(DayTimeInterval):
     place = models.ForeignKey(CampusPlace)
 
 
-class LessonEvent(CampusPlaceEvent):
+class LessonEvent(CampusEvent):
     lesson = models.ForeignKey(SessionLesson)
