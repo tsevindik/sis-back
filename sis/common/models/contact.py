@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...main.communication.models import District
+from ...main.contact.models import District
 from ..models.time import TimeStamp
 
 

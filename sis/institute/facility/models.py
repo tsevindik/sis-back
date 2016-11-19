@@ -2,22 +2,22 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from ...common.models.time import TimeStamp
-from ...common.models.communication import Address
+from ...common.models.contact import Address
 
 
 class CampusAddress(Address):
     pass
 
 
-class Campus(TimeStamp):
+class UniversityCampus(TimeStamp):
     name = models.CharField(
         max_length=150,
         verbose_name=_("İsim")
     )
 
 
-class Place(TimeStamp):
-    campus = models.ForeignKey(Campus)
+class CampusPlace(TimeStamp):
+    campus = models.ForeignKey(UniversityCampus)
     name = models.CharField(
         max_length=100,
         verbose_name=_("İsim"),

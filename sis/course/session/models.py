@@ -1,16 +1,16 @@
 from django.db import models
 
 from ...common.models.time import TimeStamp, DayTimeInterval
-from ...common.models.schedule import PlaceEvent
-from ...institution.schedule.models import AcademicSemester
-from ...institution.facility.models import Place
+from ...common.models.schedule import CampusPlaceEvent
+from ...institute.schedule.models import YearSemester
+from ...institute.facility.models import CampusPlace
 from ...user.user.models import User
 from ..course.models import Course
 
 
 class CourseSession(TimeStamp):
     course = models.ForeignKey(Course)
-    semester = models.ForeignKey(AcademicSemester)
+    semester = models.ForeignKey(YearSemester)
 
 
 class SessionInstructor(TimeStamp):
@@ -19,9 +19,9 @@ class SessionInstructor(TimeStamp):
 
 
 class SessionLesson(DayTimeInterval):
-    course_session = models.ForeignKey(SessionInstructor)
-    place = models.ForeignKey(Place)
+    session = models.ForeignKey(CourseSession)
+    place = models.ForeignKey(CampusPlace)
 
 
-class LessonEvent(PlaceEvent):
-    course_session_lesson = models.ForeignKey(SessionLesson)
+class LessonEvent(CampusPlaceEvent):
+    lesson = models.ForeignKey(SessionLesson)

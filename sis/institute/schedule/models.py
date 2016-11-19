@@ -5,28 +5,28 @@ from ...common.models.time import DateInterval
 from ...common.models.schedule import Event
 
 
-class AcademicYear(DateInterval):
+class Year(DateInterval):
     title = models.CharField(
         max_length=50,
         verbose_name=_("Başlık")
     )
 
 
-class AcademicSemester(DateInterval):
+class YearSemester(DateInterval):
     title = models.CharField(
         max_length=80,
         verbose_name=_("Başlık")
     )
-    academic_year = models.ForeignKey(AcademicYear)
+    academic_year = models.ForeignKey(Year)
 
 
-class AcademicCalendar(DateInterval):
+class SemesterCalendar(DateInterval):
     title = models.CharField(
         max_length=100,
         verbose_name=_("Başlık")
     )
-    academic_semester = models.ForeignKey(AcademicSemester)
+    semester = models.ForeignKey(YearSemester)
 
 
-class AcademicCalendarEvent(Event):
-    calendar = models.ForeignKey(AcademicCalendar)
+class CalendarEvent(Event):
+    calendar = models.ForeignKey(SemesterCalendar)

@@ -2,18 +2,18 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from ...common.models.time import TimeStamp
-from ...institution.unit.models import AcademicProgram, AcademicUnit
-from ...main.communication.models import Language
+from ...institute.unit.models import UnitProgram, Unit
+from ...main.contact.models import Language
 
 
 class Course(TimeStamp):
-    academic_program = models.ForeignKey(
-        AcademicProgram,
+    unit = models.ForeignKey(
+        Unit,
         null=True,
         blank=True
     )
-    academic_unit = models.ForeignKey(
-        AcademicUnit,
+    program = models.ForeignKey(
+        UnitProgram,
         null=True,
         blank=True
     )
