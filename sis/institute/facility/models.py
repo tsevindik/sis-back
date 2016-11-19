@@ -1,6 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from ..institute.models import University
 from ...common.models.time import TimeStamp
 from ...common.models.contact import Address
 
@@ -10,6 +11,7 @@ class CampusAddress(Address):
 
 
 class UniversityCampus(TimeStamp):
+    university = models.ForeignKey(University)
     name = models.CharField(
         max_length=150,
         verbose_name=_("İsim")
