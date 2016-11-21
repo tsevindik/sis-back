@@ -12,6 +12,11 @@ ATTENDANCE_STATUS = (
     (3, _('Mazeretli'))
 )
 
+IMPLEMENTATION_TYPE = (
+    (0, _('Uzak')),
+    (1, _('Yerel'))
+)
+
 
 class CampusEvent(DateTimeInterval):
     place = models.ForeignKey(
