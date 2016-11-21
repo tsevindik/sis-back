@@ -47,5 +47,5 @@ class EventAssignmentSession(CampusEvent):
 
 class AssignmentGrade(TimeStamp):
     registry = models.ForeignKey(SessionRegistry)
-    assignment = models.ForeignKey(EventAssignmentSession)
+    assignment = models.ForeignKey(SessionAssignment)
     grade = models.IntegerField(verbose_name=_("Not"))
