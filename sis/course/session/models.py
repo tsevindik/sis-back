@@ -28,6 +28,8 @@ class SessionLetterGrade(TimeStamp):
     lower_number = models.FloatField(verbose_name=_("Alt Sınır (Sayı)"))
     upper_percent = models.FloatField(verbose_name=_("Üst Sınır (Yüzde)"))
     lower_percent = models.FloatField(verbose_name=_("Alt Sınır (Yüzde)"))
+    upper_rank = models.IntegerField(verbose_name=_("Üst Sınır (Sıra)"))
+    lower_rank = models.IntegerField(verbose_name=_("Alt Sınır (Sıra)"))
 
 
 class LessonEvent(CampusEvent):
