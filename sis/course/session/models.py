@@ -1,3 +1,4 @@
+from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from ...common.models.time import TimeStamp, DayTimeInterval
@@ -19,6 +20,14 @@ class SessionInstructor(TimeStamp):
 
 class SessionLesson(DayTimeInterval):
     session = models.ForeignKey(CourseSession)
+
+
+class SessionLetterGrade(TimeStamp):
+    session = models.ForeignKey(CourseSession)
+    upper_number = models.FloatField(verbose_name=_("Üst Sınır (Sayı)"))
+    lower_number = models.FloatField(verbose_name=_("Alt Sınır (Sayı)"))
+    upper_percent = models.FloatField(verbose_name=_("Üst Sınır (Yüzde)"))
+    lower_percent = models.FloatField(verbose_name=_("Alt Sınır (Yüzde)"))
 
 
 class LessonEvent(CampusEvent):
