@@ -1,6 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from ...common.models.schedule import IMPLEMENTATION_TYPE
 from ...common.models.time import TimeStamp, DayTimeInterval
 from ...common.models.schedule import CampusEvent
 from ...institute.schedule.models import YearSemester
@@ -11,6 +12,11 @@ from ..course.models import Course
 class CourseSession(TimeStamp):
     course = models.ForeignKey(Course)
     semester = models.ForeignKey(YearSemester)
+    implementation = models.CharField(
+        max_length=1,
+        choices=IMPLEMENTATION_TYPE,
+        verbose_name=_("Uygulama Türü")
+    )
 
 
 class SessionInstructor(TimeStamp):

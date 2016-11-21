@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...common.models.schedule import IMPLEMENTATION_TYPE
+from ...common.models.schedule import CampusEvent, IMPLEMENTATION_TYPE
 from ...common.models.time import TimeStamp, DateTimeInterval
 from ..registry.models import SessionRegistry
 from ..session.models import CourseSession
@@ -40,3 +40,7 @@ class AssignmentGrade(TimeStamp):
     registry = models.ForeignKey(SessionRegistry)
     assignment = models.ForeignKey(SessionAssignment)
     grade = models.IntegerField(verbose_name=_("Not"))
+
+
+class EventAssignmentSession(CampusEvent):
+    assignment = models.ForeignKey(SessionAssignment)
