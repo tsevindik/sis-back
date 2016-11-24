@@ -29,6 +29,7 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'rest_framework',
+    'rest_framework_jwt',
 )
 
 PROJECT_APPS = (
@@ -48,6 +49,7 @@ PROJECT_APPS = (
     'sis.main.contact',
     'sis.main.formal',
 
+    'sis.user.auth',
     'sis.user.user',
     'sis.user.instructor',
     'sis.user.staff',
