@@ -49,7 +49,6 @@ PROJECT_APPS = (
     'sis.main.contact',
     'sis.main.formal',
 
-    'sis.user.auth',
     'sis.user.user',
     'sis.user.instructor',
     'sis.user.staff',
