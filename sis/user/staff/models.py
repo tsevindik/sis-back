@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+from ...common.models.time import TimeStamp
+from ..user.models import User
+
+
+class StaffProfile(TimeStamp):
+    staff = models.ForeignKey(User)

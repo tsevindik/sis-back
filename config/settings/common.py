@@ -32,26 +32,26 @@ THIRD_PARTY_APPS = (
 )
 
 PROJECT_APPS = (
-    'sis.course',
+    'sis.course.course',
     'sis.course.assignment',
+    'sis.course.attendance',
+    'sis.course.registry',
     'sis.course.session',
 
-    'sis.institution',
-    'sis.institution.facility',
-    'sis.institution.schedule',
-    'sis.institution.unit',
+    'sis.institute.institute',
+    'sis.institute.facility',
+    'sis.institute.schedule',
+    'sis.institute.unit',
 
-    'sis.main',
-    'sis.main.announcement',
-    'sis.main.communication',
-    'sis.main.official',
+    'sis.main.main',
+    'sis.main.announce',
+    'sis.main.contact',
+    'sis.main.formal',
 
-    'sis.user',
+    'sis.user.user',
     'sis.user.instructor',
     'sis.user.staff',
     'sis.user.student',
-
-    'sis.system'
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
@@ -119,6 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'user.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
