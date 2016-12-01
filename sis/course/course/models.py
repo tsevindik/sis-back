@@ -7,16 +7,6 @@ from ...main.contact.models import Language
 
 
 class Course(TimeStamp):
-    unit = models.ForeignKey(
-        UniversityUnit,
-        null=True,
-        blank=True
-    )
-    program = models.ForeignKey(
-        UnitProgram,
-        null=True,
-        blank=True
-    )
     name = models.CharField(
         max_length=150,
         verbose_name=_("İsim")
@@ -44,6 +34,16 @@ class Course(TimeStamp):
         verbose_name=_("AKTS")
     )
     instruction_language = models.ForeignKey(Language)
+
+
+class UnitCourse(TimeStamp):
+    course = models.ForeignKey(Course)
+    unit = models.ForeignKey(UniversityUnit)
+
+
+class ProgramCourse(TimeStamp):
+    course = models.ForeignKey(Course)
+    program = models.ForeignKey(UnitProgram)
 
 
 class LetterGrade(TimeStamp):
