@@ -16,6 +16,7 @@ class UniversityCampus(TimeStamp):
         max_length=150,
         verbose_name=_("İsim")
     )
+    address = models.ForeignKey(CampusAddress)
 
 
 class CampusPlace(TimeStamp):
