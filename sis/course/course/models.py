@@ -2,10 +2,12 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from ...common.models.time import TimeStamp
+from ...institute.institute.models import University
 from ...institute.unit.models import UnitProgram, UniversityUnit
 
 
 class Course(TimeStamp):
+    university = models.ForeignKey(University)
     name = models.CharField(
         max_length=150,
         verbose_name=_("İsim")
