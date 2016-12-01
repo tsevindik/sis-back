@@ -3,7 +3,6 @@ from django.db import models
 
 from ...common.models.time import TimeStamp
 from ...institute.unit.models import UnitProgram, UniversityUnit
-from ...main.contact.models import Language
 
 
 class Course(TimeStamp):
@@ -33,7 +32,6 @@ class Course(TimeStamp):
     ects = models.IntegerField(
         verbose_name=_("AKTS")
     )
-    instruction_language = models.ForeignKey(Language)
 
 
 class UnitCourse(TimeStamp):
