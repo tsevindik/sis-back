@@ -8,7 +8,7 @@ from ..registry.models import SectionRegistry
 from ..section.models import CourseSection
 
 
-ASSIGNMENT_TYPE = (
+ASSIGNMENT_FORMAT = (
     (0, _('Olay bazlı')),
     (1, _('Süreç bazlı'))
 )
@@ -19,19 +19,30 @@ class AssignmentType(TimeStamp):
         max_length=50,
         verbose_name=_("İsim")
     )
-    type = models.CharField(
+    format = models.CharField(
         max_length=1,
-        choices=ASSIGNMENT_TYPE,
-        verbose_name=_("Tür")
+        choices=ASSIGNMENT_FORMAT,
+        verbose_name=_("Format")
     )
-    university = models.ForeignKey(University)
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )
 
 
 class SectionAssignment(DateTimeInterval):
-    type = models.ForeignKey(AssignmentType)
-    section = models.ForeignKey(CourseSection)
-    percentage = models.IntegerField(verbose_name=_("Yüzde"))
-    implementation = models.CharField(
+    assignment_type = models.ForeignKey(
+        AssignmentType,
+        verbose_name=_("Görev Türü")
+    )
+    course_section = models.ForeignKey(
+        CourseSection,
+        verbose_name=_("Ders Grubu")
+    )
+    percentage = models.IntegerField(
+        verbose_name=_("Yüzde")
+    )
+    implementation_type = models.CharField(
         max_length=1,
         choices=IMPLEMENTATION_TYPE,
         verbose_name=_("Uygulama Türü")
@@ -39,10 +50,21 @@ class SectionAssignment(DateTimeInterval):
 
 
 class AssignmentGrade(TimeStamp):
-    registry = models.ForeignKey(SectionRegistry)
-    assignment = models.ForeignKey(SectionAssignment)
-    grade = models.IntegerField(verbose_name=_("Not"))
+    section_registry = models.ForeignKey(
+        SectionRegistry,
+        verbose_name=_("Kayıt")
+    )
+    section_assignment = models.ForeignKey(
+        SectionAssignment,
+        verbose_name=_("Grup Görevi")
+    )
+    grade = models.IntegerField(
+        verbose_name=_("Not")
+    )
 
 
 class EventAssignmentSession(CampusEvent):
-    assignment = models.ForeignKey(SectionAssignment)
+    section_assignment = models.ForeignKey(
+        SectionAssignment,
+        verbose_name=_("Grup Görevi")
+    )

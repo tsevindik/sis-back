@@ -5,4 +5,7 @@ from ..user.models import User
 
 
 class StudentProfile(TimeStamp):
-    student = models.ForeignKey(User)
+    user = models.ForeignKey(
+        User,
+        verbose_name=_("Kullanıcı")
+    )

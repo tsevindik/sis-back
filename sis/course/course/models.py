@@ -36,26 +36,53 @@ class Course(TimeStamp):
 
 
 class UniversityCourse(TimeStamp):
-    is_primary = models.BooleanField()
-    university = models.ForeignKey(University)
-    course = models.ForeignKey(Course)
+    is_primary = models.BooleanField(
+        verbose_name=_("Birincil")
+    )
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
+    )
 
 
 class UnitCourse(TimeStamp):
-    course = models.ForeignKey(Course)
-    unit = models.ForeignKey(UniversityUnit)
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
+    )
+    university_unit = models.ForeignKey(
+        UniversityUnit,
+        verbose_name=_("Üniversite Birimi")
+    )
 
 
 class ProgramCourse(TimeStamp):
-    course = models.ForeignKey(Course)
-    program = models.ForeignKey(UnitProgram)
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
+    )
+    unit_program = models.ForeignKey(
+        UnitProgram,
+        verbose_name=_("Program")
+    )
 
 
 class LetterGrade(TimeStamp):
-    rank = models.IntegerField(verbose_name=_("Sıra"))
+    rank = models.IntegerField(
+        verbose_name=_("Sıra")
+    )
     name = models.CharField(
         max_length=3,
         verbose_name=_("İsim")
     )
-    point = models.FloatField(verbose_name=_("Puan"))
-    university = models.ForeignKey(University)
+    point = models.FloatField(
+        verbose_name=_("Puan")
+    )
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )

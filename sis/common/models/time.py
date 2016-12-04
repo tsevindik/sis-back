@@ -27,16 +27,24 @@ class TimeStamp(models.Model):
 
 
 class DateTimeInterval(TimeStamp):
-    start_at = models.DateTimeField(verbose_name=_("Başlangıç Zamanı"))
-    end_at = models.DateTimeField(verbose_name=_("Bitiş Zamanı"))
+    start_at = models.DateTimeField(
+        verbose_name=_("Başlangıç Zamanı")
+    )
+    end_at = models.DateTimeField(
+        verbose_name=_("Bitiş Zamanı")
+    )
 
     class Meta:
         abstract = True
 
 
 class DateInterval(TimeStamp):
-    start_at = models.DateTimeField(verbose_name=_("Başlangıç Tarihi"))
-    end_at = models.DateTimeField(verbose_name=_("Bitiş Tarihi"))
+    start_at = models.DateTimeField(
+        verbose_name=_("Başlangıç Tarihi")
+    )
+    end_at = models.DateTimeField(
+        verbose_name=_("Bitiş Tarihi")
+    )
 
     class Meta:
         abstract = True
@@ -48,13 +56,17 @@ class DayTimeInterval(TimeStamp):
         choices=DAYS_OF_WEEK,
         verbose_name=_("Başlangıç Günü")
     )
-    start_time = models.DateTimeField(verbose_name=_("Başlangıç Saati"))
+    start_time = models.DateTimeField(
+        verbose_name=_("Başlangıç Saati")
+    )
     end_day = models.CharField(
         max_length=1,
         choices=DAYS_OF_WEEK,
         verbose_name=_("Bitiş Günü")
     )
-    end_time = models.DateTimeField(verbose_name=_("Bitiş Saati"))
+    end_time = models.DateTimeField(
+        verbose_name=_("Bitiş Saati")
+    )
 
     class Meta:
         abstract = True

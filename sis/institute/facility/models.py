@@ -11,16 +11,25 @@ class CampusAddress(Address):
 
 
 class UniversityCampus(TimeStamp):
-    university = models.ForeignKey(University)
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )
     name = models.CharField(
         max_length=150,
         verbose_name=_("İsim")
     )
-    address = models.ForeignKey(CampusAddress)
+    campus_address = models.ForeignKey(
+        CampusAddress,
+        verbose_name=_("Kampüs Adresi")
+    )
 
 
 class CampusPlace(TimeStamp):
-    campus = models.ForeignKey(UniversityCampus)
+    university_campus = models.ForeignKey(
+        UniversityCampus,
+        verbose_name=_("Kampüs")
+    )
     name = models.CharField(
         max_length=100,
         verbose_name=_("İsim"),
@@ -29,5 +38,9 @@ class CampusPlace(TimeStamp):
         max_length=20,
         verbose_name=_("Kod")
     )
-    floor = models.IntegerField(verbose_name=_("Kat"))
-    capacity = models.IntegerField(verbose_name=_("Kapasite"))
+    floor = models.IntegerField(
+        verbose_name=_("Kat")
+    )
+    capacity = models.IntegerField(
+        verbose_name=_("Kapasite")
+    )

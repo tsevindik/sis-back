@@ -14,10 +14,21 @@ class User(AbstractUser):
 
 
 class UserProfile(TimeStamp):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(
+        User,
+        verbose_name=_("Kullanıcı")
+    )
 
 
 class UserUniversity(TimeStamp):
-    user = models.ForeignKey(User)
-    university = models.ForeignKey(University)
-    is_primary = models.BooleanField()
+    user = models.ForeignKey(
+        User,
+        verbose_name=_("Kullanıcı")
+    )
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )
+    is_primary = models.BooleanField(
+        verbose_name=_("Birincil")
+    )

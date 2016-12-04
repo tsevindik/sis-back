@@ -10,7 +10,10 @@ class UnitType(TimeStamp):
         max_length=50,
         verbose_name=_("İsim")
     )
-    university = models.ForeignKey(University)
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )
 
 
 class UniversityUnit(TimeStamp):
@@ -18,9 +21,17 @@ class UniversityUnit(TimeStamp):
         max_length=150,
         verbose_name=_("İsim")
     )
-    university = models.ForeignKey(University)
-    type = models.ForeignKey(UnitType)
-    description = models.TextField(verbose_name=_("Açıklama"))
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )
+    unit_type = models.ForeignKey(
+        UnitType,
+        verbose_name=_("Birim Türü")
+    )
+    description = models.TextField(
+        verbose_name=_("Açıklama")
+    )
 
 
 class UnitProgram(TimeStamp):
@@ -28,11 +39,24 @@ class UnitProgram(TimeStamp):
         max_length=150,
         verbose_name=_("İsim")
     )
-    unit = models.ForeignKey(UniversityUnit)
-    is_multiple_degree = models.BooleanField()
-    description = models.TextField(verbose_name=_("Açıklama"))
+    university_unit = models.ForeignKey(
+        UniversityUnit,
+        verbose_name=_("Üniversite Birimi")
+    )
+    is_multiple_degree = models.BooleanField(
+        verbose_name=_("Çoklu Program")
+    )
+    description = models.TextField(
+        verbose_name=_("Açıklama")
+    )
 
 
 class ProgramUniversity(TimeStamp):
-    university = models.ForeignKey(University)
-    program = models.ForeignKey(UnitProgram)
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )
+    unit_program = models.ForeignKey(
+        UnitProgram,
+        verbose_name=_("Program")
+    )

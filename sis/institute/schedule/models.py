@@ -10,7 +10,10 @@ class Year(DateInterval):
         max_length=50,
         verbose_name=_("Başlık")
     )
-    university = models.ForeignKey(University)
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )
 
 
 class YearSemester(DateInterval):
@@ -18,7 +21,10 @@ class YearSemester(DateInterval):
         max_length=80,
         verbose_name=_("Başlık")
     )
-    academic_year = models.ForeignKey(Year)
+    year = models.ForeignKey(
+        Year,
+        verbose_name=_("Yıl")
+    )
 
 
 class SemesterCalendar(DateInterval):
@@ -26,7 +32,10 @@ class SemesterCalendar(DateInterval):
         max_length=100,
         verbose_name=_("Başlık")
     )
-    semester = models.ForeignKey(YearSemester)
+    year_semester = models.ForeignKey(
+        YearSemester,
+        verbose_name=_("Dönem")
+    )
 
 
 class CalendarPeriod(DateInterval):
@@ -34,4 +43,7 @@ class CalendarPeriod(DateInterval):
         max_length=200,
         verbose_name=_("Başlık")
     )
-    calendar = models.ForeignKey(SemesterCalendar)
+    semester_calendar = models.ForeignKey(
+        SemesterCalendar,
+        verbose_name=_("Takvim")
+    )

@@ -6,11 +6,16 @@ from ..models.time import TimeStamp
 
 
 class Address(TimeStamp):
-    district = models.ForeignKey(District)
+    district = models.ForeignKey(
+        District,
+        verbose_name=_("İlçe")
+    )
     postcode = models.IntegerField(
         verbose_name=_("Posta Kodu")
     )
-    description = models.TextField(verbose_name=_("Açıklama"))
+    description = models.TextField(
+        verbose_name=_("Açıklama")
+    )
 
     class Meta:
         abstract = True

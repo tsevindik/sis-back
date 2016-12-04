@@ -7,13 +7,31 @@ from ..section.models import CourseSection, SectionLetterGrade
 
 
 class SectionRegistry(TimeStamp):
-    section = models.ForeignKey(CourseSection)
-    student = models.ForeignKey(User)
+    course_section = models.ForeignKey(
+        CourseSection,
+        verbose_name=_("Ders Grubu")
+    )
+    user = models.ForeignKey(
+        User,
+        verbose_name=_("Kullanıcı")
+    )
 
 
 class RegistryGrade(TimeStamp):
-    registry = models.ForeignKey(SectionRegistry)
-    numeric_grade = models.FloatField(verbose_name=_("Sayısal Not"))
-    letter_grade = models.ForeignKey(SectionLetterGrade)
-    rank = models.IntegerField(verbose_name=_("Sıra"))
-    percentile = models.FloatField(verbose_name=_("Yüzdelik Dilim"))
+    section_registry = models.ForeignKey(
+        SectionRegistry,
+        verbose_name=_("Kayıt")
+    )
+    numeric_grade = models.FloatField(
+        verbose_name=_("Sayısal Not")
+    )
+    letter_grade = models.ForeignKey(
+        SectionLetterGrade,
+        verbose_name=_("Harf Notu")
+    )
+    rank = models.IntegerField(
+        verbose_name=_("Sıra")
+    )
+    percentile = models.FloatField(
+        verbose_name=_("Yüzdelik Dilim")
+    )

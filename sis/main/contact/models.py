@@ -16,11 +16,17 @@ class City(TimeStamp):
         max_length=50,
         verbose_name=_("İsim")
     )
-    country = models.ForeignKey(Country)
+    country = models.ForeignKey(
+        Country,
+        verbose_name=_("Ülke")
+    )
 
 
 class District(TimeStamp):
-    city = models.ForeignKey(City)
+    city = models.ForeignKey(
+        City,
+        verbose_name=_("İl")
+    )
     name = models.CharField(
         max_length=50,
         verbose_name=_("İsim")
@@ -32,4 +38,7 @@ class Language(TimeStamp):
         max_length=50,
         verbose_name=_("İsim")
     )
-    country = models.ForeignKey(Country)
+    country = models.ForeignKey(
+        Country,
+        verbose_name=_("Ülke")
+    )

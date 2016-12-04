@@ -19,10 +19,11 @@ IMPLEMENTATION_TYPE = (
 
 
 class CampusEvent(DateTimeInterval):
-    place = models.ForeignKey(
+    campus_place = models.ForeignKey(
         CampusPlace,
         null=True,
-        blank=True
+        blank=True,
+        verbose_name=_("Yer")
     )
 
     class Meta:
