@@ -7,7 +7,6 @@ from ...institute.unit.models import UnitProgram, UniversityUnit
 
 
 class Course(TimeStamp):
-    university = models.ForeignKey(University)
     name = models.CharField(
         max_length=150,
         verbose_name=_("İsim")

@@ -5,7 +5,7 @@ from ...institute.institute.models import University
 from ...common.models.schedule import CampusEvent, IMPLEMENTATION_TYPE
 from ...common.models.time import TimeStamp, DateTimeInterval
 from ..registry.models import SessionRegistry
-from ..session.models import CourseSession
+from ..section.models import CourseSection
 
 
 ASSIGNMENT_TYPE = (
@@ -27,9 +27,9 @@ class AssignmentType(TimeStamp):
     university = models.ForeignKey(University)
 
 
-class SessionAssignment(DateTimeInterval):
+class SectionAssignment(DateTimeInterval):
     type = models.ForeignKey(AssignmentType)
-    session = models.ForeignKey(CourseSession)
+    section = models.ForeignKey(CourseSection)
     percentage = models.IntegerField(verbose_name=_("Yüzde"))
     implementation = models.CharField(
         max_length=1,
@@ -40,9 +40,9 @@ class SessionAssignment(DateTimeInterval):
 
 class AssignmentGrade(TimeStamp):
     registry = models.ForeignKey(SessionRegistry)
-    assignment = models.ForeignKey(SessionAssignment)
+    assignment = models.ForeignKey(SectionAssignment)
     grade = models.IntegerField(verbose_name=_("Not"))
 
 
 class EventAssignmentSession(CampusEvent):
-    assignment = models.ForeignKey(SessionAssignment)
+    assignment = models.ForeignKey(SectionAssignment)

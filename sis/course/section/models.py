@@ -9,7 +9,7 @@ from ...user.user.models import User
 from ..course.models import Course, LetterGrade
 
 
-class CourseSession(TimeStamp):
+class CourseSection(TimeStamp):
     course = models.ForeignKey(Course)
     semester = models.ForeignKey(YearSemester)
     implementation = models.CharField(
@@ -19,17 +19,17 @@ class CourseSession(TimeStamp):
     )
 
 
-class SessionInstructor(TimeStamp):
-    session = models.ForeignKey(CourseSession)
+class SectionInstructor(TimeStamp):
+    section = models.ForeignKey(CourseSection)
     instructor = models.ForeignKey(User)
 
 
-class SessionLesson(DayTimeInterval):
-    session = models.ForeignKey(CourseSession)
+class SectionLesson(DayTimeInterval):
+    section = models.ForeignKey(CourseSection)
 
 
-class SessionLetterGrade(TimeStamp):
-    session = models.ForeignKey(CourseSession)
+class SectionLetterGrade(TimeStamp):
+    section = models.ForeignKey(CourseSection)
     letter_grade = models.ForeignKey(LetterGrade)
     upper_number = models.FloatField(verbose_name=_("Üst Sınır (Sayı)"))
     lower_number = models.FloatField(verbose_name=_("Alt Sınır (Sayı)"))
@@ -40,4 +40,4 @@ class SessionLetterGrade(TimeStamp):
 
 
 class LessonEvent(CampusEvent):
-    lesson = models.ForeignKey(SessionLesson)
+    lesson = models.ForeignKey(SectionLesson)

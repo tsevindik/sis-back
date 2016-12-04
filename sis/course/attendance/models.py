@@ -2,7 +2,7 @@ from django.db import models
 
 from ...common.models.schedule import Attendance
 from ...user.user.models import User
-from ..session.models import LessonEvent
+from ..section.models import LessonEvent
 from ..assignment.models import EventAssignmentSession
 
 
