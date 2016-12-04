@@ -69,20 +69,3 @@ class ProgramCourse(TimeStamp):
         UnitProgram,
         verbose_name=_("Program")
     )
-
-
-class LetterGrade(TimeStamp):
-    rank = models.IntegerField(
-        verbose_name=_("Sıra")
-    )
-    name = models.CharField(
-        max_length=3,
-        verbose_name=_("İsim")
-    )
-    point = models.FloatField(
-        verbose_name=_("Puan")
-    )
-    university = models.ForeignKey(
-        University,
-        verbose_name=_("Üniversite")
-    )

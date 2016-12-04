@@ -49,20 +49,6 @@ class SectionAssignment(DateTimeInterval):
     )
 
 
-class AssignmentGrade(TimeStamp):
-    section_registry = models.ForeignKey(
-        SectionRegistry,
-        verbose_name=_("Kayıt")
-    )
-    section_assignment = models.ForeignKey(
-        SectionAssignment,
-        verbose_name=_("Grup Görevi")
-    )
-    grade = models.IntegerField(
-        verbose_name=_("Not")
-    )
-
-
 class EventAssignmentSession(CampusEvent):
     section_assignment = models.ForeignKey(
         SectionAssignment,

@@ -6,7 +6,7 @@ from ...common.models.time import TimeStamp, DayTimeInterval
 from ...common.models.schedule import CampusEvent
 from ...institute.schedule.models import YearSemester
 from ...user.user.models import User
-from ..course.models import Course, LetterGrade
+from ..course.models import Course
 
 
 class CourseSection(TimeStamp):
@@ -40,35 +40,6 @@ class SectionWeekSession(DayTimeInterval):
     course_section = models.ForeignKey(
         CourseSection,
         verbose_name=_("Ders Grubu")
-    )
-
-
-class SectionLetterGrade(TimeStamp):
-    course_section = models.ForeignKey(
-        CourseSection,
-        verbose_name=_("Ders Grubu")
-    )
-    letter_grade = models.ForeignKey(
-        LetterGrade,
-        verbose_name=_("Harf Notu")
-    )
-    upper_number = models.FloatField(
-        verbose_name=_("Üst Sınır (Sayı)")
-    )
-    lower_number = models.FloatField(
-        verbose_name=_("Alt Sınır (Sayı)")
-    )
-    upper_percent = models.FloatField(
-        verbose_name=_("Üst Sınır (Yüzde)")
-    )
-    lower_percent = models.FloatField(
-        verbose_name=_("Alt Sınır (Yüzde)")
-    )
-    upper_rank = models.IntegerField(
-        verbose_name=_("Üst Sınır (Sıra)")
-    )
-    lower_rank = models.IntegerField(
-        verbose_name=_("Alt Sınır (Sıra)")
     )
 
 
