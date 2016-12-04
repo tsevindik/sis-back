@@ -35,6 +35,27 @@ class Course(TimeStamp):
     )
 
 
+class CoursePrerequisite(TimeStamp):
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
+    )
+    prerequisite = models.ForeignKey(
+        Course,
+        verbose_name=_("Önkoşul Ders")
+    )
+
+
+class CourseCreditPrerequisite(TimeStamp):
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
+    )
+    prerequisite = models.IntegerField(
+        verbose_name=_("Önkoşul Kredi")
+    )
+
+
 class UniversityCourse(TimeStamp):
     is_primary = models.BooleanField(
         verbose_name=_("Birincil")
