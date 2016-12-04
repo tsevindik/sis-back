@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from ...institute.institute.models import University
-from ...common.models.time import DateInterval
+from ...common.models.time import DateInterval, TimeStamp
 
 
 class Year(DateInterval):
@@ -27,7 +27,7 @@ class YearSemester(DateInterval):
     )
 
 
-class SemesterCalendar(DateInterval):
+class SemesterCalendar(TimeStamp):
     title = models.CharField(
         max_length=100,
         verbose_name=_("Başlık")
