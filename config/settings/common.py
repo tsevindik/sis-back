@@ -40,8 +40,9 @@ PROJECT_APPS = (
     'sis.course.registry',
     'sis.course.section',
 
-    'sis.institute.institute',
     'sis.institute.facility',
+    'sis.institute.institute',
+    'sis.institute.program',
     'sis.institute.schedule',
     'sis.institute.unit',
 

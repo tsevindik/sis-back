@@ -1,9 +1,10 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from ...institute.program.models import UnitProgram
 from ...common.models.time import TimeStamp
 from ...institute.institute.models import University
-from ...institute.unit.models import UnitProgram, UniversityUnit
+from ...institute.unit.models import UniversityUnit
 
 
 class Course(TimeStamp):
@@ -42,6 +43,7 @@ class CoursePrerequisite(TimeStamp):
     )
     prerequisite = models.ForeignKey(
         Course,
+        related_name="prerequisite",
         verbose_name=_("Önkoşul Ders")
     )
 
