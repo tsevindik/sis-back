@@ -13,13 +13,6 @@ class User(AbstractUser):
     )
 
 
-class UserProfile(TimeStamp):
-    user = models.ForeignKey(
-        User,
-        verbose_name=_("Kullanıcı")
-    )
-
-
 class UserUniversity(TimeStamp):
     user = models.ForeignKey(
         User,

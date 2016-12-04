@@ -1,12 +1,8 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...common.models.time import TimeStamp
-from ..user.models import User
+from ...common.models.user import UserProfile
 
 
-class InstructorProfile(TimeStamp):
-    user = models.ForeignKey(
-        User,
-        verbose_name=_("Kullanıcı")
-    )
+class InstructorProfile(UserProfile):
+    pass
