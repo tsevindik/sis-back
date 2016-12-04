@@ -36,6 +36,12 @@ class Course(TimeStamp):
     )
 
 
+class UniversityCourse(TimeStamp):
+    is_primary = models.BooleanField()
+    university = models.ForeignKey(University)
+    course = models.ForeignKey(Course)
+
+
 class UnitCourse(TimeStamp):
     course = models.ForeignKey(Course)
     unit = models.ForeignKey(UniversityUnit)
@@ -53,3 +59,4 @@ class LetterGrade(TimeStamp):
         verbose_name=_("İsim")
     )
     point = models.FloatField(verbose_name=_("Puan"))
+    university = models.ForeignKey(University)

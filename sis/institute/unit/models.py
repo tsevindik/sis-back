@@ -10,6 +10,7 @@ class UnitType(TimeStamp):
         max_length=50,
         verbose_name=_("İsim")
     )
+    university = models.ForeignKey(University)
 
 
 class UniversityUnit(TimeStamp):
