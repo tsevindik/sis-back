@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...institute.facility.models import CampusPlace
+from ...institute.facility.models import BuildingRoom
 from .time import DateTimeInterval, TimeStamp
 
 
@@ -19,8 +19,8 @@ IMPLEMENTATION_TYPE = (
 
 
 class CampusEvent(DateTimeInterval):
-    campus_place = models.ForeignKey(
-        CampusPlace,
+    building_room = models.ForeignKey(
+        BuildingRoom,
         null=True,
         blank=True,
         verbose_name=_("Yer")
