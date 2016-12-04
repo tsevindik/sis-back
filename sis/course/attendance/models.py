@@ -3,14 +3,14 @@ from django.db import models
 
 from ...common.models.schedule import Attendance
 from ...user.user.models import User
-from ..section.models import SessionEvent
+from ..section.models import SectionSession
 from ..assignment.models import EventAssignmentSession
 
 
 class StudentCourseAttendance(Attendance):
-    session_event = models.ForeignKey(
-        SessionEvent,
-        verbose_name=_("Olay")
+    session_session = models.ForeignKey(
+        SectionSession,
+        verbose_name=_("Oturum")
     )
     user = models.ForeignKey(
         User,
@@ -19,9 +19,9 @@ class StudentCourseAttendance(Attendance):
 
 
 class InstructorCourseAttendance(Attendance):
-    session_event = models.ForeignKey(
-        SessionEvent,
-        verbose_name=_("Olay")
+    session_session = models.ForeignKey(
+        SectionSession,
+        verbose_name=_("Oturum")
     )
     user = models.ForeignKey(
         User,

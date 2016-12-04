@@ -36,7 +36,7 @@ class SectionInstructor(TimeStamp):
     )
 
 
-class SectionSession(DayTimeInterval):  # todo: try to rename it
+class SectionWeekSession(DayTimeInterval):
     course_section = models.ForeignKey(
         CourseSection,
         verbose_name=_("Ders Grubu")
@@ -72,8 +72,8 @@ class SectionLetterGrade(TimeStamp):
     )
 
 
-class SessionEvent(CampusEvent):  # todo: try to rename it
-    section_session = models.ForeignKey(
-        SectionSession,
-        verbose_name=_("Oturum")
+class SectionSession(CampusEvent):
+    section_week_session = models.ForeignKey(
+        SectionWeekSession,
+        verbose_name=_("Haftalık Oturum")
     )
