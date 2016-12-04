@@ -2,21 +2,12 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from ...common.models.time import TimeStamp
+from ...institute.institute.models import University
 from ...institute.unit.models import UnitProgram, UniversityUnit
-from ...main.contact.models import Language
 
 
 class Course(TimeStamp):
-    unit = models.ForeignKey(
-        UniversityUnit,
-        null=True,
-        blank=True
-    )
-    program = models.ForeignKey(
-        UnitProgram,
-        null=True,
-        blank=True
-    )
+    university = models.ForeignKey(University)
     name = models.CharField(
         max_length=150,
         verbose_name=_("İsim")
@@ -43,7 +34,16 @@ class Course(TimeStamp):
     ects = models.IntegerField(
         verbose_name=_("AKTS")
     )
-    instruction_language = models.ForeignKey(Language)
+
+
+class UnitCourse(TimeStamp):
+    course = models.ForeignKey(Course)
+    unit = models.ForeignKey(UniversityUnit)
+
+
+class ProgramCourse(TimeStamp):
+    course = models.ForeignKey(Course)
+    program = models.ForeignKey(UnitProgram)
 
 
 class LetterGrade(TimeStamp):

@@ -28,4 +28,10 @@ class UnitProgram(TimeStamp):
         verbose_name=_("İsim")
     )
     unit = models.ForeignKey(UniversityUnit)
+    is_multiple_degree = models.BooleanField()
     description = models.TextField(verbose_name=_("Açıklama"))
+
+
+class ProgramUniversity(TimeStamp):
+    university = models.ForeignKey(University)
+    program = models.ForeignKey(UnitProgram)

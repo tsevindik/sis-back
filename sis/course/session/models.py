@@ -6,7 +6,7 @@ from ...common.models.time import TimeStamp, DayTimeInterval
 from ...common.models.schedule import CampusEvent
 from ...institute.schedule.models import YearSemester
 from ...user.user.models import User
-from ..course.models import Course
+from ..course.models import Course, LetterGrade
 
 
 class CourseSession(TimeStamp):
@@ -30,6 +30,7 @@ class SessionLesson(DayTimeInterval):
 
 class SessionLetterGrade(TimeStamp):
     session = models.ForeignKey(CourseSession)
+    letter_grade = models.ForeignKey(LetterGrade)
     upper_number = models.FloatField(verbose_name=_("Üst Sınır (Sayı)"))
     lower_number = models.FloatField(verbose_name=_("Alt Sınır (Sayı)"))
     upper_percent = models.FloatField(verbose_name=_("Üst Sınır (Yüzde)"))
