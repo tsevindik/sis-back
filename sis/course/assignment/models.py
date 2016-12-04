@@ -4,7 +4,7 @@ from django.db import models
 from ...institute.institute.models import University
 from ...common.models.schedule import CampusEvent, IMPLEMENTATION_TYPE
 from ...common.models.time import TimeStamp, DateTimeInterval
-from ..registry.models import SessionRegistry
+from ..registry.models import SectionRegistry
 from ..section.models import CourseSection
 
 
@@ -39,7 +39,7 @@ class SectionAssignment(DateTimeInterval):
 
 
 class AssignmentGrade(TimeStamp):
-    registry = models.ForeignKey(SessionRegistry)
+    registry = models.ForeignKey(SectionRegistry)
     assignment = models.ForeignKey(SectionAssignment)
     grade = models.IntegerField(verbose_name=_("Not"))
 

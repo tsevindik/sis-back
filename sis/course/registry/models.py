@@ -6,13 +6,13 @@ from ...user.user.models import User
 from ..section.models import CourseSection, SectionLetterGrade
 
 
-class SessionRegistry(TimeStamp):
-    session = models.ForeignKey(CourseSection)
+class SectionRegistry(TimeStamp):
+    section = models.ForeignKey(CourseSection)
     student = models.ForeignKey(User)
 
 
 class RegistryGrade(TimeStamp):
-    registry = models.ForeignKey(SessionRegistry)
+    registry = models.ForeignKey(SectionRegistry)
     numeric_grade = models.FloatField(verbose_name=_("Sayısal Not"))
     letter_grade = models.ForeignKey(SectionLetterGrade)
     rank = models.IntegerField(verbose_name=_("Sıra"))

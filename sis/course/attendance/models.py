@@ -2,17 +2,17 @@ from django.db import models
 
 from ...common.models.schedule import Attendance
 from ...user.user.models import User
-from ..section.models import LessonEvent
+from ..section.models import SessionEvent
 from ..assignment.models import EventAssignmentSession
 
 
-class StudentLessonAttendance(Attendance):
-    event = models.ForeignKey(LessonEvent)
+class StudentCourseAttendance(Attendance):
+    event = models.ForeignKey(SessionEvent)
     student = models.ForeignKey(User)
 
 
-class InstructorLessonAttendance(Attendance):
-    event = models.ForeignKey(LessonEvent)
+class InstructorCourseAttendance(Attendance):
+    event = models.ForeignKey(SessionEvent)
     instructor = models.ForeignKey(User)
 
 

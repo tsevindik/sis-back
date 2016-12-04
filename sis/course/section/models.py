@@ -24,7 +24,7 @@ class SectionInstructor(TimeStamp):
     instructor = models.ForeignKey(User)
 
 
-class SectionLesson(DayTimeInterval):
+class SectionSession(DayTimeInterval):
     section = models.ForeignKey(CourseSection)
 
 
@@ -39,5 +39,5 @@ class SectionLetterGrade(TimeStamp):
     lower_rank = models.IntegerField(verbose_name=_("Alt Sınır (Sıra)"))
 
 
-class LessonEvent(CampusEvent):
-    lesson = models.ForeignKey(SectionLesson)
+class SessionEvent(CampusEvent):
+    session = models.ForeignKey(SectionSession)
