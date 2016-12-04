@@ -1,6 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from ...institute.institute.models import University
 from ...common.models.schedule import CampusEvent, IMPLEMENTATION_TYPE
 from ...common.models.time import TimeStamp, DateTimeInterval
 from ..registry.models import SessionRegistry
@@ -23,6 +24,7 @@ class AssignmentType(TimeStamp):
         choices=ASSIGNMENT_TYPE,
         verbose_name=_("Tür")
     )
+    university = models.ForeignKey(University)
 
 
 class SessionAssignment(DateTimeInterval):
