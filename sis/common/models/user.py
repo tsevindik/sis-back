@@ -25,6 +25,10 @@ class UserProfile(TimeStamp):
 
 
 class UserPhone(Phone):
+    user = models.ForeignKey(
+        User,
+        verbose_name=_("Kullanıcı")
+    )
     title = models.CharField(
         max_length=50,
         verbose_name=_("Başlık")
@@ -35,6 +39,10 @@ class UserPhone(Phone):
 
 
 class UserAddress(Address):
+    user = models.ForeignKey(
+        User,
+        verbose_name=_("Kullanıcı")
+    )
     title = models.CharField(
         max_length=50,
         verbose_name=_("Başlık")
