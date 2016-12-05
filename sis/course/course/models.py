@@ -1,10 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...institute.program.models import UnitProgram
 from ...common.models.time import TimeStamp
-from ...institute.institute.models import University
-from ...institute.unit.models import UniversityUnit
 
 
 class Course(TimeStamp):
@@ -55,18 +52,4 @@ class CourseCreditPrerequisite(TimeStamp):
     )
     prerequisite = models.IntegerField(
         verbose_name=_("Önkoşul Kredi")
-    )
-
-
-class UniversityCourse(TimeStamp):
-    is_primary = models.BooleanField(
-        verbose_name=_("Birincil")
-    )
-    university = models.ForeignKey(
-        University,
-        verbose_name=_("Üniversite")
-    )
-    course = models.ForeignKey(
-        Course,
-        verbose_name=_("Ders")
     )
