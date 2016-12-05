@@ -41,6 +41,9 @@ class SectionAssignment(DateTimeInterval):
     percentage = models.IntegerField(
         verbose_name=_("Yüzde")
     )
+    out_of_grade = models.IntegerField(
+        verbose_name=_("Not Üzerinden")
+    )
     implementation_type = models.CharField(
         max_length=1,
         choices=IMPLEMENTATION_TYPE,
