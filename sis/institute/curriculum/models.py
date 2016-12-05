@@ -21,7 +21,6 @@ class CurriculumCourse(TimeStamp):
 class CurriculumCoursePool(TimeStamp):
     program_semester = models.ForeignKey(
         ProgramSemester,
-
         verbose_name=_("Dönem")
     )
     course_pool = models.ForeignKey(

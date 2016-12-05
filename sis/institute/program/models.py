@@ -2,7 +2,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from ...course.course.models import Course
-from ...course.pool.models import CoursePool
 from ...institute.unit.models import UniversityUnit
 from ...common.models.time import TimeStamp
 from ...institute.institute.models import University
