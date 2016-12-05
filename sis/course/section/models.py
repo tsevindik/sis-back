@@ -18,6 +18,9 @@ class CourseSection(TimeStamp):
         YearSemester,
         verbose_name=_("Dönem")
     )
+    quota = models.IntegerField(
+        verbose_name=_("Kontenjan")
+    )
     implementation_type = models.CharField(
         max_length=1,
         choices=IMPLEMENTATION_TYPE,
