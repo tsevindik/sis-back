@@ -58,25 +58,3 @@ class ProgramCourse(TimeStamp):
         UnitProgram,
         verbose_name=_("Program")
     )
-
-
-class CurriculumCourse(TimeStamp):
-    program_semester = models.ForeignKey(
-        ProgramSemester,
-        verbose_name=_("Dönem")
-    )
-    course = models.ForeignKey(
-        Course,
-        verbose_name=_("İsim")
-    )
-
-
-class CurriculumCoursePool(TimeStamp):
-    program_semester = models.ForeignKey(
-        ProgramSemester,
-        verbose_name=_("Dönem")
-    )
-    course_pool = models.ForeignKey(
-        CoursePool,
-        verbose_name=_("Ders Havuzu")
-    )
