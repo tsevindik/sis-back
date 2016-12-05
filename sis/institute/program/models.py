@@ -1,6 +1,8 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from ...course.course.models import Course
+from ...course.pool.models import CoursePool
 from ...institute.unit.models import UniversityUnit
 from ...common.models.time import TimeStamp
 from ...institute.institute.models import University
@@ -31,4 +33,50 @@ class ProgramUniversity(TimeStamp):
     unit_program = models.ForeignKey(
         UnitProgram,
         verbose_name=_("Program")
+    )
+    semester_number = models.IntegerField(
+        verbose_name=_("Dönem Sayısı")
+    )
+
+
+class ProgramSemester(TimeStamp):
+    name = models.CharField(
+        max_length=50,
+        verbose_name=_("İsim")
+    )
+    semester = models.IntegerField(
+        verbose_name=_("Dönem")
+    )
+
+
+class ProgramCourse(TimeStamp):
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
+    )
+    unit_program = models.ForeignKey(
+        UnitProgram,
+        verbose_name=_("Program")
+    )
+
+
+class CurriculumCourse(TimeStamp):
+    program_semester = models.ForeignKey(
+        ProgramSemester,
+        verbose_name=_("Dönem")
+    )
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("İsim")
+    )
+
+
+class CurriculumCoursePool(TimeStamp):
+    program_semester = models.ForeignKey(
+        ProgramSemester,
+        verbose_name=_("Dönem")
+    )
+    course_pool = models.ForeignKey(
+        CoursePool,
+        verbose_name=_("Ders Havuzu")
     )

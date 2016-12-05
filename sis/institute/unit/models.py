@@ -1,6 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from ...course.course.models import Course
 from ...institute.facility.models import CampusBuilding
 from ...common.models.time import TimeStamp
 from ..institute.models import University
@@ -32,6 +33,17 @@ class UniversityUnit(TimeStamp):
     )
     description = models.TextField(
         verbose_name=_("Açıklama")
+    )
+
+
+class UnitCourse(TimeStamp):
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
+    )
+    university_unit = models.ForeignKey(
+        UniversityUnit,
+        verbose_name=_("Üniversite Birimi")
     )
 
 
