@@ -88,7 +88,28 @@ class ProgramCourse(TimeStamp):
         Course,
         verbose_name=_("Ders")
     )
+    semester = models.IntegerField(
+        verbose_name=_("Dönem")
+    )
     unit_program = models.ForeignKey(
         UnitProgram,
         verbose_name=_("Program")
+    )
+
+
+class CoursePool(TimeStamp):
+    name = models.CharField(
+        max_length=50,
+        verbose_name=_("İsim")
+    )
+
+
+class PoolCourse(TimeStamp):
+    course_pool = models.ForeignKey(
+        CoursePool,
+        verbose_name=_("Ders Havuzu")
+    )
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
     )
