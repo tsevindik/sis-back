@@ -38,6 +38,10 @@ class Language(TimeStamp):
         max_length=50,
         verbose_name=_("İsim")
     )
+    code = models.CharField(
+        max_length=10,
+        verbose_name=_("Kod")
+    )
     country = models.ForeignKey(
         Country,
         verbose_name=_("Ülke")
