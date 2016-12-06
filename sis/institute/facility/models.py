@@ -15,6 +15,9 @@ class UniversityCampus(Address):
         max_length=150,
         verbose_name=_("İsim")
     )
+    has_blocks = models.BooleanField(
+        verbose_name=_("Blok")
+    )
 
 
 class CampusBuilding(Address):
@@ -26,19 +29,27 @@ class CampusBuilding(Address):
         UniversityCampus,
         verbose_name=_("Kampüs")
     )
-    has_blocks = models.BooleanField(
-        verbose_name=_("Blok")
-    )
 
 
-class BuildingBlock(TimeStamp):
+class CampusBlock(TimeStamp):
     name = models.CharField(
-        max_length=100,
+        max_length=50,
         verbose_name=_("İsim"),
     )
+    university_campus = models.ForeignKey(
+        UniversityCampus,
+        verbose_name=_("Kampüs")
+    )
+
+
+class BlockBuilding(TimeStamp):
     campus_building = models.ForeignKey(
         CampusBuilding,
         verbose_name=_("Kampüs Binası")
+    )
+    campus_block = models.ForeignKey(
+        CampusBlock,
+        verbose_name=_("Kampüs Bloğu")
     )
 
 
@@ -60,15 +71,4 @@ class BuildingRoom(TimeStamp):
     campus_building = models.ForeignKey(
         CampusBuilding,
         verbose_name=_("Kampüs Binası")
-    )
-
-
-class BlockRoom(TimeStamp):
-    building_block = models.ForeignKey(
-        BuildingBlock,
-        verbose_name=_("Blok")
-    )
-    building_room = models.ForeignKey(
-        BuildingRoom,
-        verbose_name=_("Oda")
     )
