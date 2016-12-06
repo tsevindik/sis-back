@@ -6,15 +6,7 @@ from ...common.models.time import TimeStamp
 from ...common.models.contact import Address
 
 
-class CampusAddress(Address):
-    pass
-
-
-class BuildingAddress(Address):
-    pass
-
-
-class UniversityCampus(TimeStamp):
+class UniversityCampus(Address):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
@@ -23,13 +15,9 @@ class UniversityCampus(TimeStamp):
         max_length=150,
         verbose_name=_("İsim")
     )
-    campus_address = models.ForeignKey(
-        CampusAddress,
-        verbose_name=_("Kampüs Adresi")
-    )
 
 
-class CampusBuilding(TimeStamp):
+class CampusBuilding(Address):
     name = models.CharField(
         max_length=100,
         verbose_name=_("İsim"),
@@ -37,10 +25,6 @@ class CampusBuilding(TimeStamp):
     university_campus = models.ForeignKey(
         UniversityCampus,
         verbose_name=_("Kampüs")
-    )
-    building_address = models.ForeignKey(
-        BuildingAddress,
-        verbose_name=_("Bina Adresi")
     )
     has_blocks = models.BooleanField(
         verbose_name=_("Blok")
