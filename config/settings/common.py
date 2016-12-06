@@ -38,7 +38,6 @@ PROJECT_APPS = (
     'sis.course.attendance',
     'sis.course.grade',
     'sis.course.pool',
-    'sis.course.registry',
     'sis.course.section',
 
     'sis.institute.facility',
@@ -52,6 +51,7 @@ PROJECT_APPS = (
     'sis.main.announce',
     'sis.main.contact',
     'sis.main.formal',
+    'sis.main.registry',
 
     'sis.user.user',
     'sis.user.instructor',

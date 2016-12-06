@@ -3,7 +3,7 @@ from django.db import models
 
 from ...common.models.time import TimeStamp
 from ...user.user.models import User
-from ..section.models import CourseSection
+from ...course.section.models import CourseSection
 
 
 class SectionRegistry(TimeStamp):
