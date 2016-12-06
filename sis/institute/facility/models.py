@@ -20,6 +20,17 @@ class UniversityCampus(Address):
     )
 
 
+class BuildingType(TimeStamp):
+    name = models.CharField(
+        max_length=100,
+        verbose_name=_("İsim")
+    )
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )
+
+
 class CampusBuilding(Address):
     name = models.CharField(
         max_length=100,
@@ -28,6 +39,10 @@ class CampusBuilding(Address):
     university_campus = models.ForeignKey(
         UniversityCampus,
         verbose_name=_("Kampüs")
+    )
+    type = models.ForeignKey(
+        BuildingType,
+        verbose_name=_("Bina Türü")
     )
 
 
@@ -53,6 +68,17 @@ class BlockBuilding(TimeStamp):
     )
 
 
+class RoomType(TimeStamp):
+    name = models.CharField(
+        max_length=100,
+        verbose_name=_("İsim")
+    )
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )
+
+
 class BuildingRoom(TimeStamp):
     name = models.CharField(
         max_length=100,
@@ -71,4 +97,8 @@ class BuildingRoom(TimeStamp):
     campus_building = models.ForeignKey(
         CampusBuilding,
         verbose_name=_("Kampüs Binası")
+    )
+    type = models.ForeignKey(
+        BuildingType,
+        verbose_name=_("Bina Türü")
     )

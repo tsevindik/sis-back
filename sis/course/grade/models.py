@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from sis.course.assignment.models import SectionProcessAssignment
+from ...course.assignment.models import SectionProcessAssignment
 from ...main.registry.models import SectionRegistry
 from ...course.section.models import CourseSection
 from ...institute.institute.models import University
