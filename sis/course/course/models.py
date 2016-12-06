@@ -5,13 +5,6 @@ from ...common.models.time import TimeStamp
 
 
 class Course(TimeStamp):
-    name = models.CharField(
-        max_length=150,
-        verbose_name=_("İsim")
-    )
-    description = models.TextField(
-        verbose_name=_("Açıklama")
-    )
     code = models.CharField(
         max_length=10,
         verbose_name=_("Kod")
@@ -53,3 +46,6 @@ class CourseCreditPrerequisite(TimeStamp):
     prerequisite = models.IntegerField(
         verbose_name=_("Önkoşul Kredi")
     )
+
+# add translation models
+from .trans_models import *

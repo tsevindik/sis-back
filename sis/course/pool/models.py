@@ -8,10 +8,6 @@ from ...course.course.models import Course
 
 
 class CoursePool(TimeStamp):
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
@@ -38,3 +34,6 @@ class PoolCourse(TimeStamp):
         Course,
         verbose_name=_("Ders")
     )
+
+# add translation models
+from .trans_models import *

@@ -14,10 +14,6 @@ ASSIGNMENT_FORMAT = (
 
 
 class AssignmentType(TimeStamp):
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )
     format = models.CharField(
         max_length=1,
         choices=ASSIGNMENT_FORMAT,
@@ -78,3 +74,7 @@ class EventAssignmentSession(CampusEvent):
         SectionEventAssignment,
         verbose_name=_("Grup Görevi")
     )
+
+
+# add translation models
+from .trans_models import *
