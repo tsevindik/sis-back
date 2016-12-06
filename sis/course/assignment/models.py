@@ -51,8 +51,30 @@ class SectionAssignment(DateTimeInterval):
     )
 
 
+class SectionEventAssignment(TimeStamp):
+    assignment_type = models.ForeignKey(
+        AssignmentType,
+        verbose_name=_("Görev Türü")
+    )
+    course_section = models.ForeignKey(
+        CourseSection,
+        verbose_name=_("Ders Grubu")
+    )
+    percentage = models.IntegerField(
+        verbose_name=_("Yüzde")
+    )
+    out_of_grade = models.IntegerField(
+        verbose_name=_("Not Üzerinden")
+    )
+    implementation_type = models.CharField(
+        max_length=1,
+        choices=IMPLEMENTATION_TYPE,
+        verbose_name=_("Uygulama Türü")
+    )
+
+
 class EventAssignmentSession(CampusEvent):
-    section_assignment = models.ForeignKey(
-        SectionAssignment,
+    section_event_assignment = models.ForeignKey(
+        SectionEventAssignment,
         verbose_name=_("Grup Görevi")
     )
