@@ -44,6 +44,9 @@ class CampusBuilding(Address):
         BuildingType,
         verbose_name=_("Bina Türü")
     )
+    has_address = models.BooleanField(
+        verbose_name=_("Adres")
+    )
 
 
 class CampusBlock(TimeStamp):

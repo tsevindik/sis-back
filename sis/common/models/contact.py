@@ -8,6 +8,8 @@ from ..models.time import TimeStamp
 class Address(TimeStamp):
     district = models.ForeignKey(
         District,
+        null=True,
+        blank=True,
         verbose_name=_("İlçe")
     )
     postcode = models.IntegerField(
