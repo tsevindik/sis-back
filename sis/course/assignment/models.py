@@ -29,7 +29,7 @@ class AssignmentType(TimeStamp):
     )
 
 
-class SectionAssignment(DateTimeInterval):
+class SectionProcessAssignment(DateTimeInterval):
     assignment_type = models.ForeignKey(
         AssignmentType,
         verbose_name=_("Görev Türü")

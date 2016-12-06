@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from sis.course.assignment.models import SectionAssignment
+from sis.course.assignment.models import SectionProcessAssignment
 from ...course.registry.models import SectionRegistry
 from ...course.section.models import CourseSection
 from ...institute.institute.models import University
@@ -80,7 +80,7 @@ class AssignmentGrade(TimeStamp):
         verbose_name=_("Kayıt")
     )
     section_assignment = models.ForeignKey(
-        SectionAssignment,
+        SectionProcessAssignment,
         verbose_name=_("Grup Görevi")
     )
     grade = models.IntegerField(
