@@ -1,14 +1,14 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...main.contact.models import Language
-from ...common.models.time import TimeStamp
-from . import models as contact_models
+from .main import Language
+from .common import AppTimeStamp
+from . import main
 
 
-class CountryTrans(TimeStamp):
+class CountryTrans(AppTimeStamp):
     neutral = models.ForeignKey(
-        contact_models.Country
+        main.Country
     )
     language = models.ForeignKey(
         Language,
@@ -20,9 +20,9 @@ class CountryTrans(TimeStamp):
     )
 
 
-class CityTrans(TimeStamp):
+class CityTrans(AppTimeStamp):
     neutral = models.ForeignKey(
-        contact_models.City
+        main.City
     )
     language = models.ForeignKey(
         Language,
@@ -34,9 +34,9 @@ class CityTrans(TimeStamp):
     )
 
 
-class RegionTrans(TimeStamp):
+class RegionTrans(AppTimeStamp):
     neutral = models.ForeignKey(
-        contact_models.Region
+        main.Region
     )
     language = models.ForeignKey(
         Language,
@@ -48,9 +48,9 @@ class RegionTrans(TimeStamp):
     )
 
 
-class LanguageTrans(TimeStamp):
+class LanguageTrans(AppTimeStamp):
     neutral = models.ForeignKey(
-        contact_models.Language,
+        main.Language,
         related_name="neutral_language"
     )
     language = models.ForeignKey(

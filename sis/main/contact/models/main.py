@@ -1,28 +1,28 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...common.models.time import TimeStamp
+from .common import AppTimeStamp
 
 
-class Country(TimeStamp):
+class Country(AppTimeStamp):
     pass
 
 
-class City(TimeStamp):
+class City(AppTimeStamp):
     country = models.ForeignKey(
         Country,
         verbose_name=_("Ülke")
     )
 
 
-class Region(TimeStamp):
+class Region(AppTimeStamp):
     city = models.ForeignKey(
         City,
         verbose_name=_("İl")
     )
 
 
-class Language(TimeStamp):
+class Language(AppTimeStamp):
     code = models.CharField(
         max_length=10,
         verbose_name=_("Kod")
@@ -31,7 +31,3 @@ class Language(TimeStamp):
         Country,
         verbose_name=_("Ülke")
     )
-
-
-# add translation models
-from .trans_models import *
