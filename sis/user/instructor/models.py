@@ -4,13 +4,22 @@ from django.db import models
 from ...user.student.models import StudentProgram
 from ...common.models.time import TimeStamp
 from ...user.user.models import User
-from ...common.models.user import UserProfile, UserAddress, UserPhone, INSTRUCTOR_WORK_STATUS, WORK_TIME
+from ...common.models.user import UserProfile, UserAddress, UserPhone, WORK_TIME
+
+
+WORK_STATUS = (
+    (0, _('Kadrolu')),
+    (1, _('Sözleşmeli')),
+    (2, _('Ziyaretçi')),
+    (2, _('İzinli')),
+    (3, _('Ayrıldı'))
+)
 
 
 class InstructorProfile(UserProfile):
     work_status = models.CharField(
         max_length=1,
-        choices=INSTRUCTOR_WORK_STATUS,
+        choices=WORK_STATUS,
         verbose_name=_("Çalışma Durumu")
     )
     work_time = models.CharField(

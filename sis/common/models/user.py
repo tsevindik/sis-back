@@ -6,14 +6,6 @@ from ...user.user.models import User
 from ..models.time import TimeStamp
 
 
-INSTRUCTOR_WORK_STATUS = (
-    (0, _('Kadrolu')),
-    (1, _('Sözleşmeli')),
-    (2, _('Ziyaretçi')),
-    (2, _('İzinli')),
-    (3, _('Ayrıldı'))
-)
-
 WORK_TIME = (
     (0, _('Tam Zamanlı')),
     (1, _('Yarı Zamanlı'))
