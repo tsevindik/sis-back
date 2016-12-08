@@ -1,13 +1,13 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...main.contact.models import District
+from ...main.contact.models import Region
 from ..models.time import TimeStamp
 
 
 class Address(TimeStamp):
     district = models.ForeignKey(
-        District,
+        Region,
         null=True,
         blank=True,
         verbose_name=_("İlçe")

@@ -5,39 +5,24 @@ from ...common.models.time import TimeStamp
 
 
 class Country(TimeStamp):
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )
+    pass
 
 
 class City(TimeStamp):
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )
     country = models.ForeignKey(
         Country,
         verbose_name=_("Ülke")
     )
 
 
-class District(TimeStamp):
+class Region(TimeStamp):
     city = models.ForeignKey(
         City,
         verbose_name=_("İl")
     )
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )
 
 
 class Language(TimeStamp):
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )
     code = models.CharField(
         max_length=10,
         verbose_name=_("Kod")
