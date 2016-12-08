@@ -11,20 +11,12 @@ class UniversityCampus(Address):
         University,
         verbose_name=_("Üniversite")
     )
-    name = models.CharField(
-        max_length=150,
-        verbose_name=_("İsim")
-    )
     has_blocks = models.BooleanField(
         verbose_name=_("Blok")
     )
 
 
 class BuildingType(TimeStamp):
-    name = models.CharField(
-        max_length=100,
-        verbose_name=_("İsim")
-    )
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
@@ -32,10 +24,6 @@ class BuildingType(TimeStamp):
 
 
 class CampusBuilding(Address):
-    name = models.CharField(
-        max_length=100,
-        verbose_name=_("İsim"),
-    )
     university_campus = models.ForeignKey(
         UniversityCampus,
         verbose_name=_("Kampüs")
@@ -50,10 +38,6 @@ class CampusBuilding(Address):
 
 
 class CampusBlock(TimeStamp):
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim"),
-    )
     university_campus = models.ForeignKey(
         UniversityCampus,
         verbose_name=_("Kampüs")
@@ -72,10 +56,6 @@ class BlockBuilding(TimeStamp):
 
 
 class RoomType(TimeStamp):
-    name = models.CharField(
-        max_length=100,
-        verbose_name=_("İsim")
-    )
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
@@ -83,10 +63,6 @@ class RoomType(TimeStamp):
 
 
 class BuildingRoom(TimeStamp):
-    name = models.CharField(
-        max_length=100,
-        verbose_name=_("İsim"),
-    )
     code = models.CharField(
         max_length=20,
         verbose_name=_("Kod")
@@ -105,3 +81,7 @@ class BuildingRoom(TimeStamp):
         BuildingType,
         verbose_name=_("Bina Türü")
     )
+
+
+# add translation models
+from .trans_models import *

@@ -47,5 +47,6 @@ class CourseCreditPrerequisite(TimeStamp):
         verbose_name=_("Önkoşul Kredi")
     )
 
+
 # add translation models
 from .trans_models import *

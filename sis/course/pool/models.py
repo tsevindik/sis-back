@@ -35,5 +35,6 @@ class PoolCourse(TimeStamp):
         verbose_name=_("Ders")
     )
 
+
 # add translation models
 from .trans_models import *

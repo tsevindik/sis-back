@@ -6,10 +6,6 @@ from ...common.models.time import DateInterval, TimeStamp
 
 
 class Year(DateInterval):
-    title = models.CharField(
-        max_length=50,
-        verbose_name=_("Başlık")
-    )
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
@@ -17,10 +13,6 @@ class Year(DateInterval):
 
 
 class YearSemester(DateInterval):
-    title = models.CharField(
-        max_length=80,
-        verbose_name=_("Başlık")
-    )
     year = models.ForeignKey(
         Year,
         verbose_name=_("Yıl")
@@ -28,10 +20,6 @@ class YearSemester(DateInterval):
 
 
 class SemesterCalendar(TimeStamp):
-    title = models.CharField(
-        max_length=100,
-        verbose_name=_("Başlık")
-    )
     year_semester = models.ForeignKey(
         YearSemester,
         verbose_name=_("Dönem")
@@ -39,11 +27,11 @@ class SemesterCalendar(TimeStamp):
 
 
 class CalendarPeriod(DateInterval):
-    title = models.CharField(
-        max_length=200,
-        verbose_name=_("Başlık")
-    )
     semester_calendar = models.ForeignKey(
         SemesterCalendar,
         verbose_name=_("Takvim")
     )
+
+
+# add translation models
+from .trans_models import *

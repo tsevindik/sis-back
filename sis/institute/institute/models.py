@@ -7,10 +7,7 @@ from ...common.models.time import TimeStamp
 
 
 class University(TimeStamp):
-    name = models.CharField(
-        max_length=100,
-        verbose_name=_("İsim")
-    )
+    pass
 
 
 class UniversityConfig(TimeStamp):

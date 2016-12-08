@@ -8,10 +8,6 @@ from ..institute.models import University
 
 
 class UnitType(TimeStamp):
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
@@ -19,10 +15,6 @@ class UnitType(TimeStamp):
 
 
 class UniversityUnit(TimeStamp):
-    name = models.CharField(
-        max_length=150,
-        verbose_name=_("İsim")
-    )
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
@@ -30,9 +22,6 @@ class UniversityUnit(TimeStamp):
     unit_type = models.ForeignKey(
         UnitType,
         verbose_name=_("Birim Türü")
-    )
-    description = models.TextField(
-        verbose_name=_("Açıklama")
     )
 
 
@@ -56,3 +45,7 @@ class UnitBuilding(TimeStamp):
         CampusBuilding,
         verbose_name=_("Kampüs Binası")
     )
+
+
+# add translation models
+from .trans_models import *

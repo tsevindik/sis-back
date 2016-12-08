@@ -3,18 +3,18 @@ from django.db import models
 
 from ...main.contact.models import Language
 from ...common.models.time import TimeStamp
-from . import models as pool_models
+from . import models as institute_models
 
 
-class CoursePoolTrans(TimeStamp):
+class UniversityTrans(TimeStamp):
     neutral = models.ForeignKey(
-        pool_models.CoursePool
+        institute_models.University
     )
     language = models.ForeignKey(
         Language,
         verbose_name=_("Dil")
     )
     name = models.CharField(
-        max_length=50,
+        max_length=100,
         verbose_name=_("İsim")
     )

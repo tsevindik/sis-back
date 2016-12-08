@@ -8,8 +8,7 @@ from . import models as assignment_models
 
 class AssignmentTypeTrans(TimeStamp):
     neutral = models.ForeignKey(
-        assignment_models.AssignmentType,
-
+        assignment_models.AssignmentType
     )
     language = models.ForeignKey(
         Language,

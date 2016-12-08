@@ -12,7 +12,7 @@ class LetterGrade(TimeStamp):
     rank = models.IntegerField(
         verbose_name=_("Sıra")
     )
-    name = models.CharField(
+    letter = models.CharField(
         max_length=3,
         verbose_name=_("İsim")
     )

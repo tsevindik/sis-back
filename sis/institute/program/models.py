@@ -8,19 +8,12 @@ from ...institute.institute.models import University
 
 
 class UnitProgram(TimeStamp):
-    name = models.CharField(
-        max_length=150,
-        verbose_name=_("İsim")
-    )
     university_unit = models.ForeignKey(
         UniversityUnit,
         verbose_name=_("Üniversite Birimi")
     )
     is_multiple_degree = models.BooleanField(
         verbose_name=_("Çoklu Program")
-    )
-    description = models.TextField(
-        verbose_name=_("Açıklama")
     )
 
 
@@ -33,16 +26,12 @@ class ProgramUniversity(TimeStamp):
         UnitProgram,
         verbose_name=_("Program")
     )
-    semester_number = models.IntegerField(
+    semester_count = models.IntegerField(
         verbose_name=_("Dönem Sayısı")
     )
 
 
 class ProgramSemester(TimeStamp):
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )
     semester = models.IntegerField(
         verbose_name=_("Dönem")
     )
@@ -57,3 +46,7 @@ class ProgramCourse(TimeStamp):
         UnitProgram,
         verbose_name=_("Program")
     )
+
+
+# add translation models
+from .trans_models import *
