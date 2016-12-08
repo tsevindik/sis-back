@@ -20,7 +20,8 @@ class TimeStamp(models.Model):
     )
     updated_at = models.DateTimeField(
         auto_now=True,
-        verbose_name=_("Güncellenme Zamanı"))
+        verbose_name=_("Güncellenme Zamanı")
+    )
 
     class Meta:
         abstract = True

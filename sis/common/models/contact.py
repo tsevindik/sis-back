@@ -15,6 +15,12 @@ class Address(TimeStamp):
     postcode = models.IntegerField(
         verbose_name=_("Posta Kodu")
     )
+
+    class Meta:
+        abstract = True
+
+
+class AddressTrans(TimeStamp):
     description = models.TextField(
         verbose_name=_("Açıklama")
     )

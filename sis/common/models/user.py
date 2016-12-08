@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...common.models.contact import Phone, Address
+from ...common.models.contact import Phone, Address, AddressTrans
 from ...user.user.models import User
 from ..models.time import TimeStamp
 
@@ -38,7 +38,7 @@ class UserPhone(Phone):
         abstract = True
 
 
-class UserAddress(Address):
+class UserAddress(Address, AddressTrans):
     user = models.ForeignKey(
         User,
         verbose_name=_("Kullanıcı")
