@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 
+APP_NAME = 'user'
+
 
 class UserConfig(AppConfig):
-    name = 'user'
+    name = APP_NAME

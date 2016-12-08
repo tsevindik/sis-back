@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 
+APP_NAME = 'announce'
 
-class AnnouncementConfig(AppConfig):
-    name = 'announcement'
+
+class AnnounceConfig(AppConfig):
+    name = 'announce'

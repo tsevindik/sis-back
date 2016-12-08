@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 
+APP_NAME = 'registry'
 
-class EnrollmentConfig(AppConfig):
-    name = 'enrollment'
+
+class RegistryConfig(AppConfig):
+    name = APP_NAME

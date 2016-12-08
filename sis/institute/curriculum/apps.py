@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 
+APP_NAME = 'curriculum'
+
 
 class CurriculumConfig(AppConfig):
-    name = 'curriculum'
+    name = APP_NAME
