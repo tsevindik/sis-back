@@ -1,11 +1,10 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...institute.institute.models import University
-from ...common.models.schedule import CampusEvent, IMPLEMENTATION_TYPE
-from ...common.models.time import TimeStamp, DateTimeInterval
-from ..section.models import CourseSection
-
+from ....institute.institute.models import University
+from ....common.models.schedule import IMPLEMENTATION_TYPE
+from ...section.models import CourseSection
+from .common import AppTimeStamp, AppDateTimeInterval, AppCampusEvent
 
 ASSIGNMENT_FORMAT = (
     (0, _('Olay bazlı')),
@@ -13,7 +12,7 @@ ASSIGNMENT_FORMAT = (
 )
 
 
-class AssignmentType(TimeStamp):
+class AssignmentType(AppTimeStamp):
     format = models.CharField(
         max_length=1,
         choices=ASSIGNMENT_FORMAT,
@@ -25,7 +24,7 @@ class AssignmentType(TimeStamp):
     )
 
 
-class SectionProcessAssignment(DateTimeInterval):
+class SectionProcessAssignment(AppDateTimeInterval):
     assignment_type = models.ForeignKey(
         AssignmentType,
         verbose_name=_("Görev Türü")
@@ -47,7 +46,7 @@ class SectionProcessAssignment(DateTimeInterval):
     )
 
 
-class SectionEventAssignment(TimeStamp):
+class SectionEventAssignment(AppTimeStamp):
     assignment_type = models.ForeignKey(
         AssignmentType,
         verbose_name=_("Görev Türü")
@@ -69,12 +68,8 @@ class SectionEventAssignment(TimeStamp):
     )
 
 
-class EventAssignmentSession(CampusEvent):
+class EventAssignmentSession(AppCampusEvent):
     section_event_assignment = models.ForeignKey(
         SectionEventAssignment,
         verbose_name=_("Grup Görevi")
     )
-
-
-# add translation models
-from .trans_models import *

@@ -1,14 +1,14 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...course.assignment.models import SectionProcessAssignment
-from ...main.registry.models import SectionRegistry
-from ...course.section.models import CourseSection
-from ...institute.institute.models import University
-from ...common.models.time import TimeStamp
+from ....course.assignment.models import SectionProcessAssignment
+from ....main.registry.models import SectionRegistry
+from ....course.section.models import CourseSection
+from ....institute.institute.models import University
+from .common import AppTimeStamp
 
 
-class LetterGrade(TimeStamp):
+class LetterGrade(AppTimeStamp):
     rank = models.IntegerField(
         verbose_name=_("Sıra")
     )
@@ -25,7 +25,7 @@ class LetterGrade(TimeStamp):
     )
 
 
-class SectionLetterGrade(TimeStamp):
+class SectionLetterGrade(AppTimeStamp):
     course_section = models.ForeignKey(
         CourseSection,
         verbose_name=_("Ders Grubu")
@@ -54,7 +54,7 @@ class SectionLetterGrade(TimeStamp):
     )
 
 
-class RegistryGrade(TimeStamp):
+class RegistryGrade(AppTimeStamp):
     section_registry = models.ForeignKey(
         SectionRegistry,
         verbose_name=_("Kayıt")
@@ -74,7 +74,7 @@ class RegistryGrade(TimeStamp):
     )
 
 
-class AssignmentGrade(TimeStamp):
+class AssignmentGrade(AppTimeStamp):
     section_registry = models.ForeignKey(
         SectionRegistry,
         verbose_name=_("Kayıt")

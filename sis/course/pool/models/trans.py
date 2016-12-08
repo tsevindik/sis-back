@@ -1,14 +1,14 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...main.contact.models import Language
-from ...common.models.time import TimeStamp
-from . import models as assignment_models
+from ....main.contact.models import Language
+from .common import AppTimeStamp
+from . import main
 
 
-class AssignmentTypeTrans(TimeStamp):
+class CoursePoolTrans(AppTimeStamp):
     neutral = models.ForeignKey(
-        assignment_models.AssignmentType
+        main.CoursePool
     )
     language = models.ForeignKey(
         Language,
