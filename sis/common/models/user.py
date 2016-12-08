@@ -38,7 +38,7 @@ class UserPhone(Phone):
         abstract = True
 
 
-class UserAddress(Address, AddressTrans):
+class UserAddress(Address):
     user = models.ForeignKey(
         User,
         verbose_name=_("Kullanıcı")
@@ -46,6 +46,9 @@ class UserAddress(Address, AddressTrans):
     title = models.CharField(
         max_length=50,
         verbose_name=_("Başlık")
+    )
+    description = models.TextField(
+        verbose_name=_("Açıklama")
     )
 
     class Meta:
