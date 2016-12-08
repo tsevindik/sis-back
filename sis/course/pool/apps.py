@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 
+APP_NAME = 'pool'
+
 
 class PoolConfig(AppConfig):
-    name = 'pool'
+    name = APP_NAME

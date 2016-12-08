@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 
+APP_NAME = 'contact'
+
 
 class ContactConfig(AppConfig):
-    name = 'contact'
+    name = APP_NAME
