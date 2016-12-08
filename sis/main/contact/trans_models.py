@@ -50,7 +50,8 @@ class RegionTrans(TimeStamp):
 
 class LanguageTrans(TimeStamp):
     neutral = models.ForeignKey(
-        contact_models.Language
+        contact_models.Language,
+        related_name="neutral_language"
     )
     language = models.ForeignKey(
         Language,

@@ -31,3 +31,7 @@ class Language(TimeStamp):
         Country,
         verbose_name=_("Ülke")
     )
+
+
+# add translation models
+from .trans_models import *
