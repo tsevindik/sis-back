@@ -1,10 +1,11 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...common.models.user import UserProfile, UserPhone, UserAddress, WORK_TIME
+from ....common.models.user import WORK_TIME
+from .common import AppUserProfile, AppUserAddress, AppUserPhone
 
 
-class StaffProfile(UserProfile):
+class StaffProfile(AppUserProfile):
     work_time = models.CharField(
         max_length=1,
         choices=WORK_TIME,
@@ -18,9 +19,9 @@ class StaffProfile(UserProfile):
     )
 
 
-class StaffPhone(UserPhone):
+class StaffPhone(AppUserPhone):
     pass
 
 
-class StaffAddress(UserAddress):
+class StaffAddress(AppUserAddress):
     pass

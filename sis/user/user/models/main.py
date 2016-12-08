@@ -2,8 +2,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-from ...institute.institute.models import University
-from ...common.models.time import TimeStamp
+from ....institute.institute.models import University
+from .common import AppTimeStamp
 
 
 class User(AbstractUser):
@@ -13,7 +13,7 @@ class User(AbstractUser):
     )
 
 
-class UserUniversity(TimeStamp):
+class UserUniversity(AppTimeStamp):
     user = models.ForeignKey(
         User,
         verbose_name=_("Kullanıcı")

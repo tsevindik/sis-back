@@ -1,13 +1,12 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...institute.program.models import UnitProgram
-from ...user.user.models import User
-from ...common.models.time import TimeStamp
-from ...common.models.user import UserProfile, UserPhone, UserAddress
+from ....institute.program.models import UnitProgram
+from ...user.models import User
+from .common import AppTimeStamp, AppUserProfile, AppUserAddress, AppUserPhone
 
 
-class StudentProfile(UserProfile):
+class StudentProfile(AppUserProfile):
     is_graduated = models.BooleanField(
         verbose_name=_("Mezun")
     )
@@ -19,15 +18,15 @@ class StudentProfile(UserProfile):
     )
 
 
-class StudentPhone(UserPhone):
+class StudentPhone(AppUserPhone):
     pass
 
 
-class StudentAddress(UserAddress):
+class StudentAddress(AppUserAddress):
     pass
 
 
-class StudentProgram(TimeStamp):
+class StudentProgram(AppTimeStamp):
     user = models.ForeignKey(
         User,
         verbose_name=_("Kullanıcı")
