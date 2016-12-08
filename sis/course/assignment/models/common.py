@@ -1,5 +1,6 @@
 from ....common.models.time import TimeStamp, DateTimeInterval
 from ....common.models.schedule import CampusEvent
+from ..apps import APP_NAME
 
 
 class AppTimeStamp(TimeStamp):
@@ -7,7 +8,7 @@ class AppTimeStamp(TimeStamp):
 
     class Meta:
         abstract = True
-        app_label = 'assignment'
+        app_label = APP_NAME
 
 
 class AppDateTimeInterval(DateTimeInterval):
@@ -15,7 +16,7 @@ class AppDateTimeInterval(DateTimeInterval):
 
     class Meta:
         abstract = True
-        app_label = 'assignment'
+        app_label = APP_NAME
 
 
 class AppCampusEvent(CampusEvent):
@@ -23,4 +24,4 @@ class AppCampusEvent(CampusEvent):
 
     class Meta:
         abstract = True
-        app_label = 'assignment'
+        app_label = APP_NAME

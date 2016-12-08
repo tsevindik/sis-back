@@ -1,4 +1,5 @@
 from ....common.models.schedule import Attendance
+from ..apps import APP_NAME
 
 
 class AppAttendance(Attendance):
@@ -6,4 +7,4 @@ class AppAttendance(Attendance):
 
     class Meta:
         abstract = True
-        app_label = 'attendance'
+        app_label = APP_NAME
