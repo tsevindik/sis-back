@@ -3,7 +3,7 @@ from django.db import models
 
 from ...student.models import StudentProgram
 from ...user.models import User
-from ....common.models.user import WORK_TIME
+from ...common.models import WORK_TIME
 from .common import AppTimeStamp, AppUserProfile, AppUserAddress, AppUserPhone
 
 

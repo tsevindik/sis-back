@@ -2,8 +2,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from ...common.models.contact import Phone, Address
+from ...common.models.time import TimeStamp
 from ...user.user.models import User
-from ..models.time import TimeStamp
 
 
 WORK_TIME = (

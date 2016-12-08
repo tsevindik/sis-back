@@ -1,5 +1,5 @@
 from ....common.models.time import TimeStamp
-from ....common.models.user import UserProfile, UserAddress, UserPhone
+from ...common.models import UserProfile, UserAddress, UserPhone
 from ..apps import APP_NAME
 
 

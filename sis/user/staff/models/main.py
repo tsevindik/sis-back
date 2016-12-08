@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ....common.models.user import WORK_TIME
+from ...common.models import WORK_TIME
 from .common import AppUserProfile, AppUserAddress, AppUserPhone
 
 
