@@ -1,37 +1,33 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...institute.institute.models import University
-from ...common.models.time import DateInterval, TimeStamp
+from ....institute.institute.models import University
+from .common import AppTimeStamp, AppDateInterval
 
 
-class Year(DateInterval):
+class Year(AppDateInterval):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
     )
 
 
-class YearSemester(DateInterval):
+class YearSemester(AppDateInterval):
     year = models.ForeignKey(
         Year,
         verbose_name=_("Yıl")
     )
 
 
-class SemesterCalendar(TimeStamp):
+class SemesterCalendar(AppTimeStamp):
     year_semester = models.ForeignKey(
         YearSemester,
         verbose_name=_("Dönem")
     )
 
 
-class CalendarPeriod(DateInterval):
+class CalendarPeriod(AppDateInterval):
     semester_calendar = models.ForeignKey(
         SemesterCalendar,
         verbose_name=_("Takvim")
     )
-
-
-# add translation models
-from .trans_models import *

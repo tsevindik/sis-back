@@ -1,14 +1,14 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...main.contact.models import Language
-from ...common.models.time import TimeStamp
-from . import models as institute_models
+from ....main.contact.models import Language
+from .common import AppTimeStamp
+from . import main
 
 
-class UniversityTrans(TimeStamp):
+class UniversityTrans(AppTimeStamp):
     neutral = models.ForeignKey(
-        institute_models.University
+        main.University
     )
     language = models.ForeignKey(
         Language,

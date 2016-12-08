@@ -1,12 +1,11 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ..institute.models import University
-from ...common.models.time import TimeStamp
-from ...common.models.contact import Address
+from ...institute.models import University
+from .common import AppTimeStamp, AppAddress
 
 
-class UniversityCampus(Address):
+class UniversityCampus(AppAddress):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
@@ -16,14 +15,14 @@ class UniversityCampus(Address):
     )
 
 
-class BuildingType(TimeStamp):
+class BuildingType(AppTimeStamp):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
     )
 
 
-class CampusBuilding(Address):
+class CampusBuilding(AppAddress):
     university_campus = models.ForeignKey(
         UniversityCampus,
         verbose_name=_("Kampüs")
@@ -37,14 +36,14 @@ class CampusBuilding(Address):
     )
 
 
-class CampusBlock(TimeStamp):
+class CampusBlock(AppTimeStamp):
     university_campus = models.ForeignKey(
         UniversityCampus,
         verbose_name=_("Kampüs")
     )
 
 
-class BlockBuilding(TimeStamp):
+class BlockBuilding(AppTimeStamp):
     campus_building = models.ForeignKey(
         CampusBuilding,
         verbose_name=_("Kampüs Binası")
@@ -55,14 +54,14 @@ class BlockBuilding(TimeStamp):
     )
 
 
-class RoomType(TimeStamp):
+class RoomType(AppTimeStamp):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
     )
 
 
-class BuildingRoom(TimeStamp):
+class BuildingRoom(AppTimeStamp):
     code = models.CharField(
         max_length=20,
         verbose_name=_("Kod")
@@ -81,7 +80,3 @@ class BuildingRoom(TimeStamp):
         BuildingType,
         verbose_name=_("Bina Türü")
     )
-
-
-# add translation models
-from .trans_models import *

@@ -1,14 +1,14 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...main.contact.models import Language
-from ...common.models.time import TimeStamp
-from . import models as schedule_models
+from ....main.contact.models import Language
+from .common import AppTimeStamp
+from . import main
 
 
-class YearTrans(TimeStamp):
+class YearTrans(AppTimeStamp):
     neutral = models.ForeignKey(
-        schedule_models.Year
+        main.Year
     )
     language = models.ForeignKey(
         Language,
@@ -20,9 +20,9 @@ class YearTrans(TimeStamp):
     )
 
 
-class YearSemesterTrans(TimeStamp):
+class YearSemesterTrans(AppTimeStamp):
     neutral = models.ForeignKey(
-        schedule_models.YearSemester
+        main.YearSemester
     )
     language = models.ForeignKey(
         Language,
@@ -34,9 +34,9 @@ class YearSemesterTrans(TimeStamp):
     )
 
 
-class SemesterCalendarTrans(TimeStamp):
+class SemesterCalendarTrans(AppTimeStamp):
     neutral = models.ForeignKey(
-        schedule_models.SemesterCalendar
+        main.SemesterCalendar
     )
     language = models.ForeignKey(
         Language,
@@ -48,9 +48,9 @@ class SemesterCalendarTrans(TimeStamp):
     )
 
 
-class CalendarPeriodTrans(TimeStamp):
+class CalendarPeriodTrans(AppTimeStamp):
     neutral = models.ForeignKey(
-        schedule_models.CalendarPeriod
+        main.CalendarPeriod
     )
     language = models.ForeignKey(
         Language,

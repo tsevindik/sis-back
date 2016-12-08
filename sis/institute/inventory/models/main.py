@@ -1,26 +1,26 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from sis.institute.facility.models import BuildingRoom
-from ...institute.institute.models import University
-from ...common.models.time import TimeStamp
+from ....institute.facility.models import BuildingRoom
+from ....institute.institute.models import University
+from .common import AppTimeStamp
 
 
-class AssetType(TimeStamp):
+class AssetType(AppTimeStamp):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
     )
 
 
-class Asset(TimeStamp):
+class Asset(AppTimeStamp):
     type = models.ForeignKey(
         AssetType,
         verbose_name=_("Demirbaş Türü")
     )
 
 
-class RoomInventory(TimeStamp):
+class RoomInventory(AppTimeStamp):
     room = models.ForeignKey(
         BuildingRoom,
         verbose_name=_("Oda")
@@ -29,7 +29,3 @@ class RoomInventory(TimeStamp):
         Asset,
         verbose_name=_("Mal")
     )
-
-
-# add translation models
-from .trans_models import *

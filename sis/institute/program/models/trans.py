@@ -1,28 +1,14 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...main.contact.models import Language
-from ...common.models.time import TimeStamp
-from . import models as unit_models
+from ....main.contact.models import Language
+from .common import AppTimeStamp
+from . import main
 
 
-class UnitTypeTrans(TimeStamp):
+class UnitProgramTrans(AppTimeStamp):
     neutral = models.ForeignKey(
-        unit_models.UnitType
-    )
-    language = models.ForeignKey(
-        Language,
-        verbose_name=_("Dil")
-    )
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )
-
-
-class UniversityUnitTrans(TimeStamp):
-    neutral = models.ForeignKey(
-        unit_models.UniversityUnit
+        main.UnitProgram
     )
     language = models.ForeignKey(
         Language,
@@ -34,4 +20,18 @@ class UniversityUnitTrans(TimeStamp):
     )
     description = models.TextField(
         verbose_name=_("Açıklama")
+    )
+
+
+class ProgramSemesterTrans(AppTimeStamp):
+    neutral = models.ForeignKey(
+        main.ProgramSemester
+    )
+    language = models.ForeignKey(
+        Language,
+        verbose_name=_("Dil")
+    )
+    name = models.CharField(
+        max_length=50,
+        verbose_name=_("İsim")
     )

@@ -1,20 +1,20 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...course.course.models import Course
-from ...institute.facility.models import CampusBuilding
-from ...common.models.time import TimeStamp
-from ..institute.models import University
+from ....course.course.models import Course
+from ....institute.facility.models import CampusBuilding
+from ...institute.models import University
+from .common import AppTimeStamp
 
 
-class UnitType(TimeStamp):
+class UnitType(AppTimeStamp):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
     )
 
 
-class UniversityUnit(TimeStamp):
+class UniversityUnit(AppTimeStamp):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
@@ -25,7 +25,7 @@ class UniversityUnit(TimeStamp):
     )
 
 
-class UnitCourse(TimeStamp):
+class UnitCourse(AppTimeStamp):
     course = models.ForeignKey(
         Course,
         verbose_name=_("Ders")
@@ -36,7 +36,7 @@ class UnitCourse(TimeStamp):
     )
 
 
-class UnitBuilding(TimeStamp):
+class UnitBuilding(AppTimeStamp):
     university_building = models.ForeignKey(
         UniversityUnit,
         verbose_name=_("Üniversite Birimi")
@@ -45,7 +45,3 @@ class UnitBuilding(TimeStamp):
         CampusBuilding,
         verbose_name=_("Kampüs Binası")
     )
-
-
-# add translation models
-from .trans_models import *

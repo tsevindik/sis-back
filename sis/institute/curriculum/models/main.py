@@ -1,13 +1,13 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...common.models.time import TimeStamp
-from ...course.course.models import Course
-from ...course.pool.models import CoursePool
-from ...institute.program.models import ProgramSemester
+from ....course.course.models import Course
+from ....course.pool.models import CoursePool
+from ....institute.program.models import ProgramSemester
+from .common import AppTimeStamp
 
 
-class CurriculumCourse(TimeStamp):
+class CurriculumCourse(AppTimeStamp):
     program_semester = models.ForeignKey(
         ProgramSemester,
         verbose_name=_("Dönem")
@@ -18,7 +18,7 @@ class CurriculumCourse(TimeStamp):
     )
 
 
-class CurriculumCoursePool(TimeStamp):
+class CurriculumCoursePool(AppTimeStamp):
     program_semester = models.ForeignKey(
         ProgramSemester,
         verbose_name=_("Dönem")
