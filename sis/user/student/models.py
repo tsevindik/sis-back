@@ -8,7 +8,15 @@ from ...common.models.user import UserProfile, UserPhone, UserAddress
 
 
 class StudentProfile(UserProfile):
-    pass
+    is_graduated = models.BooleanField(
+        verbose_name=_("Mezun")
+    )
+    is_suspended = models.BooleanField(
+        verbose_name=_("Kayıt Dondurdu")
+    )
+    is_quit = models.BooleanField(
+        verbose_name=_("Ayrıldı")
+    )
 
 
 class StudentPhone(UserPhone):
