@@ -2,11 +2,11 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from apps.other.contact.models import Language
-from .utils import AppTimeStamp
+from utils.models import time as time_models
 from . import main
 
 
-class CoursePoolTrans(AppTimeStamp):
+class CoursePoolTrans(time_models.TimeStamp):
     neutral = models.ForeignKey(
         main.CoursePool
     )

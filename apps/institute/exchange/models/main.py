@@ -1,16 +1,16 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from utils.models import time as time_models
 from apps.user.user.models import User
 from apps.institute.institute.models import University
-from .utils import AppTimeStamp
 
 
-class ExchangeProgram(AppTimeStamp):
+class ExchangeProgram(time_models.TimeStamp):
     pass
 
 
-class ExchangeAgreement(AppTimeStamp):
+class ExchangeAgreement(time_models.TimeStamp):
     exchange_program = models.ForeignKey(
         ExchangeProgram,
         blank=True,
@@ -28,7 +28,7 @@ class ExchangeAgreement(AppTimeStamp):
     )
 
 
-class ExchangeApplication(AppTimeStamp):
+class ExchangeApplication(time_models.TimeStamp):
     exchange_agreement = models.ForeignKey(
         ExchangeAgreement,
         verbose_name=_("Değişim Anlaşması")
@@ -42,7 +42,7 @@ class ExchangeApplication(AppTimeStamp):
     )
 
 
-class ExchangeStudent(AppTimeStamp):
+class ExchangeStudent(time_models.TimeStamp):
     exchange_agreement = models.ForeignKey(
         ExchangeAgreement,
         verbose_name=_("Değişim Anlaşması")

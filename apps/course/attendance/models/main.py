@@ -4,10 +4,10 @@ from django.db import models
 from apps.user.user.models import User
 from apps.course.section.models import SectionSession
 from apps.course.assignment.models import EventAssignmentSession
-from .utils import AppAttendance
+from utils.models import schedule as schedule_models
 
 
-class StudentCourseAttendance(AppAttendance):
+class StudentCourseAttendance(schedule_models.Attendance):
     session_session = models.ForeignKey(
         SectionSession,
         verbose_name=_("Oturum")
@@ -18,7 +18,7 @@ class StudentCourseAttendance(AppAttendance):
     )
 
 
-class InstructorCourseAttendance(AppAttendance):
+class InstructorCourseAttendance(schedule_models.Attendance):
     session_session = models.ForeignKey(
         SectionSession,
         verbose_name=_("Oturum")
@@ -29,7 +29,7 @@ class InstructorCourseAttendance(AppAttendance):
     )
 
 
-class EventAssignmentAttendance(AppAttendance):
+class EventAssignmentAttendance(schedule_models.Attendance):
     event_assignment_session = models.ForeignKey(
         EventAssignmentSession,
         verbose_name=_("Görev Oturumu")

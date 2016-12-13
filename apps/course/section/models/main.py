@@ -1,14 +1,13 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from utils.models import schedule
 from apps.institute.schedule.models import YearSemester
 from apps.user.user.models import User
 from apps.course.course.models import Course
-from .utils import AppTimeStamp, AppDayTimeInterval, AppCampusEvent
+from utils.models import time as time_models, schedule as schedule_models
 
 
-class CourseSection(AppTimeStamp):
+class CourseSection(time_models.TimeStamp):
     course = models.ForeignKey(
         Course,
         verbose_name=_("Ders")
@@ -22,12 +21,12 @@ class CourseSection(AppTimeStamp):
     )
     implementation_type = models.CharField(
         max_length=1,
-        choices=schedule.IMPLEMENTATION_TYPE,
+        choices=schedule_models.IMPLEMENTATION_TYPE,
         verbose_name=_("Uygulama Türü")
     )
 
 
-class SectionInstructor(AppDayTimeInterval):
+class SectionInstructor(time_models.DayTimeInterval):
     course_section = models.ForeignKey(
         CourseSection,
         verbose_name=_("Ders Grubu")
@@ -38,14 +37,14 @@ class SectionInstructor(AppDayTimeInterval):
     )
 
 
-class SectionWeekSession(AppDayTimeInterval):
+class SectionWeekSession(time_models.DayTimeInterval):
     course_section = models.ForeignKey(
         CourseSection,
         verbose_name=_("Ders Grubu")
     )
 
 
-class SectionSession(AppCampusEvent):
+class SectionSession(schedule_models.CampusEvent):
     section_week_session = models.ForeignKey(
         SectionWeekSession,
         verbose_name=_("Haftalık Oturum")

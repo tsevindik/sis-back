@@ -1,12 +1,12 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from utils.models import time, contact
 from apps.other.contact.models import Language
-from .utils import AppTimeStamp, AppAddressTrans
 from . import main
 
 
-class UniversityCampusTrans(AppAddressTrans):
+class UniversityCampusTrans(contact.AddressTrans):
     neutral = models.ForeignKey(
         main.UniversityCampus
     )
@@ -20,7 +20,7 @@ class UniversityCampusTrans(AppAddressTrans):
     )
 
 
-class BuildingTypeTrans(AppTimeStamp):
+class BuildingTypeTrans(time.TimeStamp):
     neutral = models.ForeignKey(
         main.BuildingType
     )
@@ -34,7 +34,7 @@ class BuildingTypeTrans(AppTimeStamp):
     )
 
 
-class CampusBuildingTrans(AppAddressTrans):
+class CampusBuildingTrans(contact.AddressTrans):
     neutral = models.ForeignKey(
         main.CampusBuilding
     )
@@ -48,7 +48,7 @@ class CampusBuildingTrans(AppAddressTrans):
     )
 
 
-class CampusBlockTrans(AppTimeStamp):
+class CampusBlockTrans(time.TimeStamp):
     neutral = models.ForeignKey(
         main.CampusBlock
     )
@@ -62,7 +62,7 @@ class CampusBlockTrans(AppTimeStamp):
     )
 
 
-class RoomTypeTrans(AppTimeStamp):
+class RoomTypeTrans(time.TimeStamp):
     neutral = models.ForeignKey(
         main.RoomType
     )
@@ -76,7 +76,7 @@ class RoomTypeTrans(AppTimeStamp):
     )
 
 
-class BuildingRoomTrans(AppTimeStamp):
+class BuildingRoomTrans(time.TimeStamp):
     neutral = models.ForeignKey(
         main.BuildingRoom
     )

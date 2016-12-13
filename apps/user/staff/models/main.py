@@ -1,14 +1,13 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ...utils.models import WORK_TIME
-from .utils import AppUserProfile, AppUserAddress, AppUserPhone
+from apps.user.utils import models as user_models
 
 
-class StaffProfile(AppUserProfile):
+class StaffProfile(user_models.UserProfile):
     work_time = models.CharField(
         max_length=1,
-        choices=WORK_TIME,
+        choices=user_models.WORK_TIME,
         verbose_name=_("Çalışma Saati")
     )
     on_leave = models.BooleanField(
@@ -19,9 +18,9 @@ class StaffProfile(AppUserProfile):
     )
 
 
-class StaffPhone(AppUserPhone):
+class StaffPhone(user_models.UserPhone):
     pass
 
 
-class StaffAddress(AppUserAddress):
+class StaffAddress(user_models.UserAddress):
     pass

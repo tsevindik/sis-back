@@ -1,12 +1,12 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from utils.models import time as time_models
 from apps.institute.program.models import UnitProgram
 from apps.user.user.models import User
-from .utils import AppTimeStamp
 
 
-class MajorProgram(AppTimeStamp):
+class MajorProgram(time_models.TimeStamp):
     unit_program = models.ForeignKey(
         UnitProgram,
         verbose_name=_("Program")
@@ -17,7 +17,7 @@ class MajorProgram(AppTimeStamp):
     )
 
 
-class MinorProgram(AppTimeStamp):
+class MinorProgram(time_models.TimeStamp):
     unit_program = models.ForeignKey(
         UnitProgram,
         verbose_name=_("Program")
@@ -28,7 +28,7 @@ class MinorProgram(AppTimeStamp):
     )
 
 
-class MajorApplication(AppTimeStamp):
+class MajorApplication(time_models.TimeStamp):
     major_program = models.ForeignKey(
         MajorProgram,
         verbose_name=_("Program")
@@ -42,7 +42,7 @@ class MajorApplication(AppTimeStamp):
     )
 
 
-class MinorApplication(AppTimeStamp):
+class MinorApplication(time_models.TimeStamp):
     minor_program = models.ForeignKey(
         MinorProgram,
         verbose_name=_("Program")

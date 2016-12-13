@@ -1,20 +1,20 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from utils.models import time as time_models
 from apps.course.course.models import Course
 from apps.institute.facility.models import CampusBuilding
 from apps.institute.institute.models import University
-from .utils import AppTimeStamp
 
 
-class UnitType(AppTimeStamp):
+class UnitType(time_models.TimeStamp):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
     )
 
 
-class UniversityUnit(AppTimeStamp):
+class UniversityUnit(time_models.TimeStamp):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
@@ -25,7 +25,7 @@ class UniversityUnit(AppTimeStamp):
     )
 
 
-class UnitCourse(AppTimeStamp):
+class UnitCourse(time_models.TimeStamp):
     course = models.ForeignKey(
         Course,
         verbose_name=_("Ders")
@@ -36,7 +36,7 @@ class UnitCourse(AppTimeStamp):
     )
 
 
-class UnitBuilding(AppTimeStamp):
+class UnitBuilding(time_models.TimeStamp):
     university_building = models.ForeignKey(
         UniversityUnit,
         verbose_name=_("Üniversite Birimi")

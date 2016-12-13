@@ -1,10 +1,10 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from .utils import AppTimeStamp
+from utils.models import time as time_models
 
 
-class Course(AppTimeStamp):
+class Course(time_models.TimeStamp):
     code = models.CharField(
         max_length=10,
         verbose_name=_("Kod")
@@ -26,7 +26,7 @@ class Course(AppTimeStamp):
     )
 
 
-class CoursePrerequisite(AppTimeStamp):
+class CoursePrerequisite(time_models.TimeStamp):
     course = models.ForeignKey(
         Course,
         verbose_name=_("Ders")
@@ -38,7 +38,7 @@ class CoursePrerequisite(AppTimeStamp):
     )
 
 
-class CourseCreditPrerequisite(AppTimeStamp):
+class CourseCreditPrerequisite(time_models.TimeStamp):
     course = models.ForeignKey(
         Course,
         verbose_name=_("Ders")

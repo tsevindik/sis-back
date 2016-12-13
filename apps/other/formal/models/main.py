@@ -1,11 +1,11 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from utils.models import time as time_models
 from apps.institute.institute.models import University
-from .utils import AppTimeStamp
 
 
-class Certification(AppTimeStamp):
+class Certification(time_models.TimeStamp):
     name = models.CharField(
         max_length=150,
         verbose_name=_("İsim")

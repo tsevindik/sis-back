@@ -1,12 +1,12 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from utils.models import time as time_models
 from .main import Language
-from .utils import AppTimeStamp
 from . import main
 
 
-class CountryTrans(AppTimeStamp):
+class CountryTrans(time_models.TimeStamp):
     neutral = models.ForeignKey(
         main.Country
     )
@@ -20,7 +20,7 @@ class CountryTrans(AppTimeStamp):
     )
 
 
-class CityTrans(AppTimeStamp):
+class CityTrans(time_models.TimeStamp):
     neutral = models.ForeignKey(
         main.City
     )
@@ -34,7 +34,7 @@ class CityTrans(AppTimeStamp):
     )
 
 
-class RegionTrans(AppTimeStamp):
+class RegionTrans(time_models.TimeStamp):
     neutral = models.ForeignKey(
         main.Region
     )
@@ -48,7 +48,7 @@ class RegionTrans(AppTimeStamp):
     )
 
 
-class LanguageTrans(AppTimeStamp):
+class LanguageTrans(time_models.TimeStamp):
     neutral = models.ForeignKey(
         main.Language,
         related_name="neutral_language"

@@ -5,10 +5,10 @@ from apps.course.assignment.models import SectionProcessAssignment
 from apps.other.registry.models import SectionRegistry
 from apps.course.section.models import CourseSection
 from apps.institute.institute.models import University
-from .utils import AppTimeStamp
+from utils.models import time as time_models
 
 
-class LetterGrade(AppTimeStamp):
+class LetterGrade(time_models.TimeStamp):
     rank = models.IntegerField(
         verbose_name=_("Sıra")
     )
@@ -25,7 +25,7 @@ class LetterGrade(AppTimeStamp):
     )
 
 
-class SectionLetterGrade(AppTimeStamp):
+class SectionLetterGrade(time_models.TimeStamp):
     course_section = models.ForeignKey(
         CourseSection,
         verbose_name=_("Ders Grubu")
@@ -54,7 +54,7 @@ class SectionLetterGrade(AppTimeStamp):
     )
 
 
-class RegistryGrade(AppTimeStamp):
+class RegistryGrade(time_models.TimeStamp):
     section_registry = models.ForeignKey(
         SectionRegistry,
         verbose_name=_("Kayıt")
@@ -74,7 +74,7 @@ class RegistryGrade(AppTimeStamp):
     )
 
 
-class AssignmentGrade(AppTimeStamp):
+class AssignmentGrade(time_models.TimeStamp):
     section_registry = models.ForeignKey(
         SectionRegistry,
         verbose_name=_("Kayıt")

@@ -1,12 +1,12 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from utils.models import time
 from apps.other.contact.models import Language
-from .utils import AppTimeStamp
 from . import main
 
 
-class YearTrans(AppTimeStamp):
+class YearTrans(time.TimeStamp):
     neutral = models.ForeignKey(
         main.Year
     )
@@ -20,7 +20,7 @@ class YearTrans(AppTimeStamp):
     )
 
 
-class YearSemesterTrans(AppTimeStamp):
+class YearSemesterTrans(time.TimeStamp):
     neutral = models.ForeignKey(
         main.YearSemester
     )
@@ -34,7 +34,7 @@ class YearSemesterTrans(AppTimeStamp):
     )
 
 
-class SemesterCalendarTrans(AppTimeStamp):
+class SemesterCalendarTrans(time.TimeStamp):
     neutral = models.ForeignKey(
         main.SemesterCalendar
     )
@@ -48,7 +48,7 @@ class SemesterCalendarTrans(AppTimeStamp):
     )
 
 
-class CalendarPeriodTrans(AppTimeStamp):
+class CalendarPeriodTrans(time.TimeStamp):
     neutral = models.ForeignKey(
         main.CalendarPeriod
     )

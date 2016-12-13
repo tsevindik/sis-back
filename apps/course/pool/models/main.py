@@ -4,17 +4,17 @@ from django.db import models
 from apps.institute.unit.models import UniversityUnit
 from apps.institute.institute.models import University
 from apps.course.course.models import Course
-from .utils import AppTimeStamp
+from utils.models import time as time_models
 
 
-class CoursePool(AppTimeStamp):
+class CoursePool(time_models.TimeStamp):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
     )
 
 
-class PoolUnit(AppTimeStamp):
+class PoolUnit(time_models.TimeStamp):
     course_pool = models.ForeignKey(
         CoursePool,
         verbose_name=_("Ders")
@@ -25,7 +25,7 @@ class PoolUnit(AppTimeStamp):
     )
 
 
-class PoolCourse(AppTimeStamp):
+class PoolCourse(time_models.TimeStamp):
     course_pool = models.ForeignKey(
         CoursePool,
         verbose_name=_("Ders Havuzu")

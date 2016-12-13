@@ -1,16 +1,16 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from utils.models import time as time_models
 from apps.other.contact.models import Language
 from apps.course.course.models import Course
-from .utils import AppTimeStamp
 
 
-class University(AppTimeStamp):
+class University(time_models.TimeStamp):
     pass
 
 
-class UniversityConfig(AppTimeStamp):
+class UniversityConfig(time_models.TimeStamp):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
@@ -21,7 +21,7 @@ class UniversityConfig(AppTimeStamp):
     )
 
 
-class UniversityCourse(AppTimeStamp):
+class UniversityCourse(time_models.TimeStamp):
     is_primary = models.BooleanField(
         verbose_name=_("Birincil")
     )

@@ -1,10 +1,11 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from utils.models import time as time_models
+from apps.user.utils import models as user_models
 from apps.user.student.models import StudentProgram
 from apps.user.user.models import User
 from apps.user.utils.models import WORK_TIME
-from .utils import AppTimeStamp, AppUserProfile, AppUserAddress, AppUserPhone
 
 
 WORK_STATUS = (
@@ -16,7 +17,7 @@ WORK_STATUS = (
 )
 
 
-class InstructorProfile(AppUserProfile):
+class InstructorProfile(user_models.UserProfile):
     work_status = models.CharField(
         max_length=1,
         choices=WORK_STATUS,
@@ -35,15 +36,15 @@ class InstructorProfile(AppUserProfile):
     )
 
 
-class InstructorPhone(AppUserPhone):
+class InstructorPhone(user_models.UserPhone):
     pass
 
 
-class InstructorAddress(AppUserAddress):
+class InstructorAddress(user_models.UserAddress):
     pass
 
 
-class ProgramAdviser(AppTimeStamp):
+class ProgramAdviser(time_models.TimeStamp):
     user = models.ForeignKey(
         User,
         verbose_name=_("Kullanıcı")
