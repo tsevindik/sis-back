@@ -18,6 +18,20 @@ class StudentQuotaDemand(time_models.TimeStamp):
     )
 
 
+class StudentCourseDemand(time_models.TimeStamp):
+    user = models.ForeignKey(
+        User,
+        verbose_name=_("Kullanıcı")
+    )
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
+    )
+    semester = models.IntegerField(
+        verbose_name=_("Dönem")
+    )
+
+
 class InstructorCourseDemand(time_models.TimeStamp):
     user = models.ForeignKey(
         User,
