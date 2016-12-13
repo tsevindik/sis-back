@@ -11,9 +11,9 @@ class MajorProgram(AppTimeStamp):
         UnitProgram,
         verbose_name=_("Program")
     )
-    major = models.ForeignKey(
+    major_program = models.ForeignKey(
         UnitProgram,
-        verbose_name=_("Anadal")
+        verbose_name=_("Anadal Programı")
     )
 
 
@@ -22,9 +22,9 @@ class MinorProgram(AppTimeStamp):
         UnitProgram,
         verbose_name=_("Program")
     )
-    minor = models.ForeignKey(
+    minor_program = models.ForeignKey(
         UnitProgram,
-        verbose_name=_("Yandal")
+        verbose_name=_("Yandal Programı")
     )
 
 

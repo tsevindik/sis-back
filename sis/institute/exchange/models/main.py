@@ -23,6 +23,7 @@ class ExchangeAgreement(AppTimeStamp):
     )
     out_university = models.ForeignKey(
         University,
+        related_name='out_university',
         verbose_name=_("Gidilen Üniversite")
     )
 
