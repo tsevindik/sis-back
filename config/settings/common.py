@@ -36,6 +36,7 @@ PROJECT_APPS = (
     'apps.course.course',
     'apps.course.assignment',
     'apps.course.attendance',
+    'apps.course.demand',
     'apps.course.grade',
     'apps.course.pool',
     'apps.course.section',

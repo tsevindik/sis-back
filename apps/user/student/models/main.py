@@ -17,6 +17,9 @@ class StudentProfile(user_models.UserProfile):
     is_quit = models.BooleanField(
         verbose_name=_("Ayrıldı")
     )
+    gpa = models.FloatField(
+        verbose_name=_("Ortalama")
+    )
 
 
 class StudentPhone(user_models.UserPhone):
