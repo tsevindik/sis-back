@@ -3,6 +3,7 @@ from django.db import models
 
 from apps.course.course.models import Course
 from apps.course.section.models import CourseSection
+from apps.institute.schedule.models import YearSemester
 from apps.user.user.models import User
 from utils.models import time as time_models
 
@@ -27,7 +28,8 @@ class StudentCourseDemand(time_models.TimeStamp):
         Course,
         verbose_name=_("Ders")
     )
-    semester = models.IntegerField(
+    year_semester = models.ForeignKey(
+        YearSemester,
         verbose_name=_("Dönem")
     )
 
@@ -41,6 +43,7 @@ class InstructorCourseDemand(time_models.TimeStamp):
         Course,
         verbose_name=_("Ders")
     )
-    semester = models.IntegerField(
+    year_semester = models.ForeignKey(
+        YearSemester,
         verbose_name=_("Dönem")
     )
