@@ -33,32 +33,31 @@ THIRD_PARTY_APPS = (
 )
 
 PROJECT_APPS = (
-    'sis.course.course',
-    'sis.course.assignment',
-    'sis.course.attendance',
-    'sis.course.grade',
-    'sis.course.pool',
-    'sis.course.section',
+    'apps.course.course',
+    'apps.course.assignment',
+    'apps.course.attendance',
+    'apps.course.grade',
+    'apps.course.pool',
+    'apps.course.section',
 
-    'sis.institute.institute',
-    'sis.institute.curriculum',
-    'sis.institute.exchange',
-    'sis.institute.facility',
-    'sis.institute.inventory',
-    'sis.institute.program',
-    'sis.institute.schedule',
-    'sis.institute.unit',
+    'apps.institute.institute',
+    'apps.institute.curriculum',
+    'apps.institute.exchange',
+    'apps.institute.facility',
+    'apps.institute.inventory',
+    'apps.institute.program',
+    'apps.institute.schedule',
+    'apps.institute.unit',
 
-    'sis.main.main',
-    'sis.main.announce',
-    'sis.main.contact',
-    'sis.main.formal',
-    'sis.main.registry',
+    'apps.other.announce',
+    'apps.other.contact',
+    'apps.other.formal',
+    'apps.other.registry',
 
-    'sis.user.user',
-    'sis.user.instructor',
-    'sis.user.staff',
-    'sis.user.student',
+    'apps.user.user',
+    'apps.user.instructor',
+    'apps.user.staff',
+    'apps.user.student',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
@@ -73,7 +72,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'sis.urls'
+ROOT_URLCONF = 'apps.urls'
 
 TEMPLATES = [
     {
