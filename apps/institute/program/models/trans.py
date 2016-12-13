@@ -1,12 +1,12 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from utils.models import time
+from utils.models import time as time_models
 from apps.other.contact.models import Language
 from . import main
 
 
-class UnitProgramTrans(time.TimeStamp):
+class UnitProgramTrans(time_models.TimeStamp):
     neutral = models.ForeignKey(
         main.UnitProgram
     )
@@ -23,7 +23,7 @@ class UnitProgramTrans(time.TimeStamp):
     )
 
 
-class ProgramSemesterTrans(time.TimeStamp):
+class ProgramSemesterTrans(time_models.TimeStamp):
     neutral = models.ForeignKey(
         main.ProgramSemester
     )
