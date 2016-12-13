@@ -6,16 +6,16 @@ from apps.institute.facility.models import BuildingRoom
 from apps.institute.institute.models import University
 
 
-class AssetType(time_models.TimeStamp):
+class InventoryType(time_models.TimeStamp):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
     )
 
 
-class Asset(time_models.TimeStamp):
-    type = models.ForeignKey(
-        AssetType,
+class Inventory(time_models.TimeStamp):
+    inventory_type = models.ForeignKey(
+        InventoryType,
         verbose_name=_("Demirbaş Türü")
     )
 
@@ -25,7 +25,10 @@ class RoomInventory(time_models.TimeStamp):
         BuildingRoom,
         verbose_name=_("Oda")
     )
-    asset = models.ForeignKey(
-        Asset,
-        verbose_name=_("Mal")
+    inventory = models.ForeignKey(
+        Inventory,
+        verbose_name=_("Demirbaş")
+    )
+    count = models.PositiveIntegerField(
+        verbose_name=_("Sayı")
     )
