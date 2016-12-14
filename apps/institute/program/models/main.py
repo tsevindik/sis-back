@@ -10,7 +10,7 @@ from apps.institute.institute.models import University
 class UnitProgram(time_models.TimeStamp):
     university_unit = models.ForeignKey(
         UniversityUnit,
-        verbose_name=_("Üniversite Birimi")
+        verbose_name=_("Birim")
     )
     is_multiple_degree = models.BooleanField(
         verbose_name=_("Çoklu Program")

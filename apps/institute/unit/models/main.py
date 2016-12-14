@@ -32,14 +32,14 @@ class UnitCourse(time_models.TimeStamp):
     )
     university_unit = models.ForeignKey(
         UniversityUnit,
-        verbose_name=_("Üniversite Birimi")
+        verbose_name=_("Birim")
     )
 
 
 class UnitBuilding(time_models.TimeStamp):
     university_building = models.ForeignKey(
         UniversityUnit,
-        verbose_name=_("Üniversite Birimi")
+        verbose_name=_("Birim")
     )
     campus_building = models.ForeignKey(
         CampusBuilding,
