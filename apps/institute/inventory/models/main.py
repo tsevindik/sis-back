@@ -3,14 +3,10 @@ from django.db import models
 
 from utils.models import time as time_models
 from apps.institute.facility.models import BuildingRoom
-from apps.institute.institute.models import University
 
 
 class InventoryType(time_models.TimeStamp):
-    university = models.ForeignKey(
-        University,
-        verbose_name=_("Üniversite")
-    )
+    pass
 
 
 class Inventory(time_models.TimeStamp):

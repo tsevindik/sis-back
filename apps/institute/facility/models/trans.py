@@ -8,7 +8,7 @@ from . import main
 
 class UniversityCampusTrans(contact.AddressTrans):
     neutral = models.ForeignKey(
-        main.UniversityCampus
+        main.Campus
     )
     language = models.ForeignKey(
         Language,

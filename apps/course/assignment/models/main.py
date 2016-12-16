@@ -2,7 +2,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from utils.models import time as time_models, schedule as schedule_models
-from apps.institute.institute.models import University
 from apps.course.section.models import CourseSection
 
 
@@ -17,10 +16,6 @@ class AssignmentType(time_models.TimeStamp):
         max_length=1,
         choices=ASSIGNMENT_FORMAT,
         verbose_name=_("Format")
-    )
-    university = models.ForeignKey(
-        University,
-        verbose_name=_("Üniversite")
     )
 
 

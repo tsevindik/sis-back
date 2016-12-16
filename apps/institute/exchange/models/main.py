@@ -21,11 +21,6 @@ class ExchangeAgreement(time_models.TimeStamp):
         University,
         verbose_name=_("Üniversite")
     )
-    out_university = models.ForeignKey(
-        University,
-        related_name='out_university',
-        verbose_name=_("Gidilen Üniversite")
-    )
 
 
 class ExchangeApplication(time_models.TimeStamp):

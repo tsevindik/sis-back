@@ -11,10 +11,6 @@ class University(time_models.TimeStamp):
 
 
 class UniversityConfig(time_models.TimeStamp):
-    university = models.ForeignKey(
-        University,
-        verbose_name=_("Üniversite")
-    )
     language = models.ForeignKey(
         Language,
         verbose_name=_("Üniversite")

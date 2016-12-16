@@ -2,14 +2,10 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from utils.models import time as time_models
-from apps.institute.institute.models import University
 
 
 class Year(time_models.DateInterval):
-    university = models.ForeignKey(
-        University,
-        verbose_name=_("Üniversite")
-    )
+    pass
 
 
 class YearSemester(time_models.DateInterval):

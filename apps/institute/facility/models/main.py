@@ -2,29 +2,21 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from utils.models import time as time_models, contact as contact_models
-from apps.institute.institute.models import University
 
 
-class UniversityCampus(contact_models.Address):
-    university = models.ForeignKey(
-        University,
-        verbose_name=_("Üniversite")
-    )
+class Campus(contact_models.Address):
     has_blocks = models.BooleanField(
         verbose_name=_("Blok")
     )
 
 
 class BuildingType(time_models.TimeStamp):
-    university = models.ForeignKey(
-        University,
-        verbose_name=_("Üniversite")
-    )
+    pass
 
 
 class CampusBuilding(contact_models.Address):
-    university_campus = models.ForeignKey(
-        UniversityCampus,
+    campus = models.ForeignKey(
+        Campus,
         verbose_name=_("Kampüs")
     )
     type = models.ForeignKey(
@@ -37,8 +29,8 @@ class CampusBuilding(contact_models.Address):
 
 
 class CampusBlock(time_models.TimeStamp):
-    university_campus = models.ForeignKey(
-        UniversityCampus,
+    campus = models.ForeignKey(
+        Campus,
         verbose_name=_("Kampüs")
     )
 
@@ -55,10 +47,7 @@ class BlockBuilding(time_models.TimeStamp):
 
 
 class RoomType(time_models.TimeStamp):
-    university = models.ForeignKey(
-        University,
-        verbose_name=_("Üniversite")
-    )
+    pass
 
 
 class BuildingRoom(time_models.TimeStamp):

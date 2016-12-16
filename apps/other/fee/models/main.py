@@ -2,13 +2,13 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from apps.institute.program.models import UnitProgram
-from apps.institute.unit.models import UniversityUnit
+from apps.institute.unit.models import Unit
 from utils.models import time as time_models
 
 
 class UnitTuitionFee(time_models.TimeStamp):
-    university_unit = models.ForeignKey(
-        UniversityUnit,
+    unit = models.ForeignKey(
+        Unit,
         verbose_name=_("Birim")
     )
     fee = models.PositiveIntegerField(
@@ -27,8 +27,8 @@ class ProgramTuitionFee(time_models.TimeStamp):
 
 
 class UnitCreditFee(time_models.TimeStamp):
-    university_unit = models.ForeignKey(
-        UniversityUnit,
+    unit = models.ForeignKey(
+        Unit,
         verbose_name=_("Birim")
     )
     fee = models.PositiveIntegerField(
@@ -37,8 +37,8 @@ class UnitCreditFee(time_models.TimeStamp):
 
 
 class ProgramCreditFee(time_models.TimeStamp):
-    university_unit = models.ForeignKey(
-        UniversityUnit,
+    unit = models.ForeignKey(
+        Unit,
         verbose_name=_("Birim")
     )
     fee = models.PositiveIntegerField(

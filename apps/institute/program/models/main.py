@@ -3,13 +3,13 @@ from django.db import models
 
 from utils.models import time as time_models
 from apps.course.course.models import Course
-from apps.institute.unit.models import UniversityUnit
+from apps.institute.unit.models import Unit
 from apps.institute.institute.models import University
 
 
 class UnitProgram(time_models.TimeStamp):
-    university_unit = models.ForeignKey(
-        UniversityUnit,
+    unit = models.ForeignKey(
+        Unit,
         verbose_name=_("Birim")
     )
     is_multiple_degree = models.BooleanField(

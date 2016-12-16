@@ -4,7 +4,6 @@ from django.db import models
 from apps.course.assignment.models import SectionProcessAssignment
 from apps.other.registry.models import SectionRegistry
 from apps.course.section.models import CourseSection
-from apps.institute.institute.models import University
 from utils.models import time as time_models
 
 
@@ -18,10 +17,6 @@ class LetterGrade(time_models.TimeStamp):
     )
     point = models.FloatField(
         verbose_name=_("Puan")
-    )
-    university = models.ForeignKey(
-        University,
-        verbose_name=_("Üniversite")
     )
 
 
