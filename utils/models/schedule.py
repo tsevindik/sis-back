@@ -5,13 +5,6 @@ from apps.institute.facility import models as facility_models
 from .time import DateTimeInterval, TimeStamp
 
 
-ATTENDANCE_STATUS = (
-    (0, _('Var')),
-    (1, _('Yok')),
-    (2, _('Geç')),
-    (3, _('Mazeretli'))
-)
-
 IMPLEMENTATION_TYPE = (
     (0, _('Uzak')),
     (1, _('Yerel'))
@@ -31,9 +24,7 @@ class CampusEvent(DateTimeInterval):
 
 
 class Attendance(TimeStamp):
-    status = models.CharField(
-        max_length=1,
-        choices=ATTENDANCE_STATUS,
+    status = models.BooleanField(
         verbose_name=_("Durum")
     )
 
