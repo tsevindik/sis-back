@@ -21,12 +21,3 @@ class CampusEvent(DateTimeInterval):
 
     class Meta:
         abstract = True
-
-
-class Attendance(TimeStamp):
-    status = models.BooleanField(
-        verbose_name=_("Durum")
-    )
-
-    class Meta:
-        abstract = True

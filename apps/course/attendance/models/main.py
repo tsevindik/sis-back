@@ -4,10 +4,10 @@ from django.db import models
 from apps.user.user.models import User
 from apps.course.section.models import SectionSession
 from apps.course.assignment.models import EventAssignmentSession
-from utils.models import schedule as schedule_models, time as time_models
+from utils.models import bool as bool_models, time as time_models
 
 
-class StudentAttendanceStatus(schedule_models.Attendance):
+class StudentAttendanceStatus(bool_models.BoolStatus):
     pass
 
 
@@ -41,7 +41,7 @@ class EventAssignmentAttendance(time_models.TimeStamp):
     )
 
 
-class InstructorAttendanceStatus(schedule_models.Attendance):
+class InstructorAttendanceStatus(bool_models.BoolStatus):
     pass
 
 
