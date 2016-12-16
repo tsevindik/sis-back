@@ -26,7 +26,7 @@ class CourseSection(time_models.TimeStamp):
     )
 
 
-class SectionInstructor(time_models.DayTimeInterval):
+class SectionInstructor(time_models.TimeStamp):
     course_section = models.ForeignKey(
         CourseSection,
         verbose_name=_("Ders Grubu")
@@ -44,7 +44,14 @@ class SectionWeekSession(time_models.DayTimeInterval):
     )
 
 
-class SectionSession(schedule_models.CampusEvent):
+class SectionLocalSession(schedule_models.CampusEvent):
+    section_week_session = models.ForeignKey(
+        SectionWeekSession,
+        verbose_name=_("Haftalık Oturum")
+    )
+
+
+class SectionRemoteSession(time_models.DateTimeInterval):
     section_week_session = models.ForeignKey(
         SectionWeekSession,
         verbose_name=_("Haftalık Oturum")
