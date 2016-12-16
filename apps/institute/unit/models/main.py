@@ -3,7 +3,7 @@ from django.db import models
 
 from utils.models import time as time_models
 from apps.course.course.models import Course
-from apps.institute.facility.models import CampusBuilding
+from apps.property.facility.models import CampusBuilding
 
 
 class UnitType(time_models.TimeStamp):

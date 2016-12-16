@@ -41,11 +41,13 @@ PROJECT_APPS = (
     'apps.course.pool',
     'apps.course.section',
 
+    'apps.finance.account',
+    'apps.finance.fee',
+    'apps.finance.transaction',
+
     'apps.institute.institute',
     'apps.institute.curriculum',
     'apps.institute.exchange',
-    'apps.institute.facility',
-    'apps.institute.inventory',
     'apps.institute.program',
     'apps.institute.schedule',
     'apps.institute.unit',
@@ -54,6 +56,9 @@ PROJECT_APPS = (
     'apps.other.contact',
     'apps.other.formal',
     'apps.other.registry',
+
+    'apps.property.facility',
+    'apps.property.inventory',
 
     'apps.user.user',
     'apps.user.instructor',

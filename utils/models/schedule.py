@@ -1,8 +1,8 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from apps.institute.facility import models as facility_models
-from .time import DateTimeInterval, TimeStamp
+from apps.property.facility import models as facility_models
+from .time import DateTimeInterval
 
 
 IMPLEMENTATION_TYPE = (

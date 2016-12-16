@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from utils.models import time as time_models
-from apps.institute.facility.models import BuildingRoom
+from apps.property.facility.models import BuildingRoom
 
 
 class InventoryType(time_models.TimeStamp):
