@@ -21,17 +21,3 @@ class UnitProgramTrans(time_models.TimeStamp):
     description = models.TextField(
         verbose_name=_("Açıklama")
     )
-
-
-class ProgramSemesterTrans(time_models.TimeStamp):
-    neutral = models.ForeignKey(
-        main.ProgramSemester
-    )
-    language = models.ForeignKey(
-        Language,
-        verbose_name=_("Dil")
-    )
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )

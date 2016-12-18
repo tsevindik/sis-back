@@ -15,6 +15,10 @@ class UnitProgram(time_models.TimeStamp):
     is_multiple_degree = models.BooleanField(
         verbose_name=_("Çoklu Program")
     )
+    code = models.CharField(
+        max_length=20,
+        verbose_name=_("Kod")
+    )
 
 
 class ProgramUniversity(time_models.TimeStamp):
@@ -28,12 +32,6 @@ class ProgramUniversity(time_models.TimeStamp):
     )
     semester_count = models.IntegerField(
         verbose_name=_("Dönem Sayısı")
-    )
-
-
-class ProgramSemester(time_models.TimeStamp):
-    semester = models.IntegerField(
-        verbose_name=_("Dönem")
     )
 
 
