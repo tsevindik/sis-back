@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from apps.institute.program.models import UnitProgram
+from apps.program.program.models import UnitProgram
 from apps.institute.unit.models import Unit
 from utils.models import time as time_models
 

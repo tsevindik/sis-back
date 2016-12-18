@@ -48,7 +48,6 @@ PROJECT_APPS = (
     'apps.institute.institute',
     'apps.institute.curriculum',
     'apps.institute.exchange',
-    'apps.institute.program',
     'apps.institute.schedule',
     'apps.institute.unit',
 
@@ -56,6 +55,10 @@ PROJECT_APPS = (
     'apps.other.contact',
     'apps.other.formal',
     'apps.other.registry',
+
+    'apps.program.program',
+    'apps.program.major',
+    'apps.program.minor',
 
     'apps.property.facility',
     'apps.property.inventory',

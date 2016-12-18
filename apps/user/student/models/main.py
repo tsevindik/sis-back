@@ -3,7 +3,7 @@ from django.db import models
 
 from utils.models import time as time_models
 from apps.user.utils import models as user_models
-from apps.institute.program.models import UnitProgram
+from apps.program.program.models import UnitProgram
 from apps.user.user.models import User
 
 
