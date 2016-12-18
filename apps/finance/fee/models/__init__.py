@@ -1,1 +1,1 @@
-from .main import UnitTuitionFee, ProgramTuitionFee, UnitCreditFee, ProgramCreditFee
+from .main import ProgramTuitionFee, ProgramCreditFee
