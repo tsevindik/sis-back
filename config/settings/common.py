@@ -46,7 +46,6 @@ PROJECT_APPS = (
     'apps.finance.transaction',
 
     'apps.institute.institute',
-    'apps.institute.curriculum',
     'apps.institute.exchange',
     'apps.institute.schedule',
     'apps.institute.unit',
@@ -57,6 +56,7 @@ PROJECT_APPS = (
     'apps.other.registry',
 
     'apps.program.program',
+    'apps.program.curriculum',
     'apps.program.major',
     'apps.program.minor',
 

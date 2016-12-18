@@ -3,10 +3,15 @@ from django.db import models
 
 from apps.course.course.models import Course
 from apps.course.pool.models import CoursePool
+from apps.program.program.models import UnitProgram
 from utils.models import time as time_models
 
 
 class CurriculumCourse(time_models.TimeStamp):
+    unit_program = models.ForeignKey(
+        UnitProgram,
+        verbose_name=_("Program")
+    )
     program_semester = models.IntegerField(
         verbose_name=_("Program Dönemi")
     )
@@ -17,6 +22,10 @@ class CurriculumCourse(time_models.TimeStamp):
 
 
 class CurriculumCoursePool(time_models.TimeStamp):
+    unit_program = models.ForeignKey(
+        UnitProgram,
+        verbose_name=_("Program")
+    )
     program_semester = models.IntegerField(
         verbose_name=_("Program Dönemi")
     )
