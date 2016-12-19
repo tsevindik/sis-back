@@ -5,7 +5,6 @@ from utils.models import time as time_models
 from apps.user.utils import models as user_models
 from apps.user.student.models import StudentProgram
 from apps.user.user.models import User
-from apps.user.utils.models import WORK_TIME
 
 
 WORK_STATUS = (
@@ -25,7 +24,7 @@ class InstructorProfile(user_models.UserProfile):
     )
     work_time = models.CharField(
         max_length=1,
-        choices=WORK_TIME,
+        choices=user_models.WORK_TIME,
         verbose_name=_("Çalışma Saati")
     )
     on_leave = models.BooleanField(
