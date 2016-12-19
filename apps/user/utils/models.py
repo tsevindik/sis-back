@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from utils.models import time as time_models, contact as contact_models
-from apps.user.user.models import User
+from config.settings.common import AUTH_USER_MODEL
 
 
 WORK_TIME = (
@@ -13,7 +13,7 @@ WORK_TIME = (
 
 class UserProfile(time_models.TimeStamp):
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
     id_no = models.CharField(
@@ -31,7 +31,7 @@ class UserProfile(time_models.TimeStamp):
 
 class UserPhone(contact_models.Phone):
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
     title = models.CharField(
@@ -45,7 +45,7 @@ class UserPhone(contact_models.Phone):
 
 class UserAddress(contact_models.Address):
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
     title = models.CharField(

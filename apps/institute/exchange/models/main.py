@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from utils.models import time as time_models
-from apps.user.user.models import User
+from config.settings.common import AUTH_USER_MODEL
 from apps.institute.institute.models import University
 
 
@@ -29,7 +29,7 @@ class ExchangeApplication(time_models.TimeStamp):
         verbose_name=_("Değişim Anlaşması")
     )
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
     is_approved = models.BooleanField(
@@ -43,6 +43,6 @@ class ExchangeStudent(time_models.TimeStamp):
         verbose_name=_("Değişim Anlaşması")
     )
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )

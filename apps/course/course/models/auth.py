@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from .main import Course
-from apps.user.user.models import User
+from config.settings.common import AUTH_USER_MODEL
 from utils.models import time as time_models
 
 
@@ -12,6 +12,6 @@ class CourseAuth(time_models.TimeStamp):
         verbose_name=_("Ders")
     )
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )

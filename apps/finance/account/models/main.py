@@ -2,12 +2,12 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from utils.models import time as time_models
-from apps.user.user.models import User
+from config.settings.common import AUTH_USER_MODEL
 
 
 class EmployeeAccount(time_models.TimeStamp):
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
     balance = models.FloatField(
@@ -17,7 +17,7 @@ class EmployeeAccount(time_models.TimeStamp):
 
 class StudentAccount(time_models.TimeStamp):
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
     balance = models.FloatField(

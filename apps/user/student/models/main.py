@@ -4,7 +4,7 @@ from django.db import models
 from utils.models import time as time_models
 from apps.user.utils import models as user_models
 from apps.program.program.models import UnitProgram
-from apps.user.user.models import User
+from config.settings.common import AUTH_USER_MODEL
 
 
 class StudentProfile(user_models.UserProfile):
@@ -32,7 +32,7 @@ class StudentAddress(user_models.UserAddress):
 
 class StudentProgram(time_models.TimeStamp):
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
     unit_program = models.ForeignKey(

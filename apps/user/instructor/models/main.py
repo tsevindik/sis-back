@@ -4,7 +4,7 @@ from django.db import models
 from utils.models import time as time_models
 from apps.user.utils import models as user_models
 from apps.user.student.models import StudentProgram
-from apps.user.user.models import User
+from config.settings.common import AUTH_USER_MODEL
 
 
 WORK_STATUS = (
@@ -45,7 +45,7 @@ class InstructorAddress(user_models.UserAddress):
 
 class ProgramAdviser(time_models.TimeStamp):
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
     student_program = models.ForeignKey(

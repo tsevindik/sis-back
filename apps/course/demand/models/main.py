@@ -4,13 +4,13 @@ from django.db import models
 from apps.course.course.models import Course
 from apps.course.section.models import CourseSection
 from apps.institute.schedule.models import YearSemester
-from apps.user.user.models import User
+from config.settings.common import AUTH_USER_MODEL
 from utils.models import time as time_models
 
 
 class StudentQuotaDemand(time_models.TimeStamp):
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
     course_section = models.ForeignKey(
@@ -21,7 +21,7 @@ class StudentQuotaDemand(time_models.TimeStamp):
 
 class StudentCourseDemand(time_models.TimeStamp):
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
     course = models.ForeignKey(
@@ -36,7 +36,7 @@ class StudentCourseDemand(time_models.TimeStamp):
 
 class InstructorCourseDemand(time_models.TimeStamp):
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
     course = models.ForeignKey(

@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from apps.user.user.models import User
+from config.settings.common import AUTH_USER_MODEL
 from apps.course.section.models import SectionSession
 from apps.course.assignment.models import EventAssignmentSession
 from utils.models import bool as bool_models, time as time_models
@@ -21,7 +21,7 @@ class StudentCourseAttendance(time_models.TimeStamp):
         verbose_name=_("Oturum")
     )
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
 
@@ -36,7 +36,7 @@ class EventAssignmentAttendance(time_models.TimeStamp):
         verbose_name=_("Görev Oturumu")
     )
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
 
@@ -55,6 +55,6 @@ class InstructorCourseAttendance(time_models.TimeStamp):
         verbose_name=_("Oturum")
     )
     user = models.ForeignKey(
-        User,
+        AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
     )
