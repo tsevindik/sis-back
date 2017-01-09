@@ -25,3 +25,12 @@ class UserUniversity(time_models.TimeStamp):
     is_primary = models.BooleanField(
         verbose_name=_("Birincil")
     )
+
+
+class WorkStatus(time_models.TimeStamp):
+    for_staff = models.BooleanField(
+        verbose_name=_("Personel İçin")
+    )
+    for_instructor = models.BooleanField(
+        verbose_name=_("Eğitmen İçin")
+    )

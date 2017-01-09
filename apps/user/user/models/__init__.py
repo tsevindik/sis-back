@@ -1,1 +1,1 @@
-from .main import User, UserUniversity
+from .main import User, UserUniversity, WorkStatus
