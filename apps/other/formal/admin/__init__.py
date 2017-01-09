@@ -1,1 +1,1 @@
-from .main import EmployeeAccountAdmin, StudentAccountAdmin
+from .main import CertificationAdmin

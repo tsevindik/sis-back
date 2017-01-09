@@ -9,6 +9,6 @@ class MinorProgramAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(main.MinorProgram)
+@admin.register(main.MinorApplication)
 class MinorApplicationAdmin(admin.ModelAdmin):
     pass

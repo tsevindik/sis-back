@@ -24,11 +24,11 @@ class CampusBlockTransAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(trans.CampusBuildingTrans)
+@admin.register(trans.RoomTypeTrans)
 class RoomTypeTransAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(trans.CampusBlockTrans)
-class BuildingRoomAdmin(admin.ModelAdmin):
+@admin.register(trans.BuildingRoomTrans)
+class BuildingRoomTransAdmin(admin.ModelAdmin):
     pass
