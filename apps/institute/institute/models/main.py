@@ -30,9 +30,6 @@ class UniversityConfig(time_models.TimeStamp):
 
 
 class UniversityCourse(time_models.TimeStamp):
-    is_primary = models.BooleanField(
-        verbose_name=_("Birincil")
-    )
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")

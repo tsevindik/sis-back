@@ -24,6 +24,10 @@ class Course(time_models.TimeStamp):
     ects = models.IntegerField(
         verbose_name=_("AKTS")
     )
+    secondary_university = models.BooleanField(
+        verbose_name=_("İkincil Üniversiteye Bağlı")
+    )
+
 
 
 class CoursePrerequisite(time_models.TimeStamp):
