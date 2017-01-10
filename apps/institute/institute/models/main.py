@@ -15,13 +15,13 @@ class UniversityConfig(time_models.TimeStamp):
         Language,
         verbose_name=_("Üniversite")
     )
-    major_count = models.FloatField(
+    major_count = models.IntegerField(
         verbose_name=_("Anadal Sayısı")
     )
     major_gpa = models.FloatField(
         verbose_name=_("Yandal Ortalama Sınırı")
     )
-    minor_count = models.FloatField(
+    minor_count = models.IntegerField(
         verbose_name=_("Yandal Sayısı")
     )
     minor_gpa = models.FloatField(
