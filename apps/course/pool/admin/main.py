@@ -14,6 +14,11 @@ class PoolUnitAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(main.PoolProgram)
+class PoolProgramAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(main.PoolCourse)
 class PoolCourseAdmin(admin.ModelAdmin):
     pass
