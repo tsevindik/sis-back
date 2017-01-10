@@ -47,5 +47,7 @@ class SectionWeekSession(time_models.DayTimeInterval):
 class SectionSession(schedule_models.CampusEvent):
     section_week_session = models.ForeignKey(
         SectionWeekSession,
+        blank=True,
+        null=True,
         verbose_name=_("Haftalık Oturum")
     )
