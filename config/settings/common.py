@@ -13,7 +13,7 @@ SECRET_KEY = '!(+akxq6q0c38can89@(#ga$b9jx5cs*y(k+hv0_zd1wyy#qt='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '0.0.0.0', '192.168.1.48']
 
 
 # Default Django apps:
