@@ -14,19 +14,19 @@ class UserPermission(time_models.TimeStamp):
         verbose_name=_("Üniversite")
     )
     all_universities = models.BooleanField(
-        verbose_name=_("Ders")
+        verbose_name=_("Bütün Üniversiteler")
     )
     unit = models.BooleanField(
-        verbose_name=_("Ders")
+        verbose_name=_("Birim")
     )
     all_units = models.BooleanField(
-        verbose_name=_("Ders")
+        verbose_name=_("Bütün Birimler")
     )
     program = models.BooleanField(
-        verbose_name=_("Ders")
+        verbose_name=_("Program")
     )
     all_programs = models.BooleanField(
-        verbose_name=_("Ders")
+        verbose_name=_("Bütün Programlar")
     )
     course = models.BooleanField(
         verbose_name=_("Ders")
@@ -35,8 +35,8 @@ class UserPermission(time_models.TimeStamp):
         verbose_name=_("Bütün Dersler")
     )
     section = models.BooleanField(
-        verbose_name=_("Ders")
+        verbose_name=_("Ders Grubu")
     )
     all_sections = models.BooleanField(
-        verbose_name=_("Ders")
+        verbose_name=_("Bütün Ders Grupları")
     )
