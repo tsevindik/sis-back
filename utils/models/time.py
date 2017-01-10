@@ -57,7 +57,7 @@ class DayTimeInterval(TimeStamp):
         choices=DAYS_OF_WEEK,
         verbose_name=_("Başlangıç Günü")
     )
-    start_time = models.DateTimeField(
+    start_time = models.TimeField(
         verbose_name=_("Başlangıç Saati")
     )
     end_day = models.CharField(
@@ -65,7 +65,7 @@ class DayTimeInterval(TimeStamp):
         choices=DAYS_OF_WEEK,
         verbose_name=_("Bitiş Günü")
     )
-    end_time = models.DateTimeField(
+    end_time = models.TimeField(
         verbose_name=_("Bitiş Saati")
     )
 
