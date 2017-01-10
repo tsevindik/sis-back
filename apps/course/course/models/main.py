@@ -29,7 +29,6 @@ class Course(time_models.TimeStamp):
     )
 
 
-
 class CoursePrerequisite(time_models.TimeStamp):
     course = models.ForeignKey(
         Course,

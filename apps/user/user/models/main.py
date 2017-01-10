@@ -11,6 +11,9 @@ class User(AbstractUser):
         auto_now=True,
         verbose_name=_("Güncellenme Zamanı")
     )
+    registered_multiple_degree = models.BooleanField(
+        verbose_name=_("Çoklu Programa Kayıtlı")
+    )
 
 
 class UserUniversity(time_models.TimeStamp):
@@ -21,9 +24,6 @@ class UserUniversity(time_models.TimeStamp):
     university = models.ForeignKey(
         University,
         verbose_name=_("Üniversite")
-    )
-    is_primary = models.BooleanField(
-        verbose_name=_("Birincil")
     )
 
 

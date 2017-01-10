@@ -12,8 +12,3 @@ class UnitProgramAdmin(admin.ModelAdmin):
 @admin.register(main.ProgramUniversity)
 class ProgramUniversityAdmin(admin.ModelAdmin):
     pass
-
-
-@admin.register(main.ProgramCourse)
-class ProgramCourseAdmin(admin.ModelAdmin):
-    pass

@@ -9,6 +9,6 @@ class UnitTypeTransAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(trans.UniversityUnitTrans)
-class UniversityUnitTransAdmin(admin.ModelAdmin):
+@admin.register(trans.UnitTrans)
+class UnitTransAdmin(admin.ModelAdmin):
     pass

@@ -20,7 +20,7 @@ class UnitTypeTrans(time.TimeStamp):
     )
 
 
-class UniversityUnitTrans(time.TimeStamp):
+class UnitTrans(time.TimeStamp):
     neutral = models.ForeignKey(
         main.Unit
     )
