@@ -74,6 +74,11 @@ PROJECT_APPS = (
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
+JWT_AUTH = {
+    'JWT_PAYLOAD_HANDLER':
+    'apps.user.user.jwt.jwt_payload_handler',
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

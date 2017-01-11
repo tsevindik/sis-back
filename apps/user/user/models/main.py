@@ -12,12 +12,15 @@ class User(AbstractUser):
         verbose_name=_("Güncellenme Zamanı")
     )
     is_student = models.BooleanField(
+        default=False,
         verbose_name=_("Öğrenci")
     )
     is_instructor = models.BooleanField(
+        default=False,
         verbose_name=_("Eğitmen")
     )
     registered_multiple_degree = models.BooleanField(
+        default=False,
         verbose_name=_("Çoklu Programa Kayıtlı")
     )
 
