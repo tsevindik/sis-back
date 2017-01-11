@@ -1,8 +1,13 @@
+from calendar import timegm
+from datetime import datetime
+
+
 def jwt_payload_handler(user=None):
     return {
         'username': user.username,
         'user_id': user.pk,
-        'user_type': user_type(user)
+        'user_type': user_type(user),
+        'orig_iat': timegm(datetime.utcnow().utctimetuple()),
     }
 
 

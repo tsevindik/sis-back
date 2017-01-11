@@ -1,4 +1,5 @@
 import os
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -75,8 +76,7 @@ PROJECT_APPS = (
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
 JWT_AUTH = {
-    'JWT_PAYLOAD_HANDLER':
-    'apps.user.user.jwt.jwt_payload_handler',
+    'JWT_PAYLOAD_HANDLER': 'apps.user.user.jwt.jwt_payload_handler',
 }
 
 MIDDLEWARE = [
