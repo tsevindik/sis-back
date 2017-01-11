@@ -34,6 +34,8 @@ THIRD_PARTY_APPS = (
 )
 
 PROJECT_APPS = (
+    'config',
+
     'apps.course.course',
     'apps.course.assignment',
     'apps.course.attendance',
