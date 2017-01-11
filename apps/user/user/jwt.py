@@ -1,6 +1,8 @@
 from calendar import timegm
 from datetime import datetime
 
+from rest_framework_jwt.settings import api_settings
+
 
 def jwt_payload_handler(user=None):
     return {
@@ -8,6 +10,7 @@ def jwt_payload_handler(user=None):
         'user_id': user.pk,
         'user_type': user_type(user),
         'orig_iat': timegm(datetime.utcnow().utctimetuple()),
+        'exp': datetime.utcnow() + api_settings.JWT_EXPIRATION_DELTA,
     }
 
 

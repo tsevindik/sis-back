@@ -77,6 +77,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
 JWT_AUTH = {
     'JWT_PAYLOAD_HANDLER': 'apps.user.user.jwt.jwt_payload_handler',
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=3),
 }
 
 MIDDLEWARE = [
