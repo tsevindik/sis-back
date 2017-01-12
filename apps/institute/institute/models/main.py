@@ -15,6 +15,10 @@ class University(time_models.TimeStamp):
                     {
                     }
     """
+    is_primary = models.BooleanField(
+        default=False,
+        verbose_name=_("Birincil")
+    )
     data = JSONField(
         verbose_name=_("Veri")
     )

@@ -17,8 +17,10 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from .user.user import urls as user_urls
+from .institute.institute import urls as institute_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include(user_urls)),
+    url(r'^institute/', include(institute_urls)),
 ]
