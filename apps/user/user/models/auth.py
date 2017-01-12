@@ -14,11 +14,11 @@ class UserPermission(time_models.TimeStamp):
             Sample JSON:
                 {
                     rowLevelPermission: {
-                        isPermitted: boolean
-                        forAll: boolean
-                        permittedIds: [number]
+                        isPermitted: boolean,       // Is permitted to change?
+                        forAll: boolean,            // Is permitted to change all?
+                        permittedIds: [number],     // If not permitted to change all, then permitted to change what?
                     }, ...
-                    , modelLevelPermission: boolean
+                    , modelLevelPermission: boolean, ...
                 }
             Row Level Permissions: university, unit, program, course, section
             Model Level Permissions: nothing for now
