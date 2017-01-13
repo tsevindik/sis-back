@@ -32,6 +32,7 @@ THIRD_PARTY_APPS = (
     'rest_framework',
     'rest_framework_jwt',
     'corsheaders',
+    'cities',
 )
 
 PROJECT_APPS = (
@@ -119,7 +120,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': "sisdb",
         'USER': "sis",
         'PASSWORD': "123456",

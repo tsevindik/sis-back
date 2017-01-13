@@ -9,11 +9,11 @@ from apps.course.course.models import Course
 
 class University(time_models.TimeStamp):
     """
-        Attributes:
-            data: university related neutral(untranslatable) data
-                Sample JSON:
-                    {
-                    }
+    Attributes:
+        data: university related neutral(untranslatable) data
+            Sample JSON:
+                {
+                }
     """
     is_primary = models.BooleanField(
         default=False,
@@ -29,15 +29,15 @@ class UniversityConfig(time_models.TimeStamp):
     Model for config of both system and university
 
     Attributes:
-            language: default language of system
-            data: university related neutral(untranslatable) data
-                Sample JSON:
-                    {
-                        major_count: number,    // Permitted number of major at a time
-                        major_gpa: number,      // GPA needed to register second major
-                        minor_count,            // Permitted number of minor at a time
-                        minor_gpa: number,      // GPA needed to register second minor
-                    }
+        language: default language of system
+        data: university related neutral(untranslatable) data
+            Sample JSON:
+                {
+                    major_count: number,    // Permitted number of major at a time
+                    major_gpa: number,      // GPA needed to register second major
+                    minor_count,            // Permitted number of minor at a time
+                    minor_gpa: number,      // GPA needed to register second minor
+                }
     """
     language = models.OneToOneField(
         Language,

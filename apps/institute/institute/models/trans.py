@@ -9,14 +9,14 @@ from . import main
 
 class UniversityTrans(time_models.TimeStamp):
     """
-        Attributes:
-            neutral: actual model having neutral data
-            language: language of translatable data
-            data: all university related translatable data
-                Sample JSON:
-                    {
-                        name: string,
-                    }
+    Attributes:
+        neutral: actual model having neutral data
+        language: language of translatable data
+        data: all university related translatable data
+            Sample JSON:
+                {
+                    name: string,
+                }
     """
     neutral = models.ForeignKey(
         main.University
