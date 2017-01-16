@@ -1,26 +1,22 @@
+from cities.models import City
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from apps.other.contact import models as contact_models
 from ..models.time import TimeStamp
 
 
 class Address(TimeStamp):
-    district = models.ForeignKey(
-        contact_models.Region,
-        null=True,
-        blank=True,
+    city = models.ForeignKey(
+        City,
+        verbose_name=_("Şehir")
+    )
+    district = models.CharField(
+        max_length=50,
         verbose_name=_("İlçe")
     )
     postcode = models.IntegerField(
         verbose_name=_("Posta Kodu")
     )
-
-    class Meta:
-        abstract = True
-
-
-class AddressTrans(TimeStamp):
     description = models.TextField(
         verbose_name=_("Açıklama")
     )

@@ -1,8 +1,8 @@
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from utils.models import time as time_models
-from apps.other.contact.models import Language
 from apps.course.course.models import Course
 
 
@@ -11,9 +11,10 @@ class University(time_models.TimeStamp):
 
 
 class UniversityConfig(time_models.TimeStamp):
-    language = models.ForeignKey(
-        Language,
-        verbose_name=_("Üniversite")
+    default_language = models.CharField(
+        choices=settings.LANGUAGES,
+        max_length=7,
+        verbose_name=_("Dil")
     )
     major_count = models.IntegerField(
         verbose_name=_("Anadal Sayısı")

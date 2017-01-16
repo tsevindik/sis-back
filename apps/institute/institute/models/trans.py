@@ -1,18 +1,14 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
+from django.conf import settings
 
-from utils.models import time as time_models
-from apps.other.contact.models import Language
+from utils.models import trans as trans_models
 from . import main
 
 
-class UniversityTrans(time_models.TimeStamp):
+class UniversityTrans(trans_models.Translation):
     neutral = models.ForeignKey(
         main.University
-    )
-    language = models.ForeignKey(
-        Language,
-        verbose_name=_("Dil")
     )
     name = models.CharField(
         max_length=100,

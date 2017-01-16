@@ -25,6 +25,7 @@ DJANGO_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
 )
 
 
@@ -56,7 +57,6 @@ PROJECT_APPS = (
     'apps.institute.unit',
 
     'apps.other.announce',
-    'apps.other.contact',
     'apps.other.formal',
     'apps.other.registry',
 
@@ -153,6 +153,8 @@ AUTH_USER_MODEL = 'user.User'
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+CITIES_LOCALES = ['en', 'tr', 'LANGUAGES']
 
 TIME_ZONE = 'UTC'
 

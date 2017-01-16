@@ -1,18 +1,13 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from utils.models import time
-from apps.other.contact.models import Language
+from utils.models import trans as trans_models
 from . import main
 
 
-class YearTrans(time.TimeStamp):
+class YearTrans(trans_models.Translation):
     neutral = models.ForeignKey(
         main.Year
-    )
-    language = models.ForeignKey(
-        Language,
-        verbose_name=_("Dil")
     )
     title = models.CharField(
         max_length=50,
@@ -20,13 +15,9 @@ class YearTrans(time.TimeStamp):
     )
 
 
-class YearSemesterTrans(time.TimeStamp):
+class YearSemesterTrans(trans_models.Translation):
     neutral = models.ForeignKey(
         main.YearSemester
-    )
-    language = models.ForeignKey(
-        Language,
-        verbose_name=_("Dil")
     )
     title = models.CharField(
         max_length=80,
@@ -34,13 +25,9 @@ class YearSemesterTrans(time.TimeStamp):
     )
 
 
-class SemesterCalendarTrans(time.TimeStamp):
+class SemesterCalendarTrans(trans_models.Translation):
     neutral = models.ForeignKey(
         main.SemesterCalendar
-    )
-    language = models.ForeignKey(
-        Language,
-        verbose_name=_("Dil")
     )
     title = models.CharField(
         max_length=100,
@@ -48,13 +35,9 @@ class SemesterCalendarTrans(time.TimeStamp):
     )
 
 
-class CalendarPeriodTrans(time.TimeStamp):
+class CalendarPeriodTrans(trans_models.Translation):
     neutral = models.ForeignKey(
         main.CalendarPeriod
-    )
-    language = models.ForeignKey(
-        Language,
-        verbose_name=_("Dil")
     )
     title = models.CharField(
         max_length=300,
