@@ -2,15 +2,24 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from ..managers import UniversityConfigManager
 from utils.models import time as time_models
 from apps.course.course.models import Course
 
 
 class University(time_models.TimeStamp):
-    pass
+    is_primary = models.BooleanField(
+        help_text=_("Sistemin yöneticisi Üniversite"),
+        verbose_name=_("Birincil Üniversite")
+    )
+    official_name = models.CharField(
+        max_length=100,
+        verbose_name=_("Resmi İsim")
+    )
 
 
 class UniversityConfig(time_models.TimeStamp):
+    objects = UniversityConfigManager()
     default_language = models.CharField(
         choices=settings.LANGUAGES,
         max_length=7,
@@ -28,6 +37,13 @@ class UniversityConfig(time_models.TimeStamp):
     minor_gpa = models.FloatField(
         verbose_name=_("Anadal Ortalama Sınırı")
     )
+
+    def has_add_permission(self, request):
+        count = UniversityConfig.objects.all().count()
+        if count == 0:
+            return True
+
+        return False
 
 
 class UniversityCourse(time_models.TimeStamp):

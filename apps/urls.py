@@ -19,8 +19,12 @@ from django.contrib import admin
 from .user.user import urls as user_urls
 from .institute.institute import urls as institute_urls
 
+api_urls = [
+    url(r'^auth/', include(user_urls, namespace="auth")),
+    url(r'^institute/', include(institute_urls, namespace="institute")),
+]
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^user/', include(user_urls)),
-    url(r'^institute/', include(institute_urls)),
+    url(r'^admin/', admin.site.urls, name="admin"),
+    url(r'^api/', include(api_urls, namespace="api")),
 ]
