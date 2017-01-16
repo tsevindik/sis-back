@@ -1,50 +1,31 @@
-from django.contrib.postgres.fields import JSONField
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from apps.other.contact.models import Language
 from utils.models import time as time_models
+from apps.other.contact.models import Language
 from apps.course.course.models import Course
 
 
 class University(time_models.TimeStamp):
-    """
-    Attributes:
-        data: university related neutral(untranslatable) data
-            Sample JSON:
-                {
-                }
-    """
-    is_primary = models.BooleanField(
-        default=False,
-        verbose_name=_("Birincil")
-    )
-    data = JSONField(
-        verbose_name=_("Veri")
-    )
+    pass
 
 
 class UniversityConfig(time_models.TimeStamp):
-    """
-    Model for config of both system and university
-
-    Attributes:
-        language: default language of system
-        data: university related neutral(untranslatable) data
-            Sample JSON:
-                {
-                    major_count: number,    // Permitted number of major at a time
-                    major_gpa: number,      // GPA needed to register second major
-                    minor_count,            // Permitted number of minor at a time
-                    minor_gpa: number,      // GPA needed to register second minor
-                }
-    """
-    language = models.OneToOneField(
+    language = models.ForeignKey(
         Language,
         verbose_name=_("Üniversite")
     )
-    data = JSONField(
-        verbose_name=_("Veri")
+    major_count = models.IntegerField(
+        verbose_name=_("Anadal Sayısı")
+    )
+    major_gpa = models.FloatField(
+        verbose_name=_("Yandal Ortalama Sınırı")
+    )
+    minor_count = models.IntegerField(
+        verbose_name=_("Yandal Sayısı")
+    )
+    minor_gpa = models.FloatField(
+        verbose_name=_("Anadal Ortalama Sınırı")
     )
 
 

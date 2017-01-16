@@ -9,7 +9,7 @@ class UniversitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = main.University
-        fields = ('data', 'trans')
+        fields = ('trans',)
 
     def create(self, validated_data):
         trans_data = validated_data.pop('trans')
@@ -22,4 +22,4 @@ class UniversitySerializer(serializers.ModelSerializer):
 class UniversityConfigSerializer(serializers.ModelSerializer):
     class Meta:
         model = main.UniversityConfig
-        fields = ('language', 'data')
+        fields = ('language', 'major_count', 'major_gpa', 'minor_count', 'minor_gpa')

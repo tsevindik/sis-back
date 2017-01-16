@@ -1,4 +1,3 @@
-from django.contrib.postgres.fields import JSONField
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
@@ -8,16 +7,6 @@ from . import main
 
 
 class UniversityTrans(time_models.TimeStamp):
-    """
-    Attributes:
-        neutral: actual model having neutral data
-        language: language of translatable data
-        data: all university related translatable data
-            Sample JSON:
-                {
-                    name: string,
-                }
-    """
     neutral = models.ForeignKey(
         main.University
     )
@@ -25,6 +14,7 @@ class UniversityTrans(time_models.TimeStamp):
         Language,
         verbose_name=_("Dil")
     )
-    data = JSONField(
-        verbose_name=_("Veri")
+    name = models.CharField(
+        max_length=100,
+        verbose_name=_("İsim")
     )
