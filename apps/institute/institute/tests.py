@@ -18,16 +18,14 @@ class UniversityConfigHomeTest(APITestCase):
 
     def test_can_read(self):
         response = self.client.get(self.url, self.data)
-        response_data = response.content.decode("utf8")
-
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         try:
             UniversityTrans.objects.get_by_language(get_language())
-            self.assertJSONEqual(response_data, self.data)
+            self.assertEquals(response.data, self.data)
         except UniversityTrans.DoesNotExist:
             university_config = UniversityConfig.objects.get_single()
             self.data["university"]["trans"]["language_code"] = university_config.default_language
-            self.assertJSONEqual(response_data, self.data)
+            self.assertEqual(response.data, self.data)
 
 
 class PrimaryUniversityTest(APITestCase):
@@ -49,23 +47,31 @@ class UniversityTransTest(APITestCase):
     def test_can_create(self):
         url = reverse("api:institute:university_trans")
         response = self.client.post(url, self.create_data)
-        response_data = response.content.decode("utf8")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertJSONEqual(response_data, self.create_data)
+        self.assertEqual(response.data, self.create_data)
 
     def test_can_read_by_neutral_id(self):
         url = reverse("api:institute:university_trans_by_id", kwargs={'neutral': 1})
         response = self.client.get(url)
-        response_data = response.content.decode("utf8")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertJSONEqual(response_data, [self.read_data])
+        self.assertEqual(response.data, [self.read_data])
 
     def test_can_read_by_neutral_id_language(self):
         url = reverse("api:institute:university_trans_by_id_language", kwargs={"neutral": 1, "language_code": "tr"})
         response = self.client.get(url)
-        response_data = response.content.decode("utf8")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertJSONEqual(response_data, self.read_data)
+        self.assertEqual(response.data, self.read_data)
+
+    def test_can_update_by_neutral_id_language(self):
+        url = reverse("api:institute:university_trans_by_id_language", kwargs={"neutral": 1, "language_code": "tr"})
+        response = self.client.put(url, self.create_data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data, self.create_data)
+
+    def test_can_delete_by_neutral_id_language(self):
+        url = reverse("api:institute:university_trans_by_id_language", kwargs={"neutral": 1, "language_code": "tr"})
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
 
 class UniversityConfigTest(APITestCase):
