@@ -2,12 +2,13 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
-from ..managers import UniversityConfigManager
+from ..querysets import UniversityConfigQuerySet, UniversityQuerySet
 from utils.models import time as time_models
 from apps.course.course.models import Course
 
 
 class University(time_models.TimeStamp):
+    objects = UniversityQuerySet.as_manager()
     is_primary = models.BooleanField(
         help_text=_("Sistemin yöneticisi Üniversite"),
         verbose_name=_("Birincil Üniversite")
@@ -17,9 +18,17 @@ class University(time_models.TimeStamp):
         verbose_name=_("Resmi İsim")
     )
 
+    def has_add_permission(self, request):
+        try:
+            if request.data["is_primary"]:
+                self.objects.get_primary()
+            return False
+        except self.DoesNotExist:
+            return True
+
 
 class UniversityConfig(time_models.TimeStamp):
-    objects = UniversityConfigManager()
+    objects = UniversityConfigQuerySet.as_manager()
     default_language = models.CharField(
         choices=settings.LANGUAGES,
         max_length=7,
@@ -29,20 +38,19 @@ class UniversityConfig(time_models.TimeStamp):
         verbose_name=_("Anadal Sayısı")
     )
     major_gpa = models.FloatField(
-        verbose_name=_("Yandal Ortalama Sınırı")
+        verbose_name=_("Anadal Ortalama Sınırı")
     )
     minor_count = models.IntegerField(
         verbose_name=_("Yandal Sayısı")
     )
     minor_gpa = models.FloatField(
-        verbose_name=_("Anadal Ortalama Sınırı")
+        verbose_name=_("Yandal Ortalama Sınırı")
     )
 
     def has_add_permission(self, request):
         count = UniversityConfig.objects.all().count()
         if count == 0:
             return True
-
         return False
 
 

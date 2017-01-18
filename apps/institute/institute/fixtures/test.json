@@ -5,7 +5,7 @@
     "fields": {
       "created_at": "2017-01-16T09:24:05.437Z",
       "updated_at": "2017-01-16T09:24:05.438Z",
-      "official_name": "Wissen University",
+      "official_name": "University of Test",
       "is_primary": true
       }
   },
@@ -30,7 +30,7 @@
       "updated_at": "2017-01-16T09:24:43.118Z",
       "language_code": "tr",
       "neutral": 1,
-      "name": "Wissen \u00dcniversitesi"
+      "name": "Test \u00dcniversitesi"
     }
   }
 ]

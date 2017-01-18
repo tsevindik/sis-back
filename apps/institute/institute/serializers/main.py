@@ -6,7 +6,7 @@ from ..models import main
 class UniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = main.University
-        fields = ('is_primary', 'official_name')
+        fields = ('official_name',)
 
 
 class UniversityConfigSerializer(serializers.ModelSerializer):

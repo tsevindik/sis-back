@@ -2,12 +2,12 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from utils.models import trans as trans_models
-from ..managers import UniversityTransManager
+from ..querysets import UniversityTransQuerySet
 from . import main
 
 
 class UniversityTrans(trans_models.Translation):
-    objects = UniversityTransManager()
+    objects = UniversityTransQuerySet.as_manager()
     neutral = models.ForeignKey(
         main.University
     )
