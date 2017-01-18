@@ -14,3 +14,4 @@ class Translation(TimeStamp):
 
     class Meta:
         abstract = True
+        unique_together = ('neutral', 'language_code',)

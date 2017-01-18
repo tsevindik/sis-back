@@ -70,7 +70,6 @@ class UniversityTransView(CreateAPIView):
     queryset = UniversityTrans.objects.all()
     serializer_class = UniversityTransSerializer
     lookup_field = "neutral"
-    # TODO: There must be just one translation for one instance
 
 
 class UniversityTransByNeutralIdView(ListAPIView):
