@@ -1,4 +1,3 @@
-from django.core.exceptions import ObjectDoesNotExist
 from django.http import Http404
 from django.utils.translation import ugettext_lazy as _
 
@@ -22,5 +21,5 @@ class GenericObjectAPIView(GenericAPIView):
             obj = self.filter_queryset(self.get_queryset())
             self.check_object_permissions(self.request, obj)
             return obj
-        except ObjectDoesNotExist:  # TODO: There must be a proper way
+        except self.queryset.model.DoesNotExist:
             raise Http404(_("Nesne bulunamadı."))
