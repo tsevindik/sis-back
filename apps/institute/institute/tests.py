@@ -1,7 +1,6 @@
-import json
-
 from django.urls import reverse
 from django.utils.translation import get_language
+
 from rest_framework.test import APITestCase
 from rest_framework import status
 
@@ -11,23 +10,24 @@ from .models import UniversityTrans, UniversityConfig
 class UniversityConfigHomeTest(APITestCase):
     fixtures = ['test.json']
     url = reverse("api:institute:university_config_home")
+    data = {"university_config":
+                {"default_language": "tr", "major_count": 1, "major_gpa": 3.0, "minor_count": 1, "minor_gpa": 2.5},
+            "university": {
+                "trans": {"name": "Test Üniversitesi", "language_code": "tr", "neutral": 1},
+                "neutral": {"official_name": "University of Test"}}}
 
-    # TODO: Find a better way
     def test_can_read(self):
-        response = self.client.get(self.url)
-        content = response.content.decode("utf8")
-        data = json.loads(content)
+        response = self.client.get(self.url, self.data)
+        response_data = response.content.decode("utf8")
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEquals(data["university_config"]["major_gpa"], 3.0)
-        self.assertEquals(data["university_config"]["minor_count"], 1)
-
         try:
             UniversityTrans.objects.get_by_language(get_language())
-            self.assertEquals(data["university"]["trans"]["language_code"], get_language())
+            self.assertJSONEqual(response_data, self.data)
         except UniversityTrans.DoesNotExist:
-            university_config = UniversityConfig.objects.get()
-            self.assertEquals(data["university"]["trans"]["language_code"], university_config.default_language)
+            university_config = UniversityConfig.objects.get_single()
+            self.data["university"]["trans"]["language_code"] = university_config.default_language
+            self.assertJSONEqual(response_data, self.data)
 
 
 class PrimaryUniversityTest(APITestCase):
