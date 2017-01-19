@@ -19,7 +19,7 @@ class University(time_models.TimeStamp):
     )
 
     def save(self, *args, **kwargs):
-        if self.is_primary:
+        if self.is_primary and not self.id:
             raise Exception(_("Sadece bir tane birincil üniversite olabilir."))
         super(University, self).save(*args, **kwargs)
 
@@ -48,7 +48,8 @@ class UniversityConfig(time_models.TimeStamp):
     )
 
     def save(self, *args, **kwargs):
-        raise Exception(_("Sadece bir tane üniversite seçenekleri olabilir."))
+        if not self.id:
+            raise Exception(_("Sadece bir tane üniversite seçenekleri olabilir."))
 
 
 class UniversityCourse(time_models.TimeStamp):
