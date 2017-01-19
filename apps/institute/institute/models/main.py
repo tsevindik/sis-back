@@ -18,6 +18,9 @@ class University(time_models.TimeStamp):
         verbose_name=_("Resmi İsim")
     )
 
+    class Meta:
+        index_together = ["id", "is_primary"]
+
 
 class UniversityConfig(time_models.TimeStamp):
     objects = UniversityConfigQuerySet.as_manager()

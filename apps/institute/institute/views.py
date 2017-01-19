@@ -59,7 +59,7 @@ class UniversityConfigHomeView(APIView):
 
 
 class PrimaryUniversityView(UpdateModelMixin, GenericObjectAPIView):
-    queryset = University.objects.get(is_primary=True)
+    queryset = University.objects.get_primary()
     serializer_class = UniversitySerializer
 
     def put(self, request, *args, **kwargs):

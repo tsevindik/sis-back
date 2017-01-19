@@ -14,4 +14,6 @@ class Translation(TimeStamp):
 
     class Meta:
         abstract = True
-        unique_together = ('neutral', 'language_code',)
+        unique_together = 'neutral', 'language_code'
+        index_together = [["neutral", "language_code"]]
+
