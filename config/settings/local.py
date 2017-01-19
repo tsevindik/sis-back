@@ -1,5 +1,7 @@
 from .common import *
 
-DEBUG = os.getenv('DJANGO_DEBUG', True)
+DEBUG = env.bool('DJANGO_DEBUG', default=True)
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', ['localhost', '127.0.0.1', '0.0.0.0'])
+ALLOWED_LOCAL_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
+
+ALLOWED_HOSTS = ALLOWED_LOCAL_HOSTS + env.list('DJANGO_ALLOWED_HOSTS')
