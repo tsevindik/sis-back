@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
@@ -17,14 +18,6 @@ class University(time_models.TimeStamp):
         max_length=100,
         verbose_name=_("Resmi İsim")
     )
-
-    def has_add_permission(self, request):
-        try:
-            if request.data["is_primary"]:
-                self.objects.get_primary()
-            return False
-        except self.DoesNotExist:
-            return True
 
 
 class UniversityConfig(time_models.TimeStamp):
@@ -46,12 +39,6 @@ class UniversityConfig(time_models.TimeStamp):
     minor_gpa = models.FloatField(
         verbose_name=_("Yandal Ortalama Sınırı")
     )
-
-    def has_add_permission(self, request):
-        count = UniversityConfig.objects.all().count()
-        if count == 0:
-            return True
-        return False
 
 
 class UniversityCourse(time_models.TimeStamp):
