@@ -11,7 +11,8 @@ class UniversityAdmin(admin.ModelAdmin):
 
 @admin.register(main.UniversityConfig)
 class UniversityConfigAdmin(admin.ModelAdmin):
-    pass
+    def has_add_permission(self, request):
+        return False
 
 
 @admin.register(main.UniversityCourse)

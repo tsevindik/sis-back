@@ -1,4 +1,3 @@
-from django.core.exceptions import MultipleObjectsReturned
 from django.utils.translation import ugettext_lazy as _
 
 from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView
@@ -15,22 +14,11 @@ from .models import University, UniversityConfig, UniversityTrans
 class UniversityConfigHomeView(APIView):
     @staticmethod
     def get_university():
-        try:
-            return University.objects.prefetch_related('universitytrans_set').get_primary()
-        except University.DoesNotExist:
-            err_msg = _('Birincil üniversite bulunamadı.')
-            return Response({'err': err_msg})
-        except MultipleObjectsReturned:
-            err_msg = _('Birden çok obje döndürüldü.')
-            return Response({'err': err_msg})
+        return University.objects.prefetch_related('universitytrans_set').get_primary()
 
     @staticmethod
     def get_university_config():
-        try:
-            return UniversityConfig.objects.get_single()
-        except UniversityConfig.DoesNotExist:
-            err_msg = _('Universite ayarları bulunamadı.')
-            return Response({'err': err_msg})
+        return UniversityConfig.objects.get_single()
 
     @staticmethod
     def get_university_trans(university, exception_lang):

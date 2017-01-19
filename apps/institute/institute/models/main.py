@@ -18,6 +18,11 @@ class University(time_models.TimeStamp):
         verbose_name=_("Resmi İsim")
     )
 
+    def save(self, *args, **kwargs):
+        if self.is_primary:
+            raise Exception(_("Sadece bir tane birincil üniversite olabilir."))
+        super(University, self).save(*args, **kwargs)
+
     class Meta:
         index_together = ["id", "is_primary"]
 
@@ -41,6 +46,9 @@ class UniversityConfig(time_models.TimeStamp):
     minor_gpa = models.FloatField(
         verbose_name=_("Yandal Ortalama Sınırı")
     )
+
+    def save(self, *args, **kwargs):
+        raise Exception(_("Sadece bir tane üniversite seçenekleri olabilir."))
 
 
 class UniversityCourse(time_models.TimeStamp):
