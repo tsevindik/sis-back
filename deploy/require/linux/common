@@ -8,3 +8,6 @@ libpq-dev
 #Postgres
 postgresql-9.5-postgis-2.2
 postgresql-contrib-9.5
+
+#Nginx
+nginx

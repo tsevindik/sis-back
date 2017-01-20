@@ -1,2 +1,4 @@
 -r base.txt
 
+#Python WSGI HTTP Server
+gunicorn==19.6.0
