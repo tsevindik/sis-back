@@ -36,6 +36,7 @@ THIRD_PARTY_APPS = (
     'rest_framework_jwt',
     'corsheaders',
     'cities',
+    'django_jenkins',
 )
 
 PROJECT_APPS = (
@@ -77,6 +78,14 @@ PROJECT_APPS = (
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
+
+JENKINS_TASKS = (
+    'django_jenkins.tasks.run_pylint',
+    'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_pyflakes',
+    'django_jenkins.tasks.run_flake8',
+    'django_jenkins.tasks.run_sloccount',
+)
 
 JWT_AUTH = {
     'JWT_PAYLOAD_HANDLER': 'apps.user.user.jwt.jwt_payload_handler',
