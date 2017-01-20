@@ -47,8 +47,10 @@ class UniversityConfigHomeView(APIView):
 
 
 class PrimaryUniversityView(UpdateModelMixin, GenericObjectAPIView):
-    queryset = University.objects.get_primary()
     serializer_class = UniversitySerializer
+
+    def get_queryset(self):
+        return University.objects.get_primary()
 
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
@@ -73,8 +75,10 @@ class UniversityTransByNeutralIdLanguageView(MultipleFieldLookupMixin, RetrieveU
 
 
 class UniversityConfigView(UpdateModelMixin, GenericObjectAPIView):
-    queryset = UniversityConfig.objects.get()
     serializer_class = UniversityConfigSerializer
+
+    def get_queryset(self):
+        return UniversityConfig.objects.get_single()
 
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)

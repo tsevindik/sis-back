@@ -10,5 +10,5 @@ __pycache__
 # Pycharm
 .idea
 
-# virtual environments
+# Environment file
 .env

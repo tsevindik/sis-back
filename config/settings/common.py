@@ -1,6 +1,11 @@
 import os
 import datetime
 
+import environ
+
+env = environ.Env()
+env.read_env('.env')
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -9,13 +14,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!(+akxq6q0c38can89@(#ga$b9jx5cs*y(k+hv0_zd1wyy#qt='
+SECRET_KEY = env('DJANGO_SECRET_KEY', default='!(+akxq6q0c38can89@(#ga$b9jx5cs*y(k+hv0_zd1wyy#qt=')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '192.168.1.47']
-
+DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
 # Default Django apps:
 DJANGO_APPS = (
@@ -121,11 +123,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': "sisdb",
-        'USER': "sis",
-        'PASSWORD': "123456",
-        'HOST': "localhost",
-        'PORT': "5432",
+        'NAME': env("DATABASE_NAME", default="sisdb"),
+        'USER': env("DATABASE_USER", default="sis"),
+        'PASSWORD': env("DATABASE_PASSWORD", default="123456"),
+        'HOST': env("DATABASE_HOST", default="localhost"),
+        'PORT': env("DATABASE_PORT", default="5432"),
     }
 }
 
