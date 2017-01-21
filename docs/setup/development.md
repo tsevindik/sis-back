@@ -6,8 +6,7 @@ git clone https://github.com/tsevindik/sis-back.git
 - Install required packages
 ```
 cd ./sis-back
-sudo apt-get install $(grep -vE "^\s*#" deploy/require/linux/common  | tr "\n" " ")
-sudo apt-get install $(grep -vE "^\s*#" deploy/require/linux/test  | tr "\n" " ")
+sudo apt-get install $(grep -vE "^\s*#" setup/require/linux/common  | tr "\n" " ")
 ```
 - Configure database
 ```
@@ -27,18 +26,19 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 source ~/.bashrc
 mkvirtualenv sis
-pip3 install -r ./deploy/require/venv/test.txt
+pip3 install -r ./setup/require/venv/local.txt
 ```
 - Set environment variables
 ```
-cp ./deploy/env/test.env .env
+cp ./setup/env/local.env .env
 nano .env
 ```
 - Migrate and test if it works
 ```
 python manage.py migrate
+python manage.py test
 ```
-- You can start testing now.
+- You can start developing now.
 ```
-python manage.py jenkins --enable-coverage
+python manage.py runserver
 ```

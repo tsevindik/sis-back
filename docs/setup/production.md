@@ -17,8 +17,8 @@ sudo dpkg-reconfigure locales
 - Install required packages
 ```
 cd ./sis-back
-sudo apt-get install $(grep -vE "^\s*#" deploy/require/linux/common  | tr "\n" " ")
-sudo apt-get install $(grep -vE "^\s*#" deploy/require/linux/production  | tr "\n" " ")
+sudo apt-get install $(grep -vE "^\s*#" setup/require/linux/common  | tr "\n" " ")
+sudo apt-get install $(grep -vE "^\s*#" setup/require/linux/production  | tr "\n" " ")
 ```
 - Configure database
 ```
@@ -38,11 +38,11 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 source ~/.bashrc
 mkvirtualenv sis
-pip3 install -r ./deploy/require/venv/production.txt
+pip3 install -r ./setup/require/venv/production.txt
 ```
 - Set environment variables
 ```
-cp ./deploy/env/production.env .env
+cp ./setup/env/production.env .env
 nano .env
 ```
 - Migrate and test if it works
@@ -52,7 +52,7 @@ gunicorn --bind 0.0.0.0:8000 config.wsgi:application
 ```
 - Configure gunicorn and test it
 ```
-cp ./deploy/config/gunicorn.service /etc/systemd/system/
+cp ./setup/config/gunicorn.service /etc/systemd/system/
 sudo nano /etc/systemd/system/gunicorn.service
 sudo systemctl start gunicorn
 sudo systemctl enable gunicorn
@@ -60,7 +60,7 @@ sudo service gunicorn status
 ```
 - Configure nginx and test it
 ```
-cp ./deploy/config/nginx /etc/nginx/sites-available/sis
+cp ./setup/config/nginx /etc/nginx/sites-available/sis
 sudo ln -s /etc/nginx/sites-available/sis /etc/nginx/sites-enabled
 sudo nginx -t
 sudo systemctl restart nginx
