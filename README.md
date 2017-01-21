@@ -7,6 +7,6 @@ Setup
 ----
 
 Instructions:
-- For [development](../blob/develop/docs/setup/development.md)
-- For [production](../blob/develop/docs/setup/production.md)
-- For [test](../blob/develop/docs/setup/test.md)
+- For [development](../develop/docs/setup/development.md)
+- For [production](../develop/docs/setup/production.md)
+- For [test](../develop/docs/setup/test.md)
