@@ -37,10 +37,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 source ~/.bashrc
 mkvirtualenv sis
-nano ~/.virtualenvs/sis/bin/postactivate
-export DJANGO_SETTINGS_MODULE="config.settings.production"
-deactivate
-workon sis
 pip3 install -r ./deploy/require/venv/production.txt
 ```
 - Set environment variables

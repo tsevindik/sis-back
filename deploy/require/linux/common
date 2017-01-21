@@ -11,7 +11,3 @@ postgresql-contrib-9.5
 
 #Nginx
 nginx
-
-#Test
-p7zip
-sloccount
