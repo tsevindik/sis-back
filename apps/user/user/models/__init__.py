@@ -1,3 +1,2 @@
-from .main import User, UserUniversity, WorkStatus
-from .trans import WorkStatusTrans
+from .main import User, UserUniversity
 from .auth import UserPermission

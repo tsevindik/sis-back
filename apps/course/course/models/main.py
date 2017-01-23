@@ -2,6 +2,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from apps.institute.institute.models import University
+from apps.institute.unit.models import Unit
+from apps.program.program.models import UnitProgram
 from utils.models import time as time_models
 
 
@@ -25,8 +27,8 @@ class Course(time_models.TimeStamp):
     ects = models.IntegerField(
         verbose_name=_("AKTS")
     )
-    secondary_university = models.BooleanField(
-        verbose_name=_("İkincil Üniversiteye Bağlı")
+    by_secondary_university = models.BooleanField(
+        verbose_name=_("İkincil Üniversiteye Tarafından")
     )
 
 
@@ -60,4 +62,26 @@ class UniversityCourse(time_models.TimeStamp):
     course = models.ForeignKey(
         Course,
         verbose_name=_("Ders")
+    )
+
+
+class UnitCourse(time_models.TimeStamp):
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
+    )
+    unit = models.ForeignKey(
+        Unit,
+        verbose_name=_("Birim")
+    )
+
+
+class ProgramCourse(time_models.TimeStamp):
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
+    )
+    unit_program = models.ForeignKey(
+        UnitProgram,
+        verbose_name=_("Program")
     )

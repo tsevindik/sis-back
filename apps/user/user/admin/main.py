@@ -12,8 +12,3 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(main.UserUniversity)
 class UserUniversityAdmin(admin.ModelAdmin):
     pass
-
-
-@admin.register(main.WorkStatus)
-class WorkStatusAdmin(admin.ModelAdmin):
-    pass
