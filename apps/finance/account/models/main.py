@@ -5,7 +5,7 @@ from utils.models import time as time_models
 from config.settings.common import AUTH_USER_MODEL
 
 
-class EmployeeAccount(time_models.TimeStamp):
+class Account(time_models.TimeStamp):
     user = models.ForeignKey(
         AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
@@ -14,12 +14,13 @@ class EmployeeAccount(time_models.TimeStamp):
         verbose_name=_("Bakiye")
     )
 
+    class Meta:
+        abstract = True
 
-class StudentAccount(time_models.TimeStamp):
-    user = models.ForeignKey(
-        AUTH_USER_MODEL,
-        verbose_name=_("Kullanıcı")
-    )
-    balance = models.FloatField(
-        verbose_name=_("Bakiye")
-    )
+
+class EmployeeAccount(Account):
+    pass
+
+
+class StudentAccount(Account):
+    pass

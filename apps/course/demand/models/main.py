@@ -19,7 +19,7 @@ class StudentQuotaDemand(time_models.TimeStamp):
     )
 
 
-class StudentCourseDemand(time_models.TimeStamp):
+class CourseDemand(time_models.TimeStamp):
     user = models.ForeignKey(
         AUTH_USER_MODEL,
         verbose_name=_("Kullanıcı")
@@ -33,17 +33,13 @@ class StudentCourseDemand(time_models.TimeStamp):
         verbose_name=_("Dönem")
     )
 
+    class Meta:
+        abstract = True
 
-class InstructorCourseDemand(time_models.TimeStamp):
-    user = models.ForeignKey(
-        AUTH_USER_MODEL,
-        verbose_name=_("Kullanıcı")
-    )
-    course = models.ForeignKey(
-        Course,
-        verbose_name=_("Ders")
-    )
-    year_semester = models.ForeignKey(
-        YearSemester,
-        verbose_name=_("Dönem")
-    )
+
+class StudentCourseDemand(CourseDemand):
+    pass
+
+
+class InstructorCourseDemand(CourseDemand):
+    pass

@@ -1,2 +1,2 @@
-from .main import UniversityAdmin, UniversityConfigAdmin, UniversityCourseAdmin
+from .main import UniversityAdmin, UniversityConfigAdmin
 from .trans import UniversityTransAdmin

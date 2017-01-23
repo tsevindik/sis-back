@@ -19,7 +19,7 @@ class AssignmentType(time_models.TimeStamp):
     )
 
 
-class SectionProcessAssignment(time_models.DateTimeInterval):
+class SectionAssignment(time_models.DateTimeInterval):
     assignment_type = models.ForeignKey(
         AssignmentType,
         verbose_name=_("Görev Türü")
@@ -39,28 +39,17 @@ class SectionProcessAssignment(time_models.DateTimeInterval):
         choices=schedule_models.IMPLEMENTATION_TYPE,
         verbose_name=_("Uygulama Türü")
     )
+
+    class Meta:
+        abstract = True
+
+
+class SectionProcessAssignment(SectionAssignment):
+    pass
 
 
 class SectionEventAssignment(time_models.TimeStamp):
-    assignment_type = models.ForeignKey(
-        AssignmentType,
-        verbose_name=_("Görev Türü")
-    )
-    course_section = models.ForeignKey(
-        CourseSection,
-        verbose_name=_("Ders Grubu")
-    )
-    percentage = models.IntegerField(
-        verbose_name=_("Yüzde")
-    )
-    out_of_grade = models.IntegerField(
-        verbose_name=_("Not Üzerinden")
-    )
-    implementation_type = models.CharField(
-        max_length=1,
-        choices=schedule_models.IMPLEMENTATION_TYPE,
-        verbose_name=_("Uygulama Türü")
-    )
+    pass
 
 
 class EventAssignmentSession(schedule_models.CampusEvent):

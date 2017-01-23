@@ -9,7 +9,7 @@ class StudentAttendanceStatusAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(main.StudentCourseAttendance)
+@admin.register(main.StudentSessionAttendance)
 class StudentCourseAttendanceAdmin(admin.ModelAdmin):
     pass
 
@@ -24,6 +24,6 @@ class InstructorAttendanceStatusAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(main.InstructorCourseAttendance)
+@admin.register(main.InstructorSessionAttendance)
 class InstructorCourseAttendanceAdmin(admin.ModelAdmin):
     pass

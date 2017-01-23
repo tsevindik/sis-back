@@ -1,2 +1,2 @@
-from .main import University, UniversityCourse, UniversityConfig
+from .main import University, UniversityConfig
 from .trans import UniversityTrans

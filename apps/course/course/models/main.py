@@ -1,6 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from apps.institute.institute.models import University
 from utils.models import time as time_models
 
 
@@ -48,4 +49,15 @@ class CourseCreditPrerequisite(time_models.TimeStamp):
     )
     prerequisite = models.IntegerField(
         verbose_name=_("Önkoşul Kredi")
+    )
+
+
+class UniversityCourse(time_models.TimeStamp):
+    university = models.ForeignKey(
+        University,
+        verbose_name=_("Üniversite")
+    )
+    course = models.ForeignKey(
+        Course,
+        verbose_name=_("Ders")
     )

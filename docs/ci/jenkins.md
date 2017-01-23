@@ -27,10 +27,11 @@ Git:
 ```
 - Execute shell:
     - Command:
-    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-    export WORKON_HOME=$HOME/.virtualenvs
-    export DJANGO_SETTINGS_MODULE="config.settings.test"
+    . /home/ubuntu/.bashrc
     . /home/ubuntu/.virtualenvs/sis/bin/activate
+    pip3 install -r ./setup/require/venv/test.txt
+    cp ./setup/env/test.env .env
+    python manage.py migrate
     python manage.py jenkins --enable-coverage
 ```
 - **Post-build Actions**

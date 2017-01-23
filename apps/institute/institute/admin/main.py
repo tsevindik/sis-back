@@ -13,8 +13,3 @@ class UniversityAdmin(admin.ModelAdmin):
 class UniversityConfigAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return False
-
-
-@admin.register(main.UniversityCourse)
-class UniversityCourseAdmin(admin.ModelAdmin):
-    pass

@@ -1,1 +1,1 @@
-from .main import StudentCourseAttendance, InstructorCourseAttendance, EventAssignmentAttendance
+from .main import StudentSessionAttendance, InstructorSessionAttendance, EventAssignmentAttendance

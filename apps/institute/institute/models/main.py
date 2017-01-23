@@ -4,7 +4,6 @@ from django.db import models
 
 from ..querysets import UniversityConfigQuerySet, UniversityQuerySet
 from utils.models import time as time_models
-from apps.course.course.models import Course
 
 
 class University(time_models.TimeStamp):
@@ -50,14 +49,3 @@ class UniversityConfig(time_models.TimeStamp):
     def save(self, *args, **kwargs):
         if not self.id:
             raise Exception(_("Sadece bir tane üniversite seçenekleri olabilir."))
-
-
-class UniversityCourse(time_models.TimeStamp):
-    university = models.ForeignKey(
-        University,
-        verbose_name=_("Üniversite")
-    )
-    course = models.ForeignKey(
-        Course,
-        verbose_name=_("Ders")
-    )

@@ -5,22 +5,23 @@ from utils.models import trans as trans_models
 from . import main
 
 
-class StudentAttendanceStatusTrans(trans_models.Translation):
+class AttendanceStatusTrans(trans_models.Translation):
+    name = models.CharField(
+        max_length=50,
+        verbose_name=_("İsim")
+    )
+
+    class Meta:
+        abstract = True
+
+
+class StudentAttendanceStatusTrans(AttendanceStatusTrans):
     neutral = models.ForeignKey(
         main.StudentAttendanceStatus
     )
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )
 
 
-class InstructorAttendanceStatusTrans(trans_models.Translation):
+class InstructorAttendanceStatusTrans(AttendanceStatusTrans):
     neutral = models.ForeignKey(
         main.InstructorAttendanceStatus
     )
-    name = models.CharField(
-        max_length=50,
-        verbose_name=_("İsim")
-    )
-

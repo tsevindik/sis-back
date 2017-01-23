@@ -77,9 +77,6 @@ class UserAddress(contact_models.Address):
         max_length=50,
         verbose_name=_("Başlık")
     )
-    description = models.TextField(
-        verbose_name=_("Açıklama")
-    )
 
     class Meta:
         abstract = True
