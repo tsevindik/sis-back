@@ -19,6 +19,10 @@ class User(AbstractUser):
         default=False,
         verbose_name=_("Eğitmen")
     )
+    is_staff = models.BooleanField(
+        default=False,
+        verbose_name=_("Personel")
+    )
     registered_multiple_degree = models.BooleanField(
         default=False,
         verbose_name=_("Çoklu Programa Kayıtlı")
@@ -35,11 +39,3 @@ class UserUniversity(time_models.TimeStamp):
         verbose_name=_("Üniversite")
     )
 
-
-class WorkStatus(time_models.TimeStamp):
-    for_staff = models.BooleanField(
-        verbose_name=_("Personel İçin")
-    )
-    for_instructor = models.BooleanField(
-        verbose_name=_("Eğitmen İçin")
-    )

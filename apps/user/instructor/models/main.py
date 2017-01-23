@@ -1,6 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
+from apps.user.worker.models import WorkStatus
 from utils.models import time as time_models
 from apps.user.utils import models as user_models
 from apps.user.student.models import StudentProgram
@@ -8,7 +9,9 @@ from config.settings.common import AUTH_USER_MODEL
 
 
 class InstructorProfile(user_models.WorkerProfile):
-    pass
+    work_status = models.ManyToManyField(
+        WorkStatus
+    )
 
 
 class InstructorPhone(user_models.UserPhone):
