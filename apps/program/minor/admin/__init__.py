@@ -1,1 +1,1 @@
-from .main import MinorProgramAdmin, MinorApplicationAdmin
+# from .main import MinorProgramAdmin, MinorApplicationAdmin

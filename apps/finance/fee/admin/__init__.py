@@ -1,1 +1,1 @@
-from .main import ProgramTuitionFeeAdmin, ProgramCreditFeeAdmin
+# from .main import ProgramTuitionFeeAdmin, ProgramCreditFeeAdmin

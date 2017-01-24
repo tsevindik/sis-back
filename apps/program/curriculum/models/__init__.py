@@ -1,1 +1,1 @@
-from .main import CurriculumCourse, CurriculumCoursePool
+# from .main import CurriculumCourse, CurriculumCoursePool

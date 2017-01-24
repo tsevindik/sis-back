@@ -1,2 +1,2 @@
-from .main import UnitProgramAdmin, ProgramUniversityAdmin
-from .trans import UnitProgramTransAdmin
+# from .main import UnitProgramAdmin, ProgramUniversityAdmin
+# from .trans import UnitProgramTransAdmin

@@ -1,2 +1,2 @@
-from .main import CoursePool, PoolUnit, PoolProgram, PoolCourse
-from .trans import CoursePoolTrans
+# from .main import CoursePool, PoolUnit, PoolProgram, PoolCourse
+# from .trans import CoursePoolTrans

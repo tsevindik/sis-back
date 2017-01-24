@@ -1,1 +1,1 @@
-from .main import SectionRegistry
+# from .main import SectionRegistry

@@ -1,2 +1,2 @@
-from .main import ExchangeProgram, ExchangeAgreement, ExchangeApplication, ExchangeStudent
-from .trans import ExchangeProgramTrans
+# from .main import ExchangeProgram, ExchangeAgreement, ExchangeApplication, ExchangeStudent
+# from .trans import ExchangeProgramTrans

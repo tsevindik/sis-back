@@ -1,1 +1,1 @@
-from .main import StudentQuotaDemandAdmin, StudentCourseDemandAdmin, InstructorCourseDemandAdmin
+# from .main import StudentQuotaDemandAdmin, StudentCourseDemandAdmin, InstructorCourseDemandAdmin

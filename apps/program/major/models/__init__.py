@@ -1,1 +1,1 @@
-from .main import MajorProgram, MajorApplication
+# from .main import MajorProgram, MajorApplication

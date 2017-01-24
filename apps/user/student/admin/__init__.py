@@ -1,1 +1,1 @@
-from .main import StudentProfileAdmin, StudentPhoneAdmin, StudentAddressAdmin, StudentProgramAdmin
+# from .main import StudentProfileAdmin, StudentPhoneAdmin, StudentAddressAdmin, StudentProgramAdmin

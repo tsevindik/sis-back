@@ -1,1 +1,1 @@
-from .main import StudentProfile, StudentPhone, StudentAddress, StudentProgram
+# from .main import StudentProfile, StudentPhone, StudentAddress, StudentProgram

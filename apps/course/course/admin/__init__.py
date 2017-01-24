@@ -1,2 +1,2 @@
-from .main import CourseAdmin, CoursePrerequisiteAdmin, CourseCreditPrerequisiteAdmin
-from .trans import CourseTransAdmin
+# from .main import CourseAdmin, CoursePrerequisiteAdmin, CourseCreditPrerequisiteAdmin
+# from .trans import CourseTransAdmin

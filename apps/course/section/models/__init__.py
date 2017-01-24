@@ -1,1 +1,1 @@
-from .main import CourseSection, SectionInstructor, SectionWeekSession, SectionSession
+# from .main import CourseSection, SectionInstructor, SectionWeekSession, SectionSession

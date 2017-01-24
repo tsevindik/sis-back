@@ -1,2 +1,2 @@
-from .main import InventoryType, Inventory, RoomInventory
-from .trans import InventoryTypeTrans, InventoryTrans
+# from .main import InventoryType, Inventory, RoomInventory
+# from .trans import InventoryTypeTrans, InventoryTrans

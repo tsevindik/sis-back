@@ -1,1 +1,1 @@
-from .main import LetterGradeAdmin, SectionLetterGradeAdmin, RegistryGradeAdmin, AssignmentGradeAdmin
+# from .main import LetterGradeAdmin, SectionLetterGradeAdmin, RegistryGradeAdmin, AssignmentGradeAdmin

@@ -74,6 +74,7 @@ PROJECT_APPS = (
     # 'apps.user.instructor',
     # 'apps.user.staff',
     # 'apps.user.student',
+    # 'apps.user.worker',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
