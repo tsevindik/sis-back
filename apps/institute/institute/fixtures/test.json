@@ -1,5 +1,27 @@
 [
   {
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$30000$7ttwrN3xTgMw$czfXBLzPXbpz5RptFeUBjlJ/tRTY99/mpfVVAIFHmXA=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "testuser",
+      "first_name": "",
+      "last_name": "",
+      "email": "test@testmail.com",
+      "is_active": true,
+      "date_joined": "2017-01-24T08:52:23.269Z",
+      "updated_at": "2017-01-24T08:52:23.292Z",
+      "is_student": false,
+      "is_instructor": false,
+      "is_staff": true,
+      "registered_multiple_degree": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
     "model": "institute.university",
     "pk": 1,
     "fields": {

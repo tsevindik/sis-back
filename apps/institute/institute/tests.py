@@ -1,13 +1,13 @@
 from django.urls import reverse
 from django.utils.translation import get_language
 
-from rest_framework.test import APITestCase
 from rest_framework import status
 
+from utils.rest.testcases import APIJWTTestCase
 from .models import UniversityTrans, UniversityConfig
 
 
-class UniversityConfigHomeTest(APITestCase):
+class UniversityConfigHomeTest(APIJWTTestCase):
     fixtures = ['test.json']
     url = reverse("api:institute:university_config_home")
     data = {"university_config":
@@ -28,7 +28,7 @@ class UniversityConfigHomeTest(APITestCase):
             self.assertEqual(response.data, self.data)
 
 
-class PrimaryUniversityTest(APITestCase):
+class PrimaryUniversityTest(APIJWTTestCase):
     fixtures = ['test.json']
     url = reverse("api:institute:primary_university")
     data = {"official_name": "University of Test"}
@@ -39,7 +39,7 @@ class PrimaryUniversityTest(APITestCase):
         self.assertEqual(response.data, self.data)
 
 
-class UniversityTransTest(APITestCase):
+class UniversityTransTest(APIJWTTestCase):
     fixtures = ['test.json']
     create_data = {"neutral": 1, "name": "University of Test", "language_code": "en"}
     read_data = {"neutral": 1, "name": "Test Üniversitesi", "language_code": "tr"}
@@ -74,7 +74,7 @@ class UniversityTransTest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
 
-class UniversityConfigTest(APITestCase):
+class UniversityConfigTest(APIJWTTestCase):
     fixtures = ['test.json']
     url = reverse("api:institute:university_config")
     data = {"default_language": "tr", "major_count": 1, "major_gpa": 3.0, "minor_count": 1, "minor_gpa": 2.5}

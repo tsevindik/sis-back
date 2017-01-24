@@ -79,10 +79,21 @@ PROJECT_APPS = (
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+}
+
 JWT_AUTH = {
     'JWT_PAYLOAD_HANDLER': 'apps.user.user.jwt.jwt_payload_handler',
     'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=3),
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -96,8 +107,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'apps.urls'
-
-CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
