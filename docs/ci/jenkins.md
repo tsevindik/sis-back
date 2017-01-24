@@ -23,6 +23,14 @@ Git:
 - Repository browser: githubweb
     - URL: https://github.com/tsevindik/sis-back
 ```
+- **Build Triggers**
+```
+- GitHub hook trigger
+```
+- **Build Environment**
+```
+- Delete workspace before build starts
+```
 - **Build**
 ```
 - Execute shell:
@@ -45,5 +53,8 @@ Git:
 - Report Violations:
     - pep8: reports/pep8.report
     - pylint: reports/pyflakes.report, reports/pylint.report, reports/flake8.report
+- Set GitHub commit status
 
 ```
+- For setting GitHub commit status go Github **settings > personal access tokens** and generate new token
+- Go to Jenkins server, **manage jenkins > configure system** and add GitHub server by using generated token

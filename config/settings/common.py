@@ -91,6 +91,7 @@ REST_FRAMEWORK = {
 JWT_AUTH = {
     'JWT_PAYLOAD_HANDLER': 'apps.user.user.jwt.jwt_payload_handler',
     'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=3),
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
