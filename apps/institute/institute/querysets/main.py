@@ -5,7 +5,9 @@ class UniversityConfigQuerySet(models.QuerySet):
     def get_single(self):
         return self.all()[:1].get()
 
+    def get_primary_university(self):
+        return self.prefetch_related('primary_university').get_single().primary_university
+
 
 class UniversityQuerySet(models.QuerySet):
-    def get_primary(self):
-        return self.get(is_primary=True)
+    pass

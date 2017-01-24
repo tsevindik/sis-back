@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy as _
+# from django.utils.translation import ugettext_lazy as _
 
 from rest_framework.generics import ListAPIView, RetrieveUpdateDestroyAPIView, CreateAPIView
 from rest_framework.mixins import UpdateModelMixin
@@ -8,17 +8,13 @@ from rest_framework.views import APIView
 from utils.rest.mixins import MultipleFieldLookupMixin
 from utils.rest.views import GenericObjectAPIView
 from .serializers import UniversityTransSerializer, UniversitySerializer, UniversityConfigSerializer
-from .models import University, UniversityConfig, UniversityTrans
+from .models import UniversityConfig, UniversityTrans
 
 
 class UniversityConfigHomeView(APIView):
     @staticmethod
-    def get_university():
-        return University.objects.prefetch_related('universitytrans_set').get_primary()
-
-    @staticmethod
     def get_university_config():
-        return UniversityConfig.objects.get_single()
+        return UniversityConfig.objects.prefetch_related('primary_university').get_single()
 
     @staticmethod
     def get_university_trans(university, exception_lang):
@@ -29,13 +25,13 @@ class UniversityConfigHomeView(APIView):
             return university.universitytrans_set.get_by_language(exception_lang)
 
     def get(self, request, format=None):
-        university = self.get_university()
         university_config = self.get_university_config()
+        university = university_config.primary_university
         university_trans = self.get_university_trans(university, university_config.default_language)
 
+        university_config_serializer = UniversityConfigSerializer(instance=university_config)
         university_serializer = UniversitySerializer(instance=university)
         university_trans_serializer = UniversityTransSerializer(instance=university_trans)
-        university_config_serializer = UniversityConfigSerializer(instance=university_config)
 
         return Response({
             "university": {
@@ -50,7 +46,7 @@ class PrimaryUniversityView(UpdateModelMixin, GenericObjectAPIView):
     serializer_class = UniversitySerializer
 
     def get_queryset(self):
-        return University.objects.get_primary()
+        return UniversityConfig.objects.get_primary_university()
 
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)

@@ -8,22 +8,10 @@ from utils.models import time as time_models
 
 class University(time_models.TimeStamp):
     objects = UniversityQuerySet.as_manager()
-    is_primary = models.BooleanField(
-        help_text=_("Sistemin yöneticisi Üniversite"),
-        verbose_name=_("Birincil Üniversite")
-    )
     official_name = models.CharField(
         max_length=100,
         verbose_name=_("Resmi İsim")
     )
-
-    def save(self, *args, **kwargs):
-        if self.is_primary and not self.id:
-            raise Exception(_("Sadece bir tane birincil üniversite olabilir."))
-        super(University, self).save(*args, **kwargs)
-
-    class Meta:
-        index_together = ["id", "is_primary"]
 
 
 class UniversityConfig(time_models.TimeStamp):
@@ -32,6 +20,10 @@ class UniversityConfig(time_models.TimeStamp):
         choices=settings.LANGUAGES,
         max_length=7,
         verbose_name=_("Dil")
+    )
+    primary_university = models.OneToOneField(
+        University,
+        verbose_name=_("Birincil Üniversite")
     )
     major_count = models.IntegerField(
         verbose_name=_("Anadal Sayısı")
