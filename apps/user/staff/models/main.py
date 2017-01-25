@@ -2,13 +2,11 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from ...user.models import UserAddress, UserPhone
-from ...worker.models import WorkStatus, WorkerProfile
+from ...employee.models import EmployeeProfile
 
 
-class StaffProfile(WorkerProfile):
-    work_status = models.ManyToManyField(
-        WorkStatus
-    )
+class StaffProfile(EmployeeProfile):
+    pass
 
 
 class StaffPhone(UserPhone):

@@ -20,7 +20,7 @@ class WorkStatus(time_models.TimeStamp):
     )
 
 
-class WorkerProfile(UserProfile):
+class EmployeeProfile(UserProfile):
     work_status = models.ForeignKey(
         WorkStatus,
         verbose_name=_("Çalışma Durumu")
