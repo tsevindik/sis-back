@@ -1,0 +1,10 @@
+#Python
+python3-dev
+python3-venv
+python3-pip
+python-psycopg2
+libpq-dev
+
+#Postgres
+postgresql-9.5-postgis-2.2
+postgresql-contrib-9.5

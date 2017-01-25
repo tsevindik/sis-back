@@ -1,4 +1,10 @@
 import os
+import datetime
+
+import environ
+
+env = environ.Env()
+env.read_env('.env')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -8,13 +14,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!(+akxq6q0c38can89@(#ga$b9jx5cs*y(k+hv0_zd1wyy#qt='
+SECRET_KEY = env('DJANGO_SECRET_KEY', default='!(+akxq6q0c38can89@(#ga$b9jx5cs*y(k+hv0_zd1wyy#qt=')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+DEBUG = env.bool('DJANGO_DEBUG', default=False)
 
 # Default Django apps:
 DJANGO_APPS = (
@@ -24,39 +27,79 @@ DJANGO_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
 )
 
 
-THIRD_PARTY_APPS = ()
+THIRD_PARTY_APPS = (
+    'rest_framework',
+    'rest_framework_jwt',
+    'corsheaders',
+    'cities',
+)
 
 PROJECT_APPS = (
-    'sis.course',
-    'sis.course.assignment',
-    'sis.course.session',
+    'utils',
 
-    'sis.institution',
-    'sis.institution.facility',
-    'sis.institution.schedule',
-    'sis.institution.unit',
+    # 'apps.course.course',
+    # 'apps.course.assignment',
+    # 'apps.course.attendance',
+    # 'apps.course.demand',
+    # 'apps.course.grade',
+    # 'apps.course.pool',
+    # 'apps.course.section',
 
-    'sis.main',
-    'sis.main.announcement',
-    'sis.main.communication',
-    'sis.main.official',
+    # 'apps.finance.account',
+    # 'apps.finance.fee',
+    # 'apps.finance.transaction',
 
-    'sis.user',
-    'sis.user.instructor',
-    'sis.user.staff',
-    'sis.user.student',
+    'apps.institute.institute',
+    # 'apps.institute.exchange',
+    # 'apps.institute.schedule',
+    # 'apps.institute.unit',
 
-    'sis.system'
+    # 'apps.other.announce',
+    # 'apps.other.formal',
+    # 'apps.other.registry',
+
+    # 'apps.program.program',
+    # 'apps.program.curriculum',
+    # 'apps.program.major',
+    # 'apps.program.minor',
+
+    # 'apps.property.facility',
+    # 'apps.property.inventory',
+
+    'apps.user.user',
+    # 'apps.user.instructor',
+    # 'apps.user.staff',
+    # 'apps.user.student',
+    # 'apps.user.worker',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+}
+
+JWT_AUTH = {
+    'JWT_PAYLOAD_HANDLER': 'apps.user.user.jwt.jwt_payload_handler',
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=3),
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+}
+
+CORS_ORIGIN_ALLOW_ALL = True
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -64,7 +107,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'sis.urls'
+ROOT_URLCONF = 'apps.urls'
 
 TEMPLATES = [
     {
@@ -90,12 +133,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "sisdb",
-        'USER': "sis",
-        'PASSWORD': "123456",
-        'HOST': "localhost",
-        'PORT': "5432",
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': env("DATABASE_NAME", default="sisdb"),
+        'USER': env("DATABASE_USER", default="sis"),
+        'PASSWORD': env("DATABASE_PASSWORD", default="123456"),
+        'HOST': env("DATABASE_HOST", default="localhost"),
+        'PORT': env("DATABASE_PORT", default="5432"),
     }
 }
 
@@ -117,11 +160,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'user.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+CITIES_LOCALES = ['en', 'tr', 'LANGUAGES']
 
 TIME_ZONE = 'UTC'
 

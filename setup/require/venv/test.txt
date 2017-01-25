@@ -1,0 +1,11 @@
+-r base.txt
+
+#Jenkins
+django-jenkins==0.110.0
+
+#Test tasks
+pep8==1.7.0
+pylint==1.6.4
+pyflakes==1.5.0
+flake8==3.2.1
+coverage==4.3.4
