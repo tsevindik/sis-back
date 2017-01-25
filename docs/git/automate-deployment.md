@@ -6,7 +6,7 @@
 cd /home/ubuntu/projects/sis-back/
 git init --bare .git
 ```
-- Copy post receive hook
+- Copy post-receive hook
 ```
 cp ./setup/hooks/post-receive ./.git/hooks/post-receive
 ```
@@ -18,7 +18,7 @@ chmod +x ./.git/hooks/post-receive
 **In Local**
 - Add remote
 ```
-git remote add ssh://ubuntu@ip-172-31-23-18/home/ubuntu/projects/sis-back/.git
+git remote add server ssh://ubuntu@ip-172-31-23-18/home/ubuntu/projects/sis-back/.git
 ```
 - Add ssh private key
 ```
