@@ -1,0 +1,9 @@
+#!/bin/bash
+export GIT_WORK_TREE=/home/ubuntu/projects/sis-back/
+git checkout -f
+cd $GIT_WORK_TREE
+. /home/ubuntu/.virtualenvs/sis/bin/activate
+pip3 install -r ./setup/require/venv/production.txt
+python manage.py migrate
+sudo systemctl restart gunicorn
+sudo systemctl restart nginx
