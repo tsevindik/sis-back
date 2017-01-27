@@ -72,7 +72,9 @@ PROJECT_APPS = (
     # 'apps.property.inventory',
 
     'apps.user.user',
+    # 'apps.user.employee',
     # 'apps.user.instructor',
+    'apps.user.permission',
     # 'apps.user.staff',
     # 'apps.user.student',
     # 'apps.user.worker',
