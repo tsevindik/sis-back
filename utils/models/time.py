@@ -1,6 +1,5 @@
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
-from .model import SisModel
 
 
 DAYS_OF_WEEK = (
@@ -14,7 +13,7 @@ DAYS_OF_WEEK = (
 )
 
 
-class TimeStamp(SisModel):
+class TimeStamp(models.Model):
     created_at = models.DateTimeField(
         auto_now_add=True,
         verbose_name=_("Oluşturulma Zamanı")
