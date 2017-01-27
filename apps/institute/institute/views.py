@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from utils.rest.mixins import MultipleFieldLookupMixin
-from utils.rest.views import GenericObjectAPIView
+from utils.rest.views import ObjectAPIView
 from .serializers import UniversityTransSerializer, UniversitySerializer, UniversityConfigSerializer
 from .models import UniversityConfig, UniversityTrans
 
@@ -42,7 +42,7 @@ class UniversityConfigHomeView(APIView):
         })
 
 
-class PrimaryUniversityView(UpdateModelMixin, GenericObjectAPIView):
+class PrimaryUniversityView(UpdateModelMixin, ObjectAPIView):
     serializer_class = UniversitySerializer
 
     def get_queryset(self):
@@ -70,7 +70,7 @@ class UniversityTransByNeutralIdLanguageView(MultipleFieldLookupMixin, RetrieveU
     lookup_fields = ("language_code", "neutral")
 
 
-class UniversityConfigView(UpdateModelMixin, GenericObjectAPIView):
+class UniversityConfigView(UpdateModelMixin, ObjectAPIView):
     serializer_class = UniversityConfigSerializer
 
     def get_queryset(self):

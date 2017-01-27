@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from rest_framework.generics import GenericAPIView
 
 
-class GenericQueryAPIView(GenericAPIView):
+class QueryAPIView(GenericAPIView):
     def get_object(self):
         try:
             queryset = self.filter_queryset(self.get_queryset())
@@ -15,7 +15,7 @@ class GenericQueryAPIView(GenericAPIView):
             raise Http404(_("Nesne bulunamadı."))
 
 
-class GenericObjectAPIView(GenericAPIView):
+class ObjectAPIView(GenericAPIView):
     def get_object(self):
         try:
             obj = self.filter_queryset(self.get_queryset())
