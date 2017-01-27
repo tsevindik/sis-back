@@ -36,6 +36,7 @@ THIRD_PARTY_APPS = (
     'rest_framework_jwt',
     'corsheaders',
     'cities',
+    'guardian',
 )
 
 PROJECT_APPS = (
@@ -141,6 +142,11 @@ DATABASES = {
         'PORT': env("DATABASE_PORT", default="5432"),
     }
 }
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'guardian.backends.ObjectPermissionBackend',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
